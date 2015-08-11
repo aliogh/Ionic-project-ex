@@ -6,6 +6,10 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var watch = require('gulp-watch');
+var filter = require('gulp-filter');
+var vinylPaths = require('vinyl-paths');
+var del = require('del');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -49,4 +53,34 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+gulp.task('copy-src', function() {
+    return gulp.src('src/**/*')
+      .pipe(gulp.dest('www'));
+});
+
+gulp.task('watch-src', ['copy-src'], function() {
+    // Se crea un filtro para incluir todos los ficheros que son añadidos o modificados
+    // Es decir, todos menos aquellos que son borrados ('unlink')
+    var notDeletedFilter = filter(
+      function(file) {
+          return file.event !== 'unlink' && file.event !== 'unlinkDir';
+      },
+      {restore: true}
+    );
+
+    // El método restore obtiene los ficheros que no cumplen el filtro, es decir, los que
+    // han sido borrados ('unlink') del origen, se pasan al pipe destino y se borran
+    notDeletedFilter.restore
+        .pipe(gulp.dest('www'))
+        .pipe(vinylPaths(function(file, cb) {
+            del(file, cb);
+        }));
+
+    // Se observan todos los ficheros de src/client y se copian aquellos que
+    // son modificados o añadidos
+    watch('src/**/*', {events: ['add', 'change', 'unlink', 'unlinkDir']})
+      .pipe(notDeletedFilter)
+      .pipe(gulp.dest('www'));
 });
