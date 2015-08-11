@@ -54,7 +54,7 @@
     });
 
     gulp.task('copy-src', function() {
-        return gulp.src('src/**/*')
+        return gulp.src('src/client/**/*')
           .pipe(gulp.dest('www'));
     });
 
@@ -78,13 +78,13 @@
 
         // Se observan todos los ficheros de src/client y se copian aquellos que
         // son modificados o añadidos
-        $.watch('src/**/*', {events: ['add', 'change', 'unlink', 'unlinkDir']})
+        $.watch('src/client/**/*', {events: ['add', 'change', 'unlink', 'unlinkDir']})
             .pipe(notDeletedFilter)
             .pipe(gulp.dest('www'));
     });
 
     gulp.task('jscs-fix', function () {
-        $.run('jscs src/js gulpfile.js  --fix').exec()
+        $.run('jscs src/client/js gulpfile.js  --fix').exec()
           .on('error', function() {
         });
     });
