@@ -1,16 +1,16 @@
 # Introducción
 Proyecto semilla (seed) para **App moviles híbridas UI-Web** que parte de la base creada en la inicializacion de un proyecto con [Ionic](http://ionicframework.com/), en concreto se ha utilizado el comando _ionic start app-ionic sidemenu_, incluyendose tareas de construccion basadas en el template de John Papa, [Hot Towel](https://github.com/johnpapa/generator-hottowel):
-- Generación de estilos con Sass
-- Generación de cache de templates de AngularJS
+- Generación de estilos con [Sass](http://sass-lang.com/)
+- Generación de cache de templates de [AngularJS](https://angularjs.org/)
 - Optimización de imagenes
 - Inyección de dependencias CSS y JavaScript en index.html
-- Plugin ngAnnotate
-- Minificaciond de estilos CSS
+- Plugin [ngAnnotate](https://github.com/olov/ng-annotate)
+- Minificacion de estilos CSS
 - Concatenación y minificacion de código JavaScript
-- Ejecución de pruebas con Karma
+- Ejecución de pruebas con [Karma](http://karma-runner.github.io/0.13/index.html)
 - Generación de reportes de pruebas unitarias y cobertura
-- Generación de reportes de calidad de código con Plato
-- Revision de código con jscs y jshint
+- Generación de reportes de calidad de código con [plato](https://github.com/es-analysis/plato)
+- Revision de código con [jscs](http://jscs.info/) y [jshint](http://jshint.com/)
 
 # Guías de diseño
 El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](https://github.com/johnpapa/angular-styleguide)
@@ -24,6 +24,10 @@ El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](ht
 ### Ionic
 - [Ionic Framework - Documentation](http://ionicframework.com/docs/)
 - [Ionic IO - Documentation](http://docs.ionic.io/)
+
+### Cordova
+- [Apache Cordova](https://cordova.apache.org/)
+- [ngCordova - Plugins](http://ngcordova.com/docs/plugins/)
 
 ### Pruebas unitarias:
 - [Full-Spectrum Testing with AngularJS and Karma](http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html)
