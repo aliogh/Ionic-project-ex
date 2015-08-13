@@ -86,7 +86,13 @@ ionic state restore
 ionic emulate
 ```
 
-# Listado de tareas principales incluidas en Gulp
+## Uso habitual
+Para desarrollar se recomienda ejecutar _gulp watch_ en una ventana de comandos de forma que se realice un build continuo en la carpeta www, de forma que se pueda ejecutar en otra ventana de comandos _ionic emulate --livereload_ para ejecutar, en un emulador de iOS (recomendado por rendimiento) o Android, la aplicación y actualizar en caliente cualquier cambio que se realice en /src/client/app
+
+También se puede ejecutar _ionic serve --livereload_ para ejecutar en un navegador en vez de un emulador o disposito, aunque por compatibilidad con los plugins de Apache Cordova (que no se pueden ejecutar en un navegador de escritorio) no es la opción recomendada.
+
+# Listado de tareas
+Listado de tareas principales de Gulp
 
 Tarea    | Descripción
 -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
