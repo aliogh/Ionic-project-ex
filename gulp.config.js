@@ -3,7 +3,7 @@ module.exports = function() {
     var client = './src/client/';
     var server = './src/server/';
     var clientApp = client + 'app/';
-    var report = './report/';
+    var report = './reports/';
     var root = './';
     var specRunnerFile = 'specs.html';
     var temp = './.tmp/';
@@ -11,7 +11,7 @@ module.exports = function() {
     var bowerFiles = wiredep({devDependencies: true})['js'];
     var bower = {
         json: require('./bower.json'),
-        directory: './bower_components/',
+        directory: './src/client/lib/',
         ignorePath: '../..'
     };
     var nodeModules = 'node_modules';
@@ -22,16 +22,18 @@ module.exports = function() {
          */
         // all javascript that we want to vet
         alljs: [
-            './src/**/*.js',
+            './src/client/app/**/*.js',
             './*.js'
         ],
-        build: './build/',
+        build: './www/',
         client: client,
-        css: temp + 'styles.css',
-        fonts: bower.directory + 'font-awesome/fonts/**/*.*',
+        app: clientApp,
+        css: client + 'css/',
+        fonts: client + 'css/fonts/',
+        fontsFromBower: bower.directory + 'ionic/fonts/**/*.*',
         html: client + '**/*.html',
         htmltemplates: clientApp + '**/*.html',
-        images: client + 'images/**/*.*',
+        img: client + 'img/',
         index: client + 'index.html',
         // app js, with no specs
         js: [
@@ -44,7 +46,8 @@ module.exports = function() {
             '**/*.module.js',
             '**/*.js'
         ],
-        less: client + 'styles/styles.less',
+        sass: client + 'scss/styles.scss',
+        cache: client + 'cache/',
         report: report,
         root: root,
         server: server,
@@ -79,7 +82,7 @@ module.exports = function() {
         templateCache: {
             file: 'templates.js',
             options: {
-                module: 'app.core',
+                module: 'starter',
                 root: 'app/',
                 standalone: false
             }
@@ -154,7 +157,7 @@ module.exports = function() {
                 config.specHelpers,
                 clientApp + '**/*.module.js',
                 clientApp + '**/*.js',
-                temp + config.templateCache.file,
+                config.templateCache.dir + '/' + config.templateCache.file,
                 config.serverIntegrationSpecs
             ),
             exclude: [],
