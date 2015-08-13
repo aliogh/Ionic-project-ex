@@ -85,3 +85,18 @@ Si se quiere ejecutar en un emulador o dispositivo es preciso inicializar previa
 ionic state restore
 ionic emulate
 ```
+
+# Listado de tareas principales incluidas en Gulp
+
+Tarea    | Descripción
+-------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+help     | Muestra el listado de tareas principales y secundarias
+vet      | Analiza el código JavaScript de la aplicación con jscss  y jshint
+plato    | Genera el informe de calidad de código JavScript de la aplicación en el directorio /reports
+test     | Ejecuta las pruebas unitarias de la aplicación. Los informes junit y de cobertura de guardan en el directorio /reports
+autotest | Ejecuta de forma continua las pruebas unitarias de  la aplicación para realizar TDD
+jscs     | Ejecuta jscs en modo fix para resolver los errores de formato del código de la aplicación de forma automática
+build    | Compila Sass, genera templates de AngularJS, inyecta dependencias de bower, ficheros JavaScript y css en index.html, ejecuta los test y copia en el directorio www el código de la aplicación
+watch    | Construye el proyecto y queda a la espera de cambios para realizar re-build
+package  | Optimiza la aplicacion (minimiza css, inyecta dependencias explicitas de AngularJS, concatena JavaScript de la aplicación, minimiza JavaScript de aplicación y terceros, optimiza imagenes, incluye hash en el nombre de ficheros JavaScript), ejecuta los test y los ficheros optimizados se copian en el directorio www
+clean    | Borra los directorios reports y www
