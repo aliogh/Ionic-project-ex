@@ -36,17 +36,17 @@ El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](ht
 - [AngularJS - Developer Guide / E2E Testing](https://docs.angularjs.org/guide/e2e-testing)
 
 # Prerequisitos
-- Instalar [Node.js](http://nodejs.org)
-  - En OSX usar [homebrew](http://brew.sh) `brew install node`
-  - En Windows usar [chocolatey](https://chocolatey.org/) `choco install nodejs`
+1.- Instalar [Node.js](http://nodejs.org)
+- En OSX usar [homebrew](http://brew.sh) `brew install node`
+- En Windows usar [chocolatey](https://chocolatey.org/) `choco install nodejs`
 
-  Si se necesita tener diferentes versiones de Node.js se puede utilizar [Node Version Manager](https://github.com/creationix/nvm)
+Si se necesita tener diferentes versiones de Node.js se puede utilizar [Node Version Manager](https://github.com/creationix/nvm)
 
-- Entornos de desarrollo para iOS y Android:
-  - iOS: instalar [Xcode](https://developer.apple.com/xcode/) (se necesita OSX)
-  - Android:
-    - [SDK de Android](https://developer.android.com/sdk/installing/index.html)
-    - [JDK 7](http://www.oracle.com/technetwork/es/java/javase/downloads/jdk7-downloads-1880260.html)
+2.- Entornos de desarrollo para iOS y Android:
+- iOS: instalar [Xcode](https://developer.apple.com/xcode/) (se necesita OSX)
+- Android:
+  - [SDK de Android](https://developer.android.com/sdk/installing/index.html)
+  - [JDK 7](http://www.oracle.com/technetwork/es/java/javase/downloads/jdk7-downloads-1880260.html)
 
 # Inicialización
 Para inicializar el proyecto:
