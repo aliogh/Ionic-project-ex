@@ -91,6 +91,8 @@ Para desarrollar se recomienda ejecutar _gulp watch_ en una ventana de comandos 
 
 También se puede ejecutar _ionic serve --livereload_ para ejecutar en un navegador en vez de un emulador o disposito, aunque por compatibilidad con los plugins de Apache Cordova (que no se pueden ejecutar en un navegador de escritorio) no es la opción recomendada.
 
+Para probar una versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejectar _gulp package_ y a continuación ejecutar con los comandos de ionic anteriores.
+
 # Listado de tareas
 Listado de tareas principales de Gulp
 
