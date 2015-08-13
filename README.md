@@ -1,5 +1,5 @@
 # Introducción
-Proyecto semilla (seed) para **App moviles híbridas UI-Web** que parte de la base creada en la inicializacion de un proyecto con ionic/cordova, en concreto se ha utilizado el comando _ionic start app-ionic sidemenu_, incluyendose tareas de construccion basadas en el template de John Papa, _Hot Towel_:
+Proyecto semilla (seed) para **App moviles híbridas UI-Web** que parte de la base creada en la inicializacion de un proyecto con [Ionic](http://ionicframework.com/), en concreto se ha utilizado el comando _ionic start app-ionic sidemenu_, incluyendose tareas de construccion basadas en el template de John Papa, [Hot Towel](https://github.com/johnpapa/generator-hottowel):
 - Generación de estilos con Sass
 - Generación de cache de templates de AngularJS
 - Optimización de imagenes
@@ -20,6 +20,10 @@ El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](ht
 - [John Papa - AngularJS Patterns: Clean Code](http://www.pluralsight.com/courses/angularjs-patterns-clean-code)
 - [AngularJS - Developer Guide](https://docs.angularjs.org/guide)
 - [Egghead.io - AngularJS Lessons](https://egghead.io/technologies/angularjs)
+
+### Ionic
+- [Ionic Framework - Documentation](http://ionicframework.com/docs/)
+- [Ionic IO - Documentation](http://docs.ionic.io/)
 
 ### Pruebas unitarias:
 - [Full-Spectrum Testing with AngularJS and Karma](http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html)
@@ -97,7 +101,7 @@ Para probar una versión optimizada de la aplicación (código JavaScript y CSS 
 Listado de tareas principales de Gulp
 
 Tarea    | Descripción
--------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 help     | Muestra el listado de tareas principales y secundarias
 vet      | Analiza el código JavaScript de la aplicación con jscss  y jshint
 plato    | Genera el informe de calidad de código JavScript de la aplicación en el directorio /reports
@@ -106,5 +110,12 @@ autotest | Ejecuta de forma continua las pruebas unitarias de  la aplicación pa
 jscs     | Ejecuta jscs en modo fix para resolver los errores de formato del código de la aplicación de forma automática
 build    | Analiza el código, ejecuta los test, compila Sass, genera templates de AngularJS, inyecta dependencias de bower, ficheros JavaScript y css en index.html, y copia el código de la aplicación en el directorio www
 watch    | Construye el proyecto y queda a la espera de cambios para realizar re-build
-package  | Analiza el código, ejecuta los test, optimiza la aplicacion (minimiza css, inyecta dependencias explicitas de AngularJS, concatena JavaScript de la aplicación, minimiza JavaScript de aplicación y terceros, optimiza imagenes, incluye hash en el nombre de ficheros JavaScript), y copia una versión optimizada de la aplicación en el directorio www
+package  | Analiza el código, ejecuta los test, optimiza la aplicacion (minimiza css, inyecta dependencias explicitas de AngularJS, concatena JavaScript de la aplicación, minimiza JavaScript de aplicación y terceros, optimiza imagenes, incluye hash en el nombre de ficheros JavaScript), y copia la versión optimizada de la aplicación en el directorio www
 clean    | Borra los directorios reports y www
+
+## TODO
+- Adaptar el código de la aplicación (src/client/app) para usar la guía de diseño de John Papa
+- Adaptar las librerías de pruebas unitarias para utilizar Jasmine en vez de Mocha/Chai/Sinon
+- Incluir pruebas unitarias con Jasmine para ilustrar las pruebas de cada componente
+- Incluir proyecto de servidor (src/server) para publicar mocks de servicios REST
+- Integración con Jenkins/Sonar para automatización de construcción, informes de calidad y pruebas unitarias y publicación en dispositivos reales
