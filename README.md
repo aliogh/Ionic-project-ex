@@ -35,6 +35,19 @@ El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](ht
 - [AngularJS - Developer Guide / Unit Testing](https://docs.angularjs.org/guide/unit-testing)
 - [AngularJS - Developer Guide / E2E Testing](https://docs.angularjs.org/guide/e2e-testing)
 
+# Prerequisitos
+- Instalar [Node.js](http://nodejs.org)
+  - En OSX usar [homebrew](http://brew.sh) `brew install node`
+  - En Windows usar [chocolatey](https://chocolatey.org/) `choco install nodejs`
+
+  Si se necesita tener diferentes versiones de Node.js se puede utilizar [Node Version Manager](https://github.com/creationix/nvm)
+
+- Entornos de desarrollo para iOS y Android:
+  - iOS: instalar [Xcode](https://developer.apple.com/xcode/) (se necesita OSX)
+  - Android:
+    - [SDK de Android](https://developer.android.com/sdk/installing/index.html)
+    - [JDK 7](http://www.oracle.com/technetwork/es/java/javase/downloads/jdk7-downloads-1880260.html)
+
 # Inicialización
 Para inicializar el proyecto:
 
@@ -61,11 +74,11 @@ ionic emulate
 ```
 
 ## Uso habitual
-Para desarrollar se recomienda ejecutar _gulp watch_ en una ventana de comandos de forma que se realice un build continuo en la carpeta www. De forma paralela, para ejecutar la aplicación en un emulador de iOS (recomendado por rendimiento) o Android, en otra ventana de comandos se puede ejecutar _ionic emulate --livereload_. De esta forma cualquer cambio realizado en el código fuente de la aplicación se ve directamenten en el emulador.
+Para desarrollar se recomienda ejecutar `gulp watch` en una ventana de comandos de forma que se realice un build continuo en la carpeta www. De forma paralela, para ejecutar la aplicación en un emulador de iOS (recomendado por rendimiento) o Android, en otra ventana de comandos se puede ejecutar `ionic emulate --livereload`. De esta forma cualquer cambio realizado en el código fuente de la aplicación se ve directamenten en el emulador.
 
-De forma alternativa, se puede ejecutar _ionic serve --livereload_ para visualizar la aplicación en un navegador en vez de un emulador o disposito, aunque por compatibilidad con los plugins de Apache Cordova (que no se pueden ejecutar en un navegador de escritorio) no suele ser la opción más adecuada.
+De forma alternativa, se puede ejecutar `ionic serve --livereload` para visualizar la aplicación en un navegador en vez de un emulador o disposito, aunque por compatibilidad con los plugins de Apache Cordova (que no se pueden ejecutar en un navegador de escritorio) no suele ser la opción más adecuada.
 
-Para probar una versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar _gulp package_ y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos de ionic.
+Para probar una versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar `gulp package` y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos de ionic.
 
 # Listado de tareas
 Listado de tareas principales de Gulp
