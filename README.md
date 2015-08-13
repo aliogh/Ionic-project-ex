@@ -114,9 +114,9 @@ karma.conf.js      | Configuración de Karma para la ejecución de las pruebas u
 package.json       | Configuración de npm. Incluye dependencias utilizadas por Gulp para construcción del proyecto y la configuración de ionic de plataformas (iOS y Android) y plugins de Apache Cordova
 
 ## Entorno de desarrollo
-Se puede emplear, por ejemplo, alguna de las siguentes herramientas para la edición del código del proyecto: [Atom](https://atom.io/), [Sublime](http://www.sublimetext.com/3), [WebStorm](https://www.jetbrains.com/webstorm/)
+Se puede emplear, por ejemplo, alguna de las siguientes herramientas para la edición del código del proyecto: [Atom](https://atom.io/), [Sublime](http://www.sublimetext.com/3), [WebStorm](https://www.jetbrains.com/webstorm/)
 
-Atom es un editor altamente hackable libre, por lo que es una opción altamente recomendada. Se incluyen a continuación algunos plugins de utilidad:
+Atom es un editor altamente hackable y libre (gratis), y es una opción altamente recomendable. Se incluyen a continuación algunos plugins de utilidad para Atom:
 - [angularjs](https://atom.io/packages/angularjs)
 - [angularjs-snippets](https://atom.io/packages/angularjs-snippets)
 - [docblockr](https://atom.io/packages/docblockr)
