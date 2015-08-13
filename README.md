@@ -113,6 +113,28 @@ ionic.project      | Identificador de la aplicación en ionic.io
 karma.conf.js      | Configuración de Karma para la ejecución de las pruebas unitarias
 package.json       | Configuración de npm. Incluye dependencias utilizadas por Gulp para construcción del proyecto y la configuración de ionic de plataformas (iOS y Android) y plugins de Apache Cordova
 
+## Entorno de desarrollo
+Se puede emplear, por ejemplo, alguna de las siguentes herramientas para la edición del código del proyecto: [Atom](https://atom.io/), [Sublime](http://www.sublimetext.com/3), [WebStorm](https://www.jetbrains.com/webstorm/)
+
+Atom es un editor altamente hackable libre, por lo que es una opción altamente recomendada. Se incluyen a continuación algunos plugins de utilidad:
+- [angularjs](https://atom.io/packages/angularjs)
+- [angularjs-snippets](https://atom.io/packages/angularjs-snippets)
+- [docblockr](https://atom.io/packages/docblockr)
+- [emmet](https://atom.io/packages/emmet)
+- [jscs-fixer](https://atom.io/packages/jscs-fixer)
+- [jshint](https://atom.io/packages/jshint)
+- [linter](https://atom.io/packages/linter)
+- [linter-jscs](https://atom.io/packages/linter-jscs)
+- [local-history](https://atom.io/packages/local-history)
+- [markdown-preview-plus-opener](https://atom.io/packages/markdown-preview-plus-opener)
+- [markdown-toc](https://atom.io/packages/markdown-toc)
+- [markdown-toc](https://atom.io/packages/markdown-toc)
+- [markdown-writer](https://atom.io/packages/markdown-writer)
+- [minimap](https://atom.io/packages/minimap)
+- [term2](https://atom.io/packages/term2)
+- [tidy-markdown](https://atom.io/packages/tidy-markdown)
+- [save-session](https://atom.io/packages/save-session)
+
 ## TODO
 - Adaptar el código de la aplicación (src/client/app) para usar la guía de diseño de John Papa
 - Adaptar las librerías de pruebas unitarias para utilizar Jasmine en vez de Mocha/Chai/Sinon
