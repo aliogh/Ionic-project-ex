@@ -286,7 +286,7 @@
      * @return {Stream}
      */
     gulp.task('jscs', function() {
-        $.run('jscs src/client/js gulpfile.js  --fix').exec()
+        $.run('jscs src/client/app/js gulpfile.js  --fix').exec()
           .on('error', function() {
         });
     });
