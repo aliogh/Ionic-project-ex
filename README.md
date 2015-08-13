@@ -61,11 +61,11 @@ ionic emulate
 ```
 
 ## Uso habitual
-Para desarrollar se recomienda ejecutar _gulp watch_ en una ventana de comandos de forma que se realice un build continuo en la carpeta www, de forma que se pueda ejecutar en otra ventana de comandos _ionic emulate --livereload_ para ejecutar, en un emulador de iOS (recomendado por rendimiento) o Android, la aplicación y actualizar en caliente cualquier cambio que se realice en /src/client/app
+Para desarrollar se recomienda ejecutar _gulp watch_ en una ventana de comandos de forma que se realice un build continuo en la carpeta www. De forma paralela, para ejecutar la aplicación en un emulador de iOS (recomendado por rendimiento) o Android, en otra ventana de comandos se puede ejecutar _ionic emulate --livereload_. De esta forma cualquer cambio realizado en el código fuente de la aplicación se ve directamenten en el emulador.
 
-También se puede ejecutar _ionic serve --livereload_ para ejecutar en un navegador en vez de un emulador o disposito, aunque por compatibilidad con los plugins de Apache Cordova (que no se pueden ejecutar en un navegador de escritorio) no es la opción recomendada.
+De forma alternativa, se puede ejecutar _ionic serve --livereload_ para visualizar la aplicación en un navegador en vez de un emulador o disposito, aunque por compatibilidad con los plugins de Apache Cordova (que no se pueden ejecutar en un navegador de escritorio) no suele ser la opción más adecuada.
 
-Para probar una versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejectar _gulp package_ y a continuación ejecutar con los comandos de ionic anteriores.
+Para probar una versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar _gulp package_ y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos de ionic.
 
 # Listado de tareas
 Listado de tareas principales de Gulp
@@ -120,7 +120,7 @@ package.json       | Configuración de npm. Incluye dependencias utilizadas por 
 ## Entorno de desarrollo
 Se puede emplear, por ejemplo, alguna de las siguientes herramientas para la edición del código del proyecto: [Atom](https://atom.io/), [Sublime](http://www.sublimetext.com/3), [WebStorm](https://www.jetbrains.com/webstorm/)
 
-Atom es un editor altamente hackable y libre (gratis), y es una opción altamente recomendable. Se incluyen a continuación algunos plugins de utilidad para Atom:
+Atom es un editor altamente hackable y libre (gratis), lo que lo convierte en una opción muy recomendable. Se incluyen a continuación algunos plugins de utilidad para Atom:
 - [angularjs](https://atom.io/packages/angularjs)
 - [angularjs-snippets](https://atom.io/packages/angularjs-snippets)
 - [docblockr](https://atom.io/packages/docblockr)
