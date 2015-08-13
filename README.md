@@ -12,6 +12,22 @@ Proyecto semilla (seed) para **App moviles híbridas UI-Web** que parte de la ba
 - Generación de reportes de calidad de código con Plato
 - Revision de código con jscs y jshint
 
+# Guías de diseño
+**El proyecto sigue los patrones de diseño de John Papa:**
+- [Angular Style Guide](https://github.com/johnpapa/angular-styleguide)
+
+## Otras referencias:
+AngularJS:
+- [John Papa - AngularJS Patterns: Clean Code](http://www.pluralsight.com/courses/angularjs-patterns-clean-code)
+- [AngularJS - Developer Guide](https://docs.angularjs.org/guide)
+- [Egghead.io - AngularJS Lessons](https://egghead.io/technologies/angularjs)
+
+Pruebas unitarias:
+- [Full-Spectrum Testing with AngularJS and Karma](http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html)
+- [Advanced Testing and Debugging in AngularJS](http://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html)
+- [AngularJS - Developer Guide / Unit Testing](https://docs.angularjs.org/guide/unit-testing)
+- [AngularJS - Developer Guide / E2E Testing](https://docs.angularjs.org/guide/e2e-testing)
+
 # Estructura de proyecto
 Resumen de directorios que contiene el proyecto:
 
