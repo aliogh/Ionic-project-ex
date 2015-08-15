@@ -250,7 +250,12 @@
      * Realiza un build y pasa a observar cambios para re-build
      * @return {Stream}
      */
-    gulp.task('watch', ['build'], function() {
+    gulp.task('watch', function() {
+        // Si se incluye --build=false no se contruye la aplicación en www
+        if (args.build === undefined || args.build === 'true') {
+            gulp.start('build');
+        }
+
         // Se crea un filtro para incluir todos los ficheros que son añadidos o modificados
         // Es decir, todos menos aquellos que son borrados ('unlink')
         var notDeletedFilter = $.filter(
@@ -273,6 +278,8 @@
 
         // Si se modifica, crea o borran templates se genera de nuevo la cache de templates
         $.watch('src/client/app/**/*.html', {events: ['add', 'change', 'unlink', 'unlinkDir']}, templateCache);
+
+        //TODO: si se modifican, crean o borran js realizar de nuevo la injección en index.html
 
         // Se observan todos los ficheros de src/client y se copian a la carpeta build aquellos que
         // son modificados o añadidos para mantenerla sincronizada

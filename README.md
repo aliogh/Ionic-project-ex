@@ -74,9 +74,11 @@ ionic emulate
 ```
 
 ## Uso habitual
-Para desarrollar se recomienda ejecutar `gulp watch` en una ventana de comandos de forma que se realice un build continuo en la carpeta www. De forma paralela, para ejecutar la aplicación en un emulador de iOS (recomendado por rendimiento) o Android, en otra ventana de comandos se puede ejecutar `ionic emulate --livereload`. De esta forma cualquer cambio realizado en el código fuente de la aplicación se ve directamenten en el emulador.
+Para desarrollar se recomienda ejecutar `gulp watch` en una ventana de comandos de forma que se realice un build continuo en la carpeta www. De forma paralela, en otra ventana de comandos, ejecutar `ionic emulate --livereload` para visualizar la aplicación en un emulador iOS o Android. De esta forma cualquer cambio realizado en el código fuente de la aplicación se ve directamenten en el emulador.
 
-De forma alternativa, se puede ejecutar `ionic serve --livereload` para visualizar la aplicación en un navegador en vez de un emulador o disposito, aunque por compatibilidad con los plugins de Apache Cordova (que no se pueden ejecutar en un navegador de escritorio) no suele ser la opción más adecuada.
+De forma alternativa, siempre que no se necesite la ejecución de un plugin de Cordova, se puede visualizar la aplicación en una ventana de un navegador. Para esto:
+1. Ejeutar en una ventana de comandos `gulp build` para construir en el directorio www la aplicación y  tener una versión sincronizada con los fuentes de src/client.
+2. En la misma ventana de comandos ejecutar `ionic serve`. En backgroud se ejecuta un watch sobre el directorio src/client de forma que los cambios que se realicen en los fuentes de la aplicación se actualizan de forma automática en el navegador.
 
 Para probar una versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar `gulp package` y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos de ionic.
 
