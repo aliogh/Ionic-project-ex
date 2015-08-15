@@ -74,13 +74,20 @@ ionic emulate
 ```
 
 ## Uso habitual
-Para desarrollar se recomienda ejecutar `gulp watch` en una ventana de comandos de forma que se realice un build continuo en la carpeta www. De forma paralela, en otra ventana de comandos, ejecutar `ionic emulate --livereload` para visualizar la aplicación en un emulador iOS o Android. De esta forma cualquer cambio realizado en el código fuente de la aplicación se ve directamenten en el emulador.
+Para desarrollar se recomienda visualizar la aplicación en un navegador o emulador iOS/Android:
+1. Ejeutar en una ventana de comandos `gulp build` para construir la aplicación en el directorio www y tener una versión sincronizada con los fuentes de src/client.
+2. A continuación ejecutar el siguiente comando en función de donde se quiere visualizar la aplicación:
+  - Navegador: `ionic serve`.
+  - Emulador: `ionic emulate --livereload <PLATFORM>`
+  - Dispositivo: `ionic run --livereload <PLATFORM>`
 
-De forma alternativa, siempre que no se necesite la ejecución de un plugin de Cordova, se puede visualizar la aplicación en una ventana de un navegador. Para esto:
-1. Ejeutar en una ventana de comandos `gulp build` para construir en el directorio www la aplicación y  tener una versión sincronizada con los fuentes de src/client.
-2. En la misma ventana de comandos ejecutar `ionic serve`. En backgroud se ejecuta un watch sobre el directorio src/client de forma que los cambios que se realicen en los fuentes de la aplicación se actualizan de forma automática en el navegador.
+Donde `<PLATFORM>` puede ser `ios` o `android` (o no especificar ningún valor y utilizar el de por defecto).
 
-Para probar una versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar `gulp package` y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos de ionic.
+Tanto en el navegador como el emulador iOS/Android, en backgroud se ejecuta un watch sobre el directorio src/client de forma que los cambios que se realicen en los fuentes de la aplicación se sincronizan en la carpeta www y se actualizan de forma automática en el navegador, emulador o dispositivo.
+
+La visualización en un navegador sólo es de utilidad si no se necesita la ejecución de plugins de Apache Cordova, en caso contrario es necesario la visualización en un emulador o dispositivo real.
+
+Para probar una versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar `gulp package` y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos anteriores de ionic (sin la opción `--livereload`)
 
 # Listado de tareas
 Listado de tareas principales de Gulp
