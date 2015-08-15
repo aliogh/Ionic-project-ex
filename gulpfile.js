@@ -113,7 +113,7 @@
      * Wire-up the bower dependencies
      * @return {Stream}
      */
-    gulp.task('inject-wiredep', function() {
+    var injectWiredep = function () {
         log('Wiring the bower dependencies into the html');
 
         var wiredep = require('wiredep').stream;
@@ -127,7 +127,8 @@
             .pipe(wiredep(options))
             .pipe(inject(js, '', config.jsOrder))
             .pipe(gulp.dest(config.client));
-    });
+    };
+    gulp.task('inject-wiredep', injectWiredep);
 
     gulp.task('build-inject', ['inject-wiredep', 'build-styles', 'build-templatecache'], function() {
         log('Wire up css into the html, after files are ready');
@@ -279,7 +280,8 @@
         // Si se modifica, crea o borran templates se genera de nuevo la cache de templates
         $.watch('src/client/app/**/*.html', {events: ['add', 'change', 'unlink', 'unlinkDir']}, templateCache);
 
-        //TODO: si se modifican, crean o borran js realizar de nuevo la injección en index.html
+        // Si se modifican, crean o borran js se realiza de nuevo la inyección en index.html
+        $.watch('src/client/app/**/*.js', {events: ['add', 'change', 'unlink', 'unlinkDir']}, injectWiredep);
 
         // Se observan todos los ficheros de src/client y se copian a la carpeta build aquellos que
         // son modificados o añadidos para mantenerla sincronizada
