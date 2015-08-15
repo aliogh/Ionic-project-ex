@@ -21,20 +21,45 @@
     <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="lib/ionic/js/ionic.js"></script>
     <script src="lib/ionic/js/ionic-angular.js"></script>
+    <script src="lib/moment/moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js js/app.js -->
     <!-- inject:js -->
-    <script src="app/js/app.js"></script>
-    <script src="app/js/controllers.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/blocks/exception/exception.module.js"></script>
+    <script src="app/blocks/logger/logger.module.js"></script>
+    <script src="app/blocks/router/router.module.js"></script>
+    <script src="app/core/core.module.js"></script>
+    <script src="app/menu/menu.module.js"></script>
+    <script src="app/options/browse/browse.module.js"></script>
+    <script src="app/options/login/login.module.js"></script>
+    <script src="app/options/playlists/playlists.module.js"></script>
+    <script src="app/options/search/search.module.js"></script>
+    <script src="app/blocks/exception/exception-handler.provider.js"></script>
+    <script src="app/blocks/exception/exception.js"></script>
+    <script src="app/blocks/logger/logger.js"></script>
+    <script src="app/blocks/router/router-helper.provider.js"></script>
+    <script src="app/core/config.js"></script>
+    <script src="app/core/constants.js"></script>
+    <script src="app/core/core.route.js"></script>
+    <script src="app/core/dataservice.js"></script>
+    <script src="app/menu/menu.route.js"></script>
+    <script src="app/menu/menuController.js"></script>
+    <script src="app/options/browse/browse.route.js"></script>
+    <script src="app/options/login/loginController.js"></script>
+    <script src="app/options/playlists/playlistController.js"></script>
+    <script src="app/options/playlists/playlists.route.js"></script>
+    <script src="app/options/playlists/playlistsController.js"></script>
+    <script src="app/options/search/search.route.js"></script>
     <!-- endinject -->
 
     <!-- inject:templates:js -->
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body ng-app="starter">
+  <body ng-app="app">
     <ion-nav-view></ion-nav-view>
   </body>
 </html>
