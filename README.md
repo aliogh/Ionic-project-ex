@@ -87,7 +87,7 @@ Tanto en el navegador como el emulador iOS/Android, en backgroud se ejecuta un w
 
 La visualización en un navegador sólo es de utilidad si no se necesita la ejecución de plugins de Apache Cordova, en caso contrario es necesario la visualización en un emulador o dispositivo real.
 
-Para probar una versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar `gulp package` y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos anteriores de ionic (sin la opción `--livereload`)
+Para probar la versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar `gulp package` y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos anteriores de ionic (sin la opción `--livereload`)
 
 # Listado de tareas
 Listado de tareas principales de Gulp

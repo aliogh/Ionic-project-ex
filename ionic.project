@@ -2,6 +2,6 @@
   "name": "app-ionic",
   "app_id": "74515624",
   "gulpStartupTasks": [
-    "watch", "--build=fase"
+    "watch", "--build=false"
     ]
 }
