@@ -1,12 +1,9 @@
 # Tabla de contenidos
 - [Introducción](#introducción)
 - [Guías de diseño](#guías-de-diseño)
-- [Prerequisitos](#prerequisitos)
-- [Inicialización](#inicialización)
-- [Uso habitual](#uso-habitual)
-- [Tareas de construcción](#tareas-de-contrucción)
-- [Estructura del proyecto](#estructura-del-proyecto)
+- [Instalación](#instalación)
 - [Entorno de desarrollo](#entorno-de-desarrollo)
+- [Estructura del proyecto](#estructura-del-proyecto)
 - [Pendiente](#pendiente)
 
 # Introducción
@@ -46,7 +43,9 @@ El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](ht
 - [AngularJS - Developer Guide / Unit Testing](https://docs.angularjs.org/guide/unit-testing)
 - [AngularJS - Developer Guide / E2E Testing](https://docs.angularjs.org/guide/e2e-testing)
 
-# Prerequisitos
+# Instalación
+
+## Prerequisitos
 1.- Instalar [Node.js](http://nodejs.org)
 - En OSX usar [homebrew](http://brew.sh) `brew install node`
 - En Windows usar [chocolatey](https://chocolatey.org/) `choco install nodejs`
@@ -59,7 +58,7 @@ Si se necesita tener diferentes versiones de Node.js se puede utilizar [Node Ver
   - [SDK de Android](https://developer.android.com/sdk/installing/index.html)
   - [JDK 7](http://www.oracle.com/technetwork/es/java/javase/downloads/jdk7-downloads-1880260.html)
 
-# Inicialización
+## Inicialización
 Para inicializar el proyecto:
 
 ```
@@ -83,8 +82,29 @@ Si se quiere ejecutar en un emulador o dispositivo es preciso inicializar previa
 ionic state restore
 ionic emulate
 ```
+# Entorno de desarrollo
+Se puede emplear, por ejemplo, alguna de las siguientes herramientas para la edición del código del proyecto: [Atom](https://atom.io/), [Sublime](http://www.sublimetext.com/3), [WebStorm](https://www.jetbrains.com/webstorm/)
 
-# Uso habitual
+Atom es un editor altamente hackable y libre (gratis), lo que lo convierte en una opción muy recomendable. Se incluyen a continuación algunos plugins de utilidad para Atom:
+- [angularjs](https://atom.io/packages/angularjs)
+- [angularjs-snippets](https://atom.io/packages/angularjs-snippets)
+- [docblockr](https://atom.io/packages/docblockr)
+- [emmet](https://atom.io/packages/emmet)
+- [jscs-fixer](https://atom.io/packages/jscs-fixer)
+- [jshint](https://atom.io/packages/jshint)
+- [linter](https://atom.io/packages/linter)
+- [linter-jscs](https://atom.io/packages/linter-jscs)
+- [local-history](https://atom.io/packages/local-history)
+- [markdown-preview-plus-opener](https://atom.io/packages/markdown-preview-plus-opener)
+- [markdown-toc](https://atom.io/packages/markdown-toc)
+- [markdown-toc](https://atom.io/packages/markdown-toc)
+- [markdown-writer](https://atom.io/packages/markdown-writer)
+- [minimap](https://atom.io/packages/minimap)
+- [term2](https://atom.io/packages/term2)
+- [tidy-markdown](https://atom.io/packages/tidy-markdown)
+- [save-session](https://atom.io/packages/save-session)
+
+## Uso habitual
 Para desarrollar se recomienda visualizar la aplicación en un navegador o emulador iOS/Android:
 1. Ejeutar en una ventana de comandos `gulp build` para construir la aplicación en el directorio www y tener una versión sincronizada con los fuentes de src/client.
 2. A continuación ejecutar el siguiente comando en función de donde se quiere visualizar la aplicación:
@@ -100,7 +120,7 @@ La visualización en un navegador sólo es de utilidad si no se necesita la ejec
 
 Para probar la versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar `gulp package` y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos anteriores de ionic (sin la opción `--livereload`)
 
-# Tareas de construcción
+## Tareas de construcción
 Listado de tareas principales de Gulp
 
 Tarea    | Descripción
@@ -170,28 +190,6 @@ Cada uno de los módulos puede a su vez dividirse en submódulos de forma recurr
 
 ### Widgets
 El módulo widget incluye directiva y filtros comunes.
-
-# Entorno de desarrollo
-Se puede emplear, por ejemplo, alguna de las siguientes herramientas para la edición del código del proyecto: [Atom](https://atom.io/), [Sublime](http://www.sublimetext.com/3), [WebStorm](https://www.jetbrains.com/webstorm/)
-
-Atom es un editor altamente hackable y libre (gratis), lo que lo convierte en una opción muy recomendable. Se incluyen a continuación algunos plugins de utilidad para Atom:
-- [angularjs](https://atom.io/packages/angularjs)
-- [angularjs-snippets](https://atom.io/packages/angularjs-snippets)
-- [docblockr](https://atom.io/packages/docblockr)
-- [emmet](https://atom.io/packages/emmet)
-- [jscs-fixer](https://atom.io/packages/jscs-fixer)
-- [jshint](https://atom.io/packages/jshint)
-- [linter](https://atom.io/packages/linter)
-- [linter-jscs](https://atom.io/packages/linter-jscs)
-- [local-history](https://atom.io/packages/local-history)
-- [markdown-preview-plus-opener](https://atom.io/packages/markdown-preview-plus-opener)
-- [markdown-toc](https://atom.io/packages/markdown-toc)
-- [markdown-toc](https://atom.io/packages/markdown-toc)
-- [markdown-writer](https://atom.io/packages/markdown-writer)
-- [minimap](https://atom.io/packages/minimap)
-- [term2](https://atom.io/packages/term2)
-- [tidy-markdown](https://atom.io/packages/tidy-markdown)
-- [save-session](https://atom.io/packages/save-session)
 
 # Pendiente
 - Adaptar el código de la aplicación (src/client/app) para usar la guía de diseño de John Papa
