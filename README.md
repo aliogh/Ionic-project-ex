@@ -1,4 +1,23 @@
-[[_TOC_]]
+# Tabla de contenidos
+- [Introducción](#introduccin)
+- [Guías de diseño](#guas-de-diseo)
+	- [Otras referencias:](#otras-referencias)
+		- [AngularJS:](#angularjs)
+		- [Ionic](#ionic)
+		- [Cordova](#cordova)
+		- [Pruebas unitarias:](#pruebas-unitarias)
+- [Prerequisitos](#prerequisitos)
+- [Inicialización](#inicializacin)
+- [Uso habitual](#uso-habitual)
+- [Listado de tareas](#listado-de-tareas)
+- [Estructura de proyecto](#estructura-de-proyecto)
+- [Estructura de aplicación](#estructura-de-aplicacin)
+	- [Blocks](#blocks)
+	- [Core](#core)
+	- [Features](#features)
+	- [Widgets](#widgets)
+- [Entorno de desarrollo](#entorno-de-desarrollo)
+- [Pendiente](#todo)
 
 # Introducción
 Proyecto semilla (seed) para **App moviles híbridas UI-Web** que parte de la base creada en la inicializacion de un proyecto con [Ionic](http://ionicframework.com/), en concreto se ha utilizado el comando _ionic start app-ionic sidemenu_, incluyendose tareas de construccion basadas en el template de John Papa, [Hot Towel](https://github.com/johnpapa/generator-hottowel):
@@ -184,7 +203,7 @@ Atom es un editor altamente hackable y libre (gratis), lo que lo convierte en un
 - [tidy-markdown](https://atom.io/packages/tidy-markdown)
 - [save-session](https://atom.io/packages/save-session)
 
-# TODO
+# Pendiente
 - Adaptar el código de la aplicación (src/client/app) para usar la guía de diseño de John Papa
 - Adaptar las librerías de pruebas unitarias para utilizar Jasmine en vez de Mocha/Chai/Sinon
 - Incluir pruebas unitarias con Jasmine para ilustrar las pruebas de cada componente
