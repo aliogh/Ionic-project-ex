@@ -1,3 +1,26 @@
+<!-- TOC depth:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Introducción](#introduccin)
+- [Guías de diseño](#guas-de-diseo)
+	- [Otras referencias:](#otras-referencias)
+		- [AngularJS:](#angularjs)
+		- [Ionic](#ionic)
+		- [Cordova](#cordova)
+		- [Pruebas unitarias:](#pruebas-unitarias)
+- [Prerequisitos](#prerequisitos)
+- [Inicialización](#inicializacin)
+- [Uso habitual](#uso-habitual)
+- [Listado de tareas](#listado-de-tareas)
+- [Estructura de proyecto](#estructura-de-proyecto)
+- [Estructura de aplicación](#estructura-de-aplicacin)
+	- [Blocks](#blocks)
+	- [Core](#core)
+	- [Features](#features)
+	- [Widgets](#widgets)
+- [Entorno de desarrollo](#entorno-de-desarrollo)
+- [TODO](#todo)
+<!-- /TOC -->
+
 # Introducción
 Proyecto semilla (seed) para **App moviles híbridas UI-Web** que parte de la base creada en la inicializacion de un proyecto con [Ionic](http://ionicframework.com/), en concreto se ha utilizado el comando _ionic start app-ionic sidemenu_, incluyendose tareas de construccion basadas en el template de John Papa, [Hot Towel](https://github.com/johnpapa/generator-hottowel):
 - Generación de estilos con [Sass](http://sass-lang.com/)
@@ -73,7 +96,7 @@ ionic state restore
 ionic emulate
 ```
 
-## Uso habitual
+# Uso habitual
 Para desarrollar se recomienda visualizar la aplicación en un navegador o emulador iOS/Android:
 1. Ejeutar en una ventana de comandos `gulp build` para construir la aplicación en el directorio www y tener una versión sincronizada con los fuentes de src/client.
 2. A continuación ejecutar el siguiente comando en función de donde se quiere visualizar la aplicación:
@@ -139,7 +162,28 @@ ionic.project      | Identificador de la aplicación en ionic.io
 karma.conf.js      | Configuración de Karma para la ejecución de las pruebas unitarias
 package.json       | Configuración de npm. Incluye dependencias utilizadas por Gulp para construcción del proyecto y la configuración de ionic de plataformas (iOS y Android) y plugins de Apache Cordova
 
-## Entorno de desarrollo
+# Estructura de aplicación
+En el directorio src/client/app se incluye el código de la aplicación con la siguiente estructuración:
+
+## Blocks
+El directorio blocks contiene bloques de código registrados en módulos que se pueden reutilizar entre diferentes aplicaciones.
+
+## Core
+El módulo core incluye:
+- Configuración base de la aplicación
+- Importación de los módulos comunes
+- Servicios de acceso a datos comunes
+- Servicios de utilidad comunes
+
+## Features
+El directorio features incluye los módulos que implementan las funcionalidades de la aplicación.
+
+Cada uno de los módulos puede a su vez dividirse en submódulos de forma recurrente si es conveniente por claridad y para mantener el principio de única responsabilidad.
+
+## Widgets
+El módulo widget incluye directiva y filtros comunes.
+
+# Entorno de desarrollo
 Se puede emplear, por ejemplo, alguna de las siguientes herramientas para la edición del código del proyecto: [Atom](https://atom.io/), [Sublime](http://www.sublimetext.com/3), [WebStorm](https://www.jetbrains.com/webstorm/)
 
 Atom es un editor altamente hackable y libre (gratis), lo que lo convierte en una opción muy recomendable. Se incluyen a continuación algunos plugins de utilidad para Atom:
@@ -161,7 +205,7 @@ Atom es un editor altamente hackable y libre (gratis), lo que lo convierte en un
 - [tidy-markdown](https://atom.io/packages/tidy-markdown)
 - [save-session](https://atom.io/packages/save-session)
 
-## TODO
+# TODO
 - Adaptar el código de la aplicación (src/client/app) para usar la guía de diseño de John Papa
 - Adaptar las librerías de pruebas unitarias para utilizar Jasmine en vez de Mocha/Chai/Sinon
 - Incluir pruebas unitarias con Jasmine para ilustrar las pruebas de cada componente
