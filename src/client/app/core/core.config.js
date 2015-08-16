@@ -12,7 +12,6 @@
 
     core.config(configure);
 
-    configure.$inject = ['$logProvider', 'routerHelperProvider', 'exceptionHandlerProvider'];
     /* @ngInject */
     function configure($logProvider, routerHelperProvider, exceptionHandlerProvider) {
         if ($logProvider.debugEnabled) {
@@ -21,5 +20,4 @@
         exceptionHandlerProvider.configure(config.appErrorPrefix);
         routerHelperProvider.configure({docTitle: config.appTitle + ': '});
     }
-
 })();
