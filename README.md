@@ -1,21 +1,11 @@
 # Tabla de contenidos
 - [Introducción](#introducción)
 - [Guías de diseño](#guías-de-diseño)
-	- [Otras referencias:](#otras-referencias)
-		- [AngularJS:](#angularjs)
-		- [Ionic](#ionic)
-		- [Cordova](#cordova)
-		- [Pruebas unitarias:](#pruebas-unitarias)
 - [Prerequisitos](#prerequisitos)
 - [Inicialización](#inicialización)
 - [Uso habitual](#uso-habitual)
-- [Listado de tareas](#listado-de-tareas)
-- [Estructura de proyecto](#estructura-de-proyecto)
-- [Estructura de aplicación](#estructura-de-aplicación)
-	- [Blocks](#blocks)
-	- [Core](#core)
-	- [Features](#features)
-	- [Widgets](#widgets)
+- [Tareas de construcción](#tareas-de-contrucción)
+- [Estructura del proyecto](#estructura-del-proyecto)
 - [Entorno de desarrollo](#entorno-de-desarrollo)
 - [Pendiente](#pendiente)
 
@@ -50,7 +40,7 @@ El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](ht
 - [Apache Cordova](https://cordova.apache.org/)
 - [ngCordova - Plugins](http://ngcordova.com/docs/plugins/)
 
-### Pruebas unitarias:
+### Pruebas unitarias
 - [Full-Spectrum Testing with AngularJS and Karma](http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html)
 - [Advanced Testing and Debugging in AngularJS](http://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html)
 - [AngularJS - Developer Guide / Unit Testing](https://docs.angularjs.org/guide/unit-testing)
@@ -110,7 +100,7 @@ La visualización en un navegador sólo es de utilidad si no se necesita la ejec
 
 Para probar la versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar `gulp package` y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos anteriores de ionic (sin la opción `--livereload`)
 
-# Listado de tareas
+# Tareas de construcción
 Listado de tareas principales de Gulp
 
 Tarea    | Descripción
@@ -126,7 +116,7 @@ watch    | Construye el proyecto y queda a la espera de cambios para realizar re
 package  | Analiza el código, ejecuta los test, optimiza la aplicacion (minimiza css, inyecta dependencias explicitas de AngularJS, concatena JavaScript de la aplicación, minimiza JavaScript de aplicación y terceros, optimiza imagenes, incluye hash en el nombre de ficheros JavaScript), y copia la versión optimizada de la aplicación en el directorio www
 clean    | Borra los directorios reports y www
 
-# Estructura de proyecto
+# Estructura del proyecto
 Resumen de directorios que contiene el proyecto:
 
 Directorio/Fichero | Descripción
@@ -138,7 +128,7 @@ Directorio/Fichero | Descripción
 /reports           | Reportes generados por tareas de Gulp (cobertura, junit, plato) y no se sube al repositorio de código
 /src               | Código del proyecto
 /src/client        | Codigo de la App
-/src/client/app    | Estructura modular que agrupan funcionalidades, incluyendo ficheros JavaScript, Template y Specs, en vez de utilizar una estructura plana de carpetas agrupadas por tipo de fichero de código (js, templates, test).
+/src/client/app    | Estructura modular que agrupan funcionalidades, incluyendo ficheros JavaScript, Template y Specs, en vez de utilizar una estructura plana de carpetas agrupadas por tipo de fichero de código (js, templates, test). Ver [Estructura de la aplicación](#estructura-de-la-aplicación)
 /src/client/cache  | Fichero JavaScript con los templates de AngularJS. Es un directorio autogenerado por tareas de Gulp y no se versiona en el repositorio
 /src/client/css    | Ficheros css y fonts. Es un directorio generado por tareas de Gulp y no se versiona en el repositorio
 /src/client/img    | Ficheros de imagenes
@@ -160,25 +150,25 @@ ionic.project      | Identificador de la aplicación en ionic.io
 karma.conf.js      | Configuración de Karma para la ejecución de las pruebas unitarias
 package.json       | Configuración de npm. Incluye dependencias utilizadas por Gulp para construcción del proyecto y la configuración de ionic de plataformas (iOS y Android) y plugins de Apache Cordova
 
-# Estructura de aplicación
-En el directorio src/client/app se incluye el código de la aplicación con la siguiente estructuración:
+## Estructura de la aplicación
+En el directorio src/client/app se incluye el código de la aplicación con la siguiente estructuración
 
-## Blocks
+### Blocks
 El directorio blocks contiene bloques de código registrados en módulos que se pueden reutilizar entre diferentes aplicaciones.
 
-## Core
+### Core
 El módulo core incluye:
 - Configuración base de la aplicación
 - Importación de los módulos comunes
 - Servicios de acceso a datos comunes
 - Servicios de utilidad comunes
 
-## Features
+### Features
 El directorio features incluye los módulos que implementan las funcionalidades de la aplicación.
 
 Cada uno de los módulos puede a su vez dividirse en submódulos de forma recurrente si es conveniente por claridad y para mantener el principio de única responsabilidad.
 
-## Widgets
+### Widgets
 El módulo widget incluye directiva y filtros comunes.
 
 # Entorno de desarrollo
