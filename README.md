@@ -106,7 +106,7 @@ Atom es un editor altamente hackable y libre (gratis), lo que lo convierte en un
 
 ## Uso habitual
 Para desarrollar se recomienda visualizar la aplicación en un navegador o emulador iOS/Android:
-1. Ejeutar en una ventana de comandos `gulp build` para construir la aplicación en el directorio www y tener una versión sincronizada con los fuentes de src/client.
+1. Ejecutar en una ventana de comandos `gulp build` para construir la aplicación en el directorio www y tener una versión sincronizada con los fuentes de src/client.
 2. A continuación ejecutar el siguiente comando en función de donde se quiere visualizar la aplicación:
   - Navegador: `ionic serve`.
   - Emulador: `ionic emulate --livereload <PLATFORM>`
@@ -121,7 +121,7 @@ La visualización en un navegador sólo es de utilidad si no se necesita la ejec
 Para probar la versión optimizada de la aplicación (código JavaScript y CSS contenado y minificado) ejecutar `gulp package` y a continuación visualizar la aplicacion en un navegador, emulador o dispositivo real utilizando los comandos anteriores de ionic (sin la opción `--livereload`)
 
 ## Tareas de construcción
-Listado de tareas principales de Gulp
+Listado de tareas principales de Gulp:
 
 Tarea    | Descripción
 -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

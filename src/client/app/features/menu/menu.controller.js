@@ -11,7 +11,7 @@
         .module('app.menu')
         .controller('MenuController', MenuController);
 
-    function MenuController($scope, $controller) {
+    function MenuController($scope, $controller, config) {
         var loginViewModel = $scope.$new();
 
         $controller('LoginController', {$scope : loginViewModel});
@@ -19,5 +19,7 @@
         $scope.login = function () {
             loginViewModel.login();
         };
+
+        $scope.version = config.version;
     }
 })();

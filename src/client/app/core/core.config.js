@@ -4,8 +4,9 @@
     var core = angular.module('app.core');
 
     var config = {
+        appTitle: 'app-ionic',
         appErrorPrefix: '[app-ionic Error] ',
-        appTitle: 'app-ionic'
+        version: '1.0.0'
     };
 
     core.value('config', config);
