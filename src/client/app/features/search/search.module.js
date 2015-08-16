@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('app.search', []);
+        .module('app.search', ['app.core', 'app.menu']);
 })();

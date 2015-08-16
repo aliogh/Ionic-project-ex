@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('app.menu', ['app.login']);
+        .module('app.menu', ['app.core', 'app.login']);
 })();

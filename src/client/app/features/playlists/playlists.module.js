@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('app.playlists', []);
+        .module('app.playlists', ['app.core', 'app.menu']);
 })();
