@@ -1,25 +1,4 @@
-<!-- TOC depth:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Introducción](#introduccin)
-- [Guías de diseño](#guas-de-diseo)
-	- [Otras referencias:](#otras-referencias)
-		- [AngularJS:](#angularjs)
-		- [Ionic](#ionic)
-		- [Cordova](#cordova)
-		- [Pruebas unitarias:](#pruebas-unitarias)
-- [Prerequisitos](#prerequisitos)
-- [Inicialización](#inicializacin)
-- [Uso habitual](#uso-habitual)
-- [Listado de tareas](#listado-de-tareas)
-- [Estructura de proyecto](#estructura-de-proyecto)
-- [Estructura de aplicación](#estructura-de-aplicacin)
-	- [Blocks](#blocks)
-	- [Core](#core)
-	- [Features](#features)
-	- [Widgets](#widgets)
-- [Entorno de desarrollo](#entorno-de-desarrollo)
-- [TODO](#todo)
-<!-- /TOC -->
+[[_TOC_]]
 
 # Introducción
 Proyecto semilla (seed) para **App moviles híbridas UI-Web** que parte de la base creada en la inicializacion de un proyecto con [Ionic](http://ionicframework.com/), en concreto se ha utilizado el comando _ionic start app-ionic sidemenu_, incluyendose tareas de construccion basadas en el template de John Papa, [Hot Towel](https://github.com/johnpapa/generator-hottowel):
