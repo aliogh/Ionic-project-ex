@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.search')
+        .module('app.menu')
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
@@ -14,14 +14,12 @@
     function getStates() {
         return [
             {
-                state: 'app.search',
+                state: 'app',
                 config: {
-                    url: '/search',
-                    views: {
-                        'menuContent': {
-                            templateUrl: 'app/options/search/search.html'
-                        }
-                    }
+                    url: '/app',
+                    abstract: true,
+                    templateUrl: 'app/features/menu/menu.html',
+                    controller: 'MenuController'
                 }
             }
         ];

@@ -10,7 +10,7 @@
         $scope.loginData = {};
 
         // Create the login modal that we will use later
-        $ionicModal.fromTemplateUrl('app/options/login/login.html', {
+        $ionicModal.fromTemplateUrl('app/features/login/login.html', {
             scope: $scope
         }).then(function(modal) {
             $scope.modal = modal;

@@ -19,7 +19,7 @@
                     url: '/playlists',
                     views: {
                         'menuContent': {
-                            templateUrl: 'app/options/playlists/playlists.html',
+                            templateUrl: 'app/features/playlists/playlists.html',
                             controller: 'PlaylistsController'
                         }
                     }
@@ -31,7 +31,7 @@
                     url: '/playlists/:playlistId',
                     views: {
                       'menuContent': {
-                          templateUrl: 'app/options/playlists/playlist.html',
+                          templateUrl: 'app/features/playlists/playlist.html',
                           controller: 'PlaylistController'
                       }
                   }
