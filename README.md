@@ -183,6 +183,9 @@ El módulo core incluye:
 - Servicios de acceso a datos comunes
 - Servicios de utilidad comunes
 
+### Layout
+Incluye los componentes que definen el layout de la aplicación, como por ejemplo, vistas y controladores que actuan como contenedores de la aplicacion, elementos de navegación, menus, plantillas, áreas de contenidos, etc.
+
 ### Features
 El directorio features incluye los módulos que implementan las funcionalidades de la aplicación.
 
