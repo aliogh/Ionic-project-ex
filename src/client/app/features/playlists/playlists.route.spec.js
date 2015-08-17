@@ -5,7 +5,7 @@ describe('playlists', function() {
         var views = {
             playlists: 'app/features/playlists/playlists.html',
             playlist: 'app/features/playlists/playlist.html',
-            menu: 'app/features/menu/menu.html'
+            menu: 'app/layout/menu.html'
         };
 
         beforeEach(function() {

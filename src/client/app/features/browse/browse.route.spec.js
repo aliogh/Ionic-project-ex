@@ -4,7 +4,7 @@ describe('browse', function() {
     describe('state', function() {
         var views = {
             browse: 'app/features/browse/browse.html',
-            menu: 'app/features/menu/menu.html'
+            menu: 'app/layout/menu.html'
         };
 
         beforeEach(function() {

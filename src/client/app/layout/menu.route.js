@@ -18,7 +18,7 @@
                 config: {
                     url: '/app',
                     abstract: true,
-                    templateUrl: 'app/features/menu/menu.html',
+                    templateUrl: 'app/layout/menu.html',
                     controller: 'MenuController'
                 }
             }

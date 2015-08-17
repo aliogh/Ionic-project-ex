@@ -4,7 +4,7 @@ describe('search', function() {
     describe('state', function() {
         var views = {
             search: 'app/features/search/search.html',
-            menu: 'app/features/menu/menu.html'
+            menu: 'app/layout/menu.html'
         };
 
         beforeEach(function() {
