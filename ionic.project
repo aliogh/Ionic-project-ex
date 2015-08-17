@@ -2,6 +2,14 @@
   "name": "app-ionic",
   "app_id": "74515624",
   "gulpStartupTasks": [
-    "watch", "--build=false"
-    ]
+    "watch",
+    "--build=false"
+  ],
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
 }
