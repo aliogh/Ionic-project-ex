@@ -20,7 +20,7 @@
                     views: {
                         'menuContent': {
                             templateUrl: 'app/features/playlists/playlists.html',
-                            controller: 'PlaylistsController'
+                            controller: 'Playlists'
                         }
                     }
                 }
@@ -32,7 +32,7 @@
                     views: {
                       'menuContent': {
                           templateUrl: 'app/features/playlists/playlist.html',
-                          controller: 'PlaylistController'
+                          controller: 'Playlist'
                       }
                   }
                 }

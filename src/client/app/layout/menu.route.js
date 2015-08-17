@@ -19,7 +19,7 @@
                     url: '/app',
                     abstract: true,
                     templateUrl: 'app/layout/menu.html',
-                    controller: 'MenuController'
+                    controller: 'Menu'
                 }
             }
         ];

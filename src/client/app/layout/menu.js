@@ -9,12 +9,12 @@
 
     angular
         .module('app.menu')
-        .controller('MenuController', MenuController);
+        .controller('Menu', Menu);
 
-    function MenuController($scope, $controller, config) {
+    function Menu($scope, $controller, config) {
         var loginViewModel = $scope.$new();
 
-        $controller('LoginController', {$scope : loginViewModel});
+        $controller('Login', {$scope : loginViewModel});
 
         $scope.login = function () {
             loginViewModel.login();

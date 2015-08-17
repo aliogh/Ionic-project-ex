@@ -3,9 +3,9 @@
 
     angular
         .module('app.login')
-        .controller('LoginController', LoginController);
+        .controller('Login', Login);
 
-    function LoginController($scope, $ionicModal, $timeout) {
+    function Login($scope, $ionicModal, $timeout) {
         // Form data for the login modal
         $scope.loginData = {};
 

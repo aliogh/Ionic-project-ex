@@ -3,9 +3,9 @@
 
     angular
         .module('app.playlists')
-        .controller('PlaylistsController', PlaylistsController);
+        .controller('Playlists', Playlists);
 
-    function PlaylistsController($scope) {
+    function Playlists($scope) {
         $scope.playlists = [
           {title: 'Reggae', id: 1},
           {title: 'Chill', id: 2},
