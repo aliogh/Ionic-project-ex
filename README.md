@@ -191,6 +191,9 @@ El directorio features incluye los módulos que implementan las funcionalidades 
 
 Cada uno de los módulos puede a su vez dividirse en submódulos de forma recurrente si es conveniente por claridad y para mantener el principio de única responsabilidad.
 
+### Services
+Este directorio incluye los servicios (reglas comunes de negocio, datos, etc.) utilizados por las funcionalidades de la aplicación.
+
 ### Widgets
 El módulo widget incluye directiva y filtros comunes.
 
