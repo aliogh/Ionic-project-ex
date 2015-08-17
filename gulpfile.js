@@ -378,11 +378,15 @@
             }
         }
 
-        karma.start({
+        var configKarma = {
             configFile: __dirname + '/karma.conf.js',
             exclude: excludeFiles,
             singleRun: !!singleRun
-        }, karmaCompleted);
+        };
+        if (!singleRun) {
+            configKarma.reporters = ['progress'];
+        }
+        karma.start(configKarma, karmaCompleted);
 
         ////////////////
 
