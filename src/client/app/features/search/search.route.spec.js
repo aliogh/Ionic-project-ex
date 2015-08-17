@@ -1,6 +1,6 @@
 /* jshint -W117, -W030*/
-'use strict';
 describe('search', function() {
+    'use strict';
     describe('state', function() {
         var views = {
             search: 'app/features/search/search.html',
@@ -21,7 +21,7 @@ describe('search', function() {
         it('should route state app.search go view search', function() {
             $state.go('app.search');
             $rootScope.$digest();
-            expect($state.is('app.search'));
+            expect($state.is('app.search')).to.be.true;
         });
 
         it('should route url app/search go view search', function() {

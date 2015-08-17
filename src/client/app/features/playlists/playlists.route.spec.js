@@ -1,6 +1,6 @@
 /* jshint -W117, -W030*/
-'use strict';
 describe('playlists', function() {
+    'use strict';
     describe('state', function() {
         var views = {
             playlists: 'app/features/playlists/playlists.html',
@@ -23,7 +23,7 @@ describe('playlists', function() {
         it('should route state app.playlists go view playlists', function() {
             $state.go('app.playlists');
             $rootScope.$digest();
-            expect($state.is('app.playlists'));
+            expect($state.is('app.playlists')).to.be.true;
         });
 
         it('should route url app/playlists go view playlists', function() {
