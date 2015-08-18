@@ -12,6 +12,8 @@
         .controller('Menu', Menu);
 
     function Menu($scope, $controller, config) {
+        $scope.version = config.version;
+
         var loginViewModel = $scope.$new();
 
         $controller('Login', {$scope : loginViewModel});
@@ -19,7 +21,5 @@
         $scope.login = function () {
             loginViewModel.login();
         };
-
-        $scope.version = config.version;
     }
 })();

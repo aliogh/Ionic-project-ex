@@ -1,6 +1,7 @@
 /* jshint -W117, -W030*/
 describe('browse', function() {
     'use strict';
+
     describe('state', function() {
         var views = {
             browse: 'app/features/browse/browse.html',

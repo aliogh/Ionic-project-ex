@@ -1,6 +1,7 @@
 /* jshint -W117, -W030*/
 describe('playlists', function() {
     'use strict';
+
     describe('state', function() {
         var views = {
             playlists: 'app/features/playlists/playlists.html',

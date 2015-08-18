@@ -1,6 +1,7 @@
 /* jshint -W117, -W030, -W098 */
-'use strict';
 describe('blocks.exception', function() {
+    'use strict';
+
     var exceptionHandlerProvider;
     var mocks = {
         errorMessage: 'fake error',
