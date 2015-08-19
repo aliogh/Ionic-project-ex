@@ -157,7 +157,7 @@ module.exports = function() {
                 config.specHelpers,
                 clientApp + '**/*.module.js',
                 clientApp + '**/*.js',
-                config.templateCache.dir + '/' + config.templateCache.file,
+                config.cache + config.templateCache.file,
                 config.serverIntegrationSpecs
             ),
             exclude: [],

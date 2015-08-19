@@ -219,7 +219,10 @@
      * To start servers and run midway specs as well:
      *    gulp autotest --startServers
      */
-    gulp.task('autotest', function(done) {
+    gulp.task('autotest', ['build-templatecache'], function(done) {
+        // Si se modifica, crea o borran templates se genera de nuevo la cache de templates
+        $.watch('src/client/app/**/*.html', {events: ['add', 'change', 'unlink', 'unlinkDir']}, templateCache);
+
         startTests(false /*singleRun*/ , done);
     });
 

@@ -195,7 +195,7 @@ Cada uno de los módulos puede a su vez dividirse en submódulos de forma recurr
 Este directorio incluye los servicios (reglas comunes de negocio, datos, etc.) utilizados por las funcionalidades de la aplicación.
 
 ### Widgets
-El módulo widget incluye directiva y filtros comunes.
+El módulo widget incluye directivas y filtros comunes.
 
 # Pendiente
 - Adaptar el código de la aplicación (src/client/app) para usar la guía de diseño de John Papa
