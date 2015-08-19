@@ -7,7 +7,8 @@
 
     /* @ngInject */
     function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
+        var otherwise = 'app/playlists';
+        routerHelper.configureStates(getStates(), otherwise);
     }
 
     function getStates() {
