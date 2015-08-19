@@ -3,15 +3,12 @@ describe('search', function() {
     'use strict';
     describe('state', function() {
         var views = {
-            search: 'app/features/search/search.html',
-            menu: 'app/layout/menu.html'
+            search: 'app/features/search/search.html'
         };
 
         beforeEach(function() {
-            module('app.search');
-            bard.inject('$location', '$rootScope', '$state', '$templateCache', '$urlRouter');
-            $templateCache.put(views.search, '');
-            $templateCache.put(views.menu, '');
+            module('app');
+            bard.inject('$location', '$rootScope', '$state');
         });
 
         it('should map app/search route to search View template', function() {

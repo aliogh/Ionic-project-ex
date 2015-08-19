@@ -6,15 +6,11 @@ describe('playlists', function() {
         var views = {
             playlists: 'app/features/playlists/playlists.html',
             playlist: 'app/features/playlists/playlist.html',
-            menu: 'app/layout/menu.html'
         };
 
         beforeEach(function() {
-            module('app.playlists');
-            bard.inject('$location', '$rootScope', '$state', '$templateCache', '$urlRouter');
-            $templateCache.put(views.playlists, '');
-            $templateCache.put(views.playlist, '');
-            $templateCache.put(views.menu, '');
+            module('app');
+            bard.inject('$location', '$rootScope', '$state');
         });
 
         it('should map app/playlists route to playlists View template', function() {

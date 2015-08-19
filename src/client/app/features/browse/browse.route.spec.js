@@ -5,14 +5,11 @@ describe('browse', function() {
     describe('state', function() {
         var views = {
             browse: 'app/features/browse/browse.html',
-            menu: 'app/layout/menu.html'
         };
 
         beforeEach(function() {
-            module('app.browse');
-            bard.inject('$location', '$rootScope', '$state', '$templateCache', '$urlRouter');
-            $templateCache.put(views.browse, '');
-            $templateCache.put(views.menu, '');
+            module('app');
+            bard.inject('$location', '$rootScope', '$state');
         });
 
         it('should map app/browse route to browse View template', function() {
