@@ -27,26 +27,26 @@ describe('login', function () {
     });
 
     it('should be a controller', function() {
-        expect(ctrl).to.exist;
+        expect(ctrl).toBeDefined();
     });
 
     it('should have empty login form', function() {
-        expect(scope.loginData).to.be.empty;
+        expect(scope.loginData).toBeDefined();
     });
 
     it('should have modal in the scope', function() {
-        expect(scope.modal).to.exist;
+        expect(scope.modal).toBeDefined();
     });
 
     it('should show modal when call login', function() {
         scope.login();
-        expect(scope.modal.show.calledOnce).to.be.true;
+        expect(scope.modal.show.calledOnce).toBeTruthy();
     });
 
     it('should hide modal when call closeLogin', function() {
         scope.login();
         scope.closeLogin();
-        expect(scope.modal.hide.calledOnce).to.be.true;
+        expect(scope.modal.hide.calledOnce).toBeTruthy();
     });
 
 });

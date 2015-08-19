@@ -17,6 +17,6 @@ describe('playlists', function () {
     });
 
     it('should be a controller', function() {
-        expect(ctrl).to.exist;
+        expect(ctrl).toBeDefined();
     });
 });

@@ -17,10 +17,10 @@ describe('playlists', function () {
     });
 
     it('should be a controller', function() {
-        expect(ctrl).to.exist;
+        expect(ctrl).toExist;
     });
 
     it('should have a playlists attribute', function() {
-        expect(ctrl.playlists).to.exists;
+        expect(ctrl.playlists).toExists;
     });
 });

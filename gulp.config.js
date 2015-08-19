@@ -106,7 +106,7 @@ module.exports = function() {
         /**
          * The sequence of the injections into specs.html:
          *  1 testlibraries
-         *      mocha setup
+         *      jasmine setup
          *  2 bower
          *  3 js
          *  4 spechelpers
@@ -114,11 +114,10 @@ module.exports = function() {
          *  6 templates
          */
         testlibraries: [
-            nodeModules + '/mocha/mocha.js',
-            nodeModules + '/chai/chai.js',
-            nodeModules + '/sinon-chai/lib/sinon-chai.js'
+            nodeModules + '/jasmine/lib/sinon.js',
+            nodeModules + ''
         ],
-        specHelpers: [client + 'test-helpers/*.js'],
+        specHelpers: [client + 'test/helper/*.js'],
         specs: [clientApp + '**/*.spec.js'],
         serverIntegrationSpecs: [client + '/tests/server-integration/**/*.spec.js'],
 

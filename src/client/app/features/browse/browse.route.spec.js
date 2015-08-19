@@ -13,19 +13,19 @@ describe('browse', function() {
         });
 
         it('should map app/browse route to browse View template', function() {
-            expect($state.get('app.browse').views.menuContent.templateUrl).to.equal(views.browse);
+            expect($state.get('app.browse').views.menuContent.templateUrl).toEqual(views.browse);
         });
 
         it('should route state app.browse go view browse', function() {
             $state.go('app.browse');
             $rootScope.$digest();
-            expect($state.is('app.browse')).to.be.true;
+            expect($state.is('app.browse')).toBeTruthy();
         });
 
         it('should route url app/browse go view browse', function() {
             $location.path('app/browse');
             $rootScope.$digest();
-            expect($state.current.views.menuContent.templateUrl).to.equal(views.browse);
+            expect($state.current.views.menuContent.templateUrl).toEqual(views.browse);
         });
     });
 });

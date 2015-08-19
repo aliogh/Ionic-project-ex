@@ -7,7 +7,7 @@ describe('App Module:', function() {
     });
 
     it('should be registered', function() {
-        expect(module).not.to.equal(null);
+        expect(module).toBeDefined();
     });
 
     describe('Dependencies:', function() {
@@ -20,27 +20,27 @@ describe('App Module:', function() {
       });
 
       it('should have app.core as a dependency', function() {
-          expect(hasModule('app.core')).to.equal(true);
+          expect(hasModule('app.core')).toEqual(true);
       });
 
       it('should have app.browse as a dependency', function() {
-          expect(hasModule('app.browse')).to.equal(true);
+          expect(hasModule('app.browse')).toEqual(true);
       });
 
       it('should have app.login as a dependency', function() {
-          expect(hasModule('app.login')).to.equal(true);
+          expect(hasModule('app.login')).toEqual(true);
       });
 
       it('should have app.menu as a dependency', function() {
-          expect(hasModule('app.menu')).to.equal(true);
+          expect(hasModule('app.menu')).toEqual(true);
       });
 
       it('should have app.playlists as a dependency', function() {
-          expect(hasModule('app.playlists')).to.equal(true);
+          expect(hasModule('app.playlists')).toEqual(true);
       });
 
       it('should have app.search as a dependency', function() {
-          expect(hasModule('app.search')).to.equal(true);
+          expect(hasModule('app.search')).toEqual(true);
       });
   });
 });
