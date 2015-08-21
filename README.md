@@ -39,9 +39,13 @@ El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](ht
 
 ### Pruebas unitarias
 - [Full-Spectrum Testing with AngularJS and Karma](http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html)
+- [An Introduction To Unit Testing In AngularJS Applications](http://www.smashingmagazine.com/2014/10/introduction-to-unit-testing-in-angularjs/)
 - [Advanced Testing and Debugging in AngularJS](http://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html)
 - [AngularJS - Developer Guide / Unit Testing](https://docs.angularjs.org/guide/unit-testing)
 - [AngularJS - Developer Guide / E2E Testing](https://docs.angularjs.org/guide/e2e-testing)
+
+### Pruebas e2e
+- [Protractor](http://angular.github.io/protractor)
 
 # Instalación
 
@@ -67,6 +71,7 @@ cd app-ionic
 npm install -g cordova ionic bower jscs
 bower install
 npm install
+./node_modules/.bin/webdriver-manager update
 ```
 
 Una vez se tiene el proyecto inicializado se puede construir y ejecutar en un navegador:
@@ -130,6 +135,7 @@ vet      | Analiza el código JavaScript de la aplicación con jscss  y jshint
 plato    | Genera el informe de calidad de código JavScript de la aplicación en el directorio /reports
 test     | Ejecuta las pruebas unitarias de la aplicación. Los informes junit y de cobertura de guardan en el directorio /reports
 autotest | Ejecuta de forma continua las pruebas unitarias de  la aplicación para realizar TDD
+e2e      | Ejecuta las pruebas end to end. Previamente se tiene que tener la aplicacion publicada para ser ejecutada desde un navegador: `gulp build` `ionic serve`
 jscs     | Ejecuta jscs en modo fix para resolver los errores de formato del código de la aplicación de forma automática
 build    | Analiza el código, ejecuta los test, compila Sass, genera templates de AngularJS, inyecta dependencias de bower, ficheros JavaScript y css en index.html, y copia el código de la aplicación en el directorio www
 watch    | Construye el proyecto y queda a la espera de cambios para realizar re-build
@@ -154,7 +160,8 @@ Directorio/Fichero | Descripción
 /src/client/img    | Ficheros de imagenes
 /src/client/lib    | Dependencias manegadas con Bower. Es un directorio generado con el comando _bower intall_ y no se versiona en el repositorio de código
 /src/client/scss   | Fichero Sass
-/src/test-helpers  | Ficheros de ayuda para la ejecución de pruebas unitarias
+/src/test/e2e      | Pruebas end to end
+/src/test/helpers  | Ficheros de ayuda para la ejecución de la pruebas
 /src/index.html    | Fichero index de la App
 /src/server        | Servidor para publicar los servicios mocks utilizados por la App
 /www               | Directorio build de la App. Utilizado por Apache Cordova como código Web
@@ -198,8 +205,5 @@ Este directorio incluye los servicios (reglas comunes de negocio, datos, etc.) u
 El módulo widget incluye directivas y filtros comunes.
 
 # Pendiente
-- Adaptar el código de la aplicación (src/client/app) para usar la guía de diseño de John Papa
-- Adaptar las librerías de pruebas unitarias para utilizar Jasmine en vez de Mocha/Chai/Sinon
-- Incluir pruebas unitarias con Jasmine para ilustrar las pruebas de cada componente
 - Incluir proyecto de servidor (src/server) para publicar mocks de servicios REST
 - Integración con Jenkins/Sonar para automatización de construcción, informes de calidad y pruebas unitarias y publicación en dispositivos reales

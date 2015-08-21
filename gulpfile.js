@@ -11,6 +11,7 @@
 
     var args = require('yargs').argv;
     var config = require('./gulp.config')();
+    var protractor = require('gulp-protractor').protractor;
     var gulp = require('gulp');
     var glob = require('glob');
     var vinylPaths = require('vinyl-paths');
@@ -327,6 +328,17 @@
      */
     gulp.task('clean-styles', function(done) {
         del(config.css + '**/*.css', done);
+    });
+
+    /**
+     * Lanza las pruebas e2e (es necesario que esté publicada la aplicación)
+     */
+    gulp.task('e2e', function() {
+        gulp.src(['./src/client/test/e2e/*.js'])
+          .pipe(protractor({
+              configFile: 'protractor.conf.js'
+          }))
+          .on('error', function(e) { throw e; });
     });
 
     /**
