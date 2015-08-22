@@ -309,7 +309,7 @@
      * @param  {Function} done - callback when complete
      */
     gulp.task('clean', function(done) {
-        var delconfig = [].concat(config.build, config.report);
+        var delconfig = [].concat(config.build + '**/*', config.report);
         log('Cleaning: ' + $.util.colors.blue(delconfig));
         del(delconfig, done);
     });

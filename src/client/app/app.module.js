@@ -3,6 +3,7 @@
 
     angular
         .module('app', [
+            'app.mocks',
             'app.core',
             'app.browse',
             'app.login',
