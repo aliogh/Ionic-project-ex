@@ -8,12 +8,11 @@ function getVisibleElements(elem) {
 describe('Menu', function() {
     var toggleMenu = element.all(by.css('.ion-navicon')).filter(getVisibleElements).first();
     var loginOption = element(by.css('ion-item[ng-click="login()"]'));
-    var searchOption = element(by.css('a[ng-href="#/app/search"]'));
-    var browseOption = element(by.css('a[ng-href="#/app/browse"]'));
+    var searchOption = element(by.linkText('Search'));
+    var browseOption = element(by.linkText('Browse'));
     var playlistsOption = element(by.css('a[ng-href="#/app/playlists"]'));
-    var titleHeader = element.all(by.css('div[class="title title-left header-item"]'))
-          .filter(getVisibleElements).first();
-    var titleLogin = element(by.css('h1[class="title title-left"]'));
+    var titleHeader = element.all(by.css('.title.header-item')).filter(getVisibleElements).first();
+    var titleLogin = element.all(by.css('h1.title')).get(1);
 
     beforeEach(function() {
         browser.get('#/');
@@ -42,23 +41,5 @@ describe('Menu', function() {
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(playlistsOption), 5000);
         playlistsOption.click();
         expect(titleHeader.getText()).toEqual('Playlists');
-    });
-});
-
-describe('Playlists', function () {
-    var playlist = element(by.css('a[ng-href="#/app/playlists/1"]'));
-    var detailPlayList = element.all(by.css('ion-content')).filter(getVisibleElements).first().$('h1');
-
-    beforeEach(function() {
-        browser.get('#/app/playlists');
-    });
-
-    it('El primer resultado es Reggae', function() {
-        expect(playlist.getText()).toEqual('Reggae');
-    });
-
-    it('Página de detalle de la playlist Reggae', function() {
-        playlist.click();
-        expect(detailPlayList.getText()).toEqual('Playlist');
     });
 });

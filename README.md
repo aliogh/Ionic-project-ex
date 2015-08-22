@@ -46,6 +46,7 @@ El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](ht
 
 ### Pruebas e2e
 - [Protractor](http://angular.github.io/protractor)
+- [Elementor](https://github.com/andresdominguez/elementor)
 
 # Instalación
 
