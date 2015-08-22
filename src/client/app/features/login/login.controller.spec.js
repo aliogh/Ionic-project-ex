@@ -19,7 +19,7 @@ describe('login', function () {
         sinon.stub($ionicModal, 'fromTemplateUrl').returns($q.when(modal));
 
         scope = $rootScope.$new();
-        ctrl = $controller('Login', {
+        ctrl = $controller('LoginController', {
             $scope: scope
         });
 

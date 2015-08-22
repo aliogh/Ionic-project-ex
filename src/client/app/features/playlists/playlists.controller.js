@@ -3,10 +3,12 @@
 
     angular
         .module('app.playlists')
-        .controller('Playlists', Playlists);
+        .controller('PlaylistsController', PlaylistsController);
 
-    function Playlists($scope) {
-        $scope.playlists = [
+    function PlaylistsController() {
+        var vm = this;
+
+        vm.playlists = [
           {title: 'Reggae', id: 1},
           {title: 'Chill', id: 2},
           {title: 'Dubstep', id: 3},

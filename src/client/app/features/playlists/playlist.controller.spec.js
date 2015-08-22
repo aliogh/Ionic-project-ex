@@ -11,16 +11,12 @@ describe('playlists', function () {
         bard.inject('$rootScope', '$controller');
 
         scope = $rootScope.$new();
-        ctrl = $controller('Playlists', {
+        ctrl = $controller('PlaylistController', {
             $scope: scope
         });
     });
 
     it('should be a controller', function() {
-        expect(ctrl).toExist;
-    });
-
-    it('should have a playlists attribute', function() {
-        expect(ctrl.playlists).toExists;
+        expect(ctrl).toBeDefined();
     });
 });

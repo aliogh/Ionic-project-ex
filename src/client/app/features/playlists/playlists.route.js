@@ -19,7 +19,7 @@
                     views: {
                         'menuContent': {
                             templateUrl: 'app/features/playlists/playlists.html',
-                            controller: 'Playlists'
+                            controller: 'PlaylistsController as vm'
                         }
                     }
                 }
@@ -31,7 +31,7 @@
                     views: {
                       'menuContent': {
                           templateUrl: 'app/features/playlists/playlist.html',
-                          controller: 'Playlist'
+                          controller: 'PlaylistController as vm'
                       }
                   }
                 }

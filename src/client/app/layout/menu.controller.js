@@ -9,14 +9,15 @@
 
     angular
         .module('app.menu')
-        .controller('Menu', Menu);
+        .controller('MenuController', MenuController);
 
-    function Menu($scope, $controller, config) {
-        $scope.version = config.version;
+    function MenuController($scope, $controller, config) {
+        var vm = this;
+
+        vm.version = config.version;
 
         var loginViewModel = $scope.$new();
-
-        $controller('Login', {$scope : loginViewModel});
+        $controller('LoginController', {$scope : loginViewModel});
 
         $scope.login = function () {
             loginViewModel.login();
