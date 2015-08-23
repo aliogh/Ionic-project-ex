@@ -2,7 +2,9 @@
     'use strict';
 
     angular
-        .module('app.mocks', [
+        .module('app', [
+            'app.core',
+            'mocks.playlists',
             'ngMockE2E'
         ])
         .run(function($httpBackend) {

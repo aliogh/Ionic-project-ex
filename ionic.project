@@ -3,7 +3,8 @@
   "app_id": "74515624",
   "gulpStartupTasks": [
     "watch",
-    "--build=false"
+    "--build=false",
+    "--mocks"
   ],
   "browsers": [
     {

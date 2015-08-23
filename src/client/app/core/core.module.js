@@ -3,6 +3,11 @@
 
     angular
         .module('app.core', [
+            'app.browse',
+            'app.login',
+            'app.menu',
+            'app.playlists',
+            'app.search',
             'ionic',
             'blocks.exception', 'blocks.logger', 'blocks.router'
         ])

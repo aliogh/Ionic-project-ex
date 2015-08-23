@@ -2,8 +2,9 @@
     'use strict';
 
     angular
-        .module('app.mocks')
+        .module('mocks.playlists', [])
         .run(function($httpBackend) {
+
             var playlists = [
               {title: 'Reggae', id: 1},
               {title: 'Chill', id: 2},

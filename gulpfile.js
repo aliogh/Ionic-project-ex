@@ -134,7 +134,7 @@
         log('Wiring the js app dependencies into the html');
 
         // Only include stubs if flag is enabled
-        var js = args.stubs ? [].concat(config.js, config.stubsjs) : config.js;
+        var js = args.mocks ? [].concat(config.js, config.mocksjs) : config.js;
 
         return gulp
             .src(config.index)
@@ -218,8 +218,6 @@
 
     /**
      * Run specs once and exit
-     * To start servers and run midway specs as well:
-     *    gulp test --startServers
      * @return {Stream}
      */
     gulp.task('test', ['vet', 'build-templatecache'], function(done) {
@@ -229,8 +227,6 @@
     /**
      * Run specs and wait.
      * Watch for file changes and re-run tests on each change
-     * To start servers and run midway specs as well:
-     *    gulp autotest --startServers
      */
     gulp.task('autotest', ['build-templatecache'], function(done) {
         // Si se modifica, crea o borran templates se genera de nuevo la cache de templates
@@ -247,7 +243,8 @@
             config.css + '**/*',
             config.img + '**/*',
             config.bower.directory + '**/*',
-            config.cache + '**/',
+            config.cache + '**/*',
+            config.mocks + '**/*',
             config.index
         );
 
@@ -297,7 +294,8 @@
         $.watch('src/client/app/**/*.html', {events: ['add', 'change', 'unlink', 'unlinkDir']}, templateCache);
 
         // Si se modifican, crean o borran js se realiza de nuevo la inyección en index.html
-        $.watch('src/client/app/**/*.js', {events: ['add', 'change', 'unlink', 'unlinkDir']}, injectJsAppDep);
+        var source = [].concat('src/client/app/**/*.js', 'src/client/mocks/**/*.js');
+        $.watch(source, {events: ['add', 'change', 'unlink', 'unlinkDir']}, injectJsAppDep);
 
         // Se observan todos los ficheros de src/client y se copian a la carpeta build aquellos que
         // son modificados o añadidos para mantenerla sincronizada

@@ -5,6 +5,7 @@
  *  This polyfill is copied directly from MDN
  *  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind#Compatibility
  */
+ 'use strict';
 if (!Function.prototype.bind) {
     /*jshint freeze: false */
     Function.prototype.bind = function (oThis) {

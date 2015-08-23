@@ -22,13 +22,13 @@
     <script src="lib/ionic/js/ionic.js"></script>
     <script src="lib/ionic/js/ionic-angular.js"></script>
     <script src="lib/moment/moment.js"></script>
-    <script src="lib/angular-mocks/angular-mocks.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js js/app.js -->
     <!-- inject:js -->
     <script src="app/app.module.js"></script>
+    <script src="mocks/app.mocks.module.js"></script>
     <script src="app/blocks/exception/exception.module.js"></script>
     <script src="app/blocks/logger/logger.module.js"></script>
     <script src="app/blocks/router/router.module.js"></script>
@@ -38,7 +38,7 @@
     <script src="app/features/playlists/playlists.module.js"></script>
     <script src="app/features/search/search.module.js"></script>
     <script src="app/layout/menu.module.js"></script>
-    <script src="app/mocks/mocks.module.js"></script>
+    <script src="lib/angular-mocks/angular-mocks.js"></script>
     <script src="app/blocks/exception/exception-handler.provider.js"></script>
     <script src="app/blocks/exception/exception.js"></script>
     <script src="app/blocks/logger/logger.js"></script>
@@ -56,7 +56,7 @@
     <script src="app/features/search/search.route.js"></script>
     <script src="app/layout/menu.controller.js"></script>
     <script src="app/layout/menu.route.js"></script>
-    <script src="app/mocks/playlists.mock.js"></script>
+    <script src="mocks/playlists.mock.js"></script>
     <!-- endinject -->
 
     <!-- inject:templates:js -->

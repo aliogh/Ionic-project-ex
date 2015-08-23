@@ -112,7 +112,7 @@ Atom es un editor altamente hackable y libre (gratis), lo que lo convierte en un
 
 ## Uso habitual
 Para desarrollar se recomienda visualizar la aplicación en un navegador o emulador iOS/Android:
-1. Ejecutar en una ventana de comandos `gulp build` para construir la aplicación en el directorio www y tener una versión sincronizada con los fuentes de src/client.
+1. Ejecutar en una ventana de comandos `gulp build --mocks` para construir la aplicación en el directorio www, incluyendo los mocks de la carpeta src/client/mocks, y tener una versión sincronizada con los fuentes de src/client.
 2. A continuación ejecutar el siguiente comando en función de donde se quiere visualizar la aplicación:
   - Navegador: `ionic serve`.
   - Emulador: `ionic emulate --livereload <PLATFORM>`
@@ -120,7 +120,7 @@ Para desarrollar se recomienda visualizar la aplicación en un navegador o emula
 
 Donde `<PLATFORM>` puede ser `ios` o `android` (o no especificar ningún valor y utilizar el de por defecto).
 
-Tanto en el navegador como el emulador iOS/Android, en backgroud se ejecuta un watch sobre el directorio src/client de forma que los cambios que se realicen en los fuentes de la aplicación se sincronizan en la carpeta www y se actualizan de forma automática en el navegador, emulador o dispositivo.
+Tanto en el navegador como el emulador iOS/Android, en backgroud se ejecuta un watch sobre el directorio src/client de forma que los cambios que se realicen en los fuentes de la aplicación se sincronizan en la carpeta www y se actualizan de forma automática en el navegador, emulador o dispositivo. El watch incluye la opcion `--mocks` por que aunque no se haya construido con mocks si se realiza alguna modificación se hace rebuild incluyendo los mocks. Si se desea desarrollar sin mocks eliminar dicha opcion en el fichero ionic.project.
 
 La visualización en un navegador sólo es de utilidad si no se necesita la ejecución de plugins de Apache Cordova, en caso contrario es necesario la visualización en un emulador o dispositivo real.
 
@@ -138,7 +138,7 @@ test     | Ejecuta las pruebas unitarias de la aplicación. Los informes junit y
 autotest | Ejecuta de forma continua las pruebas unitarias de  la aplicación para realizar TDD
 e2e      | Ejecuta las pruebas end to end. Previamente se tiene que tener la aplicacion publicada para ser ejecutada desde un navegador: `gulp build` `ionic serve`
 jscs     | Ejecuta jscs en modo fix para resolver los errores de formato del código de la aplicación de forma automática
-build    | Analiza el código, ejecuta los test, compila Sass, genera templates de AngularJS, inyecta dependencias de bower, ficheros JavaScript y css en index.html, y copia el código de la aplicación en el directorio www
+build    | Analiza el código, ejecuta los test, compila Sass, genera templates de AngularJS, inyecta dependencias de bower, ficheros JavaScript y css en index.html, y copia el código de la aplicación en el directorio www. Si se ejecuta con la opción `--mocks` se incluyen los mocks de la carpeta /src/client/mocks
 watch    | Construye el proyecto y queda a la espera de cambios para realizar re-build
 package  | Analiza el código, ejecuta los test, optimiza la aplicacion (minimiza css, inyecta dependencias explicitas de AngularJS, concatena JavaScript de la aplicación, minimiza JavaScript de aplicación y terceros, optimiza imagenes, incluye hash en el nombre de ficheros JavaScript), y copia la versión optimizada de la aplicación en el directorio www
 clean    | Borra los directorios reports y www
@@ -164,7 +164,7 @@ Directorio/Fichero | Descripción
 /src/test/e2e      | Pruebas end to end
 /src/test/helpers  | Ficheros de ayuda para la ejecución de la pruebas
 /src/index.html    | Fichero index de la App
-/src/server        | Servidor para publicar los servicios mocks utilizados por la App
+/src/mocks         | Módulo que incluye mocks de servicios para pruebas E2E
 /www               | Directorio build de la App. Utilizado por Apache Cordova como código Web
 .bowerrc           | Especifica el directorio donde se graban las depedencias de la aplicación manegadas con Bower
 .gitignore         | Ficheros y directoris ignorados por git y no versionados en el repositorio
@@ -204,9 +204,6 @@ Este directorio incluye los servicios (reglas comunes de negocio, datos, etc.) u
 
 ### Widgets
 El módulo widget incluye directivas y filtros comunes.
-
-### Mocks
-Módulo que incluye mocks de servicios para pruebas E2E.
 
 # Pendiente
 - Integración con Jenkins/Sonar para automatización de construcción, informes de calidad y pruebas unitarias y publicación en dispositivos reales

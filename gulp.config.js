@@ -23,7 +23,9 @@ module.exports = function() {
         // all javascript that we want to vet
         alljs: [
             './src/client/app/**/*.js',
-            './*.js'
+            './src/client/test/**/*.js',
+            './src/client/mocks/**/*.js',
+            './*.js',
         ],
         build: './www/',
         client: client,
@@ -34,15 +36,17 @@ module.exports = function() {
         html: client + '**/*.html',
         htmltemplates: clientApp + '**/*.html',
         img: client + 'img/',
+        mocks: client + 'mocks/',
         index: client + 'index.html',
         // app js, with no specs
         js: [
             clientApp + '**/*.module.js',
             clientApp + '**/*.js',
-            '!' + clientApp + '**/*.spec.js'
+            '!' + clientApp + '**/*.spec.js',
         ],
         jsOrder: [
             '**/app.module.js',
+            '**/app.mocks.module.js',
             '**/*.module.js',
             '**/*.js'
         ],
@@ -52,9 +56,9 @@ module.exports = function() {
         root: root,
         server: server,
         source: 'src/',
-        stubsjs: [
+        mocksjs: [
             bower.directory + 'angular-mocks/angular-mocks.js',
-            client + 'stubs/**/*.js'
+            client + 'mocks/**/*.js'
         ],
         temp: temp,
 
