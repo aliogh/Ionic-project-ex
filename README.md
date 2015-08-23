@@ -205,6 +205,8 @@ Este directorio incluye los servicios (reglas comunes de negocio, datos, etc.) u
 ### Widgets
 El módulo widget incluye directivas y filtros comunes.
 
+### Mocks
+Módulo que incluye mocks de servicios para pruebas E2E.
+
 # Pendiente
-- Incluir proyecto de servidor (src/server) para publicar mocks de servicios REST
 - Integración con Jenkins/Sonar para automatización de construcción, informes de calidad y pruebas unitarias y publicación en dispositivos reales
