@@ -22,6 +22,5 @@
         routerHelperProvider.configure({docTitle: config.appTitle + ': '});
 
         $httpProvider.interceptors.push('myHttpInterceptor');
-
     }
 })();
