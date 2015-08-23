@@ -114,24 +114,36 @@
      * Wire-up the bower dependencies
      * @return {Stream}
      */
-    var injectWiredep = function () {
+    gulp.task('inject-wiredep', function () {
         log('Wiring the bower dependencies into the html');
 
         var wiredep = require('wiredep').stream;
         var options = config.getWiredepDefaultOptions();
+
+        return gulp
+            .src(config.index)
+            .pipe(wiredep(options))
+            .pipe(gulp.dest(config.client));
+    });
+
+    /**
+     * Wire-up the js app dependencies
+     * @return {Stream}
+     */
+    var injectJsAppDep = function () {
+        log('Wiring the js app dependencies into the html');
 
         // Only include stubs if flag is enabled
         var js = args.stubs ? [].concat(config.js, config.stubsjs) : config.js;
 
         return gulp
             .src(config.index)
-            .pipe(wiredep(options))
             .pipe(inject(js, '', config.jsOrder))
             .pipe(gulp.dest(config.client));
     };
-    gulp.task('inject-wiredep', injectWiredep);
+    gulp.task('inject-jsAppDep', injectJsAppDep);
 
-    gulp.task('build-inject', ['inject-wiredep', 'build-styles', 'build-templatecache'], function() {
+    gulp.task('build-inject', ['inject-wiredep', 'inject-jsAppDep', 'build-styles', 'build-templatecache'], function() {
         log('Wire up css into the html, after files are ready');
 
         return gulp
@@ -285,7 +297,7 @@
         $.watch('src/client/app/**/*.html', {events: ['add', 'change', 'unlink', 'unlinkDir']}, templateCache);
 
         // Si se modifican, crean o borran js se realiza de nuevo la inyección en index.html
-        $.watch('src/client/app/**/*.js', {events: ['add', 'change', 'unlink', 'unlinkDir']}, injectWiredep);
+        $.watch('src/client/app/**/*.js', {events: ['add', 'change', 'unlink', 'unlinkDir']}, injectJsAppDep);
 
         // Se observan todos los ficheros de src/client y se copian a la carpeta build aquellos que
         // son modificados o añadidos para mantenerla sincronizada
