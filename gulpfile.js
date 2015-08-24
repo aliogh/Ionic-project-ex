@@ -1,3 +1,4 @@
+/* jshint -W071 */
 'use strict';
 (function() {
 
@@ -81,7 +82,7 @@
      * Compress images
      * @return {Stream}
      */
-    gulp.task('build-images', function() {
+    gulp.task('package-images', function() {
         log('Compressing and copying images');
 
         return gulp
@@ -153,6 +154,22 @@
     });
 
     /**
+     * Comprime el paquete de la aplicación en dist
+     */
+    gulp.task('dist', ['package'], function() {
+        var packagePaths = [].concat(
+            config.build + '/**/*',
+            './config.xml',
+            './plugins/**/*',
+            './hooks/**/*'
+        );
+
+        gulp.src(packagePaths, {base: './'})
+            .pipe($.zip('app-ionic.zip'))
+            .pipe(gulp.dest(config.dist));
+    });
+
+    /**
      * Build everything
      * This is separate so we can run tests on
      * optimize before handling image or fonts
@@ -160,8 +177,8 @@
     gulp.task('package', ['package-optimize'], function() {
         log('Packaging everything');
 
-        gulp.src(config.fonts + '**/*', {base: './src/client'})
-            .pipe(gulp.dest(config.build));
+        gulp.start('package-fonts');
+        gulp.start('package-images');
 
         var msg = {
             title: 'gulp package',
@@ -173,11 +190,20 @@
     });
 
     /**
+     * Copia imagenes al directorio de empaquetado
+     */
+    gulp.task('package-fonts', function() {
+        log('Packaging fonts');
+        gulp.src(config.fonts + '**/*', {base: './src/client'})
+            .pipe(gulp.dest(config.build));
+    });
+
+    /**
      * Optimize all files, move to a build folder,
      * and inject them into the new index.html
      * @return {Stream}
      */
-    gulp.task('package-optimize', ['clean', 'build-inject', 'build-fonts', 'build-images', 'test'], function() {
+    gulp.task('package-optimize', ['clean', 'build-inject', 'build-fonts', 'test'], function() {
         log('Optimizing the js, css, and html');
 
         var assets = $.useref.assets({searchPath: './src/client'});
@@ -319,7 +345,7 @@
      * @param  {Function} done - callback when complete
      */
     gulp.task('clean', function(done) {
-        var delconfig = [].concat(config.build + '**/*', config.report);
+        var delconfig = [].concat(config.build + '**/*', config.dist, config.report);
         log('Cleaning: ' + $.util.colors.blue(delconfig));
         del(delconfig, done);
     });

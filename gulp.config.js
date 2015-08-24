@@ -28,6 +28,7 @@ module.exports = function() {
             './*.js',
         ],
         build: './www/',
+        dist: './dist/',
         client: client,
         app: clientApp,
         css: client + 'css/',
