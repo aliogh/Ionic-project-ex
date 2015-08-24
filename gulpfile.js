@@ -18,6 +18,7 @@
     var vinylPaths = require('vinyl-paths');
     var del = require('del');
     var $ = require('gulp-load-plugins')({lazy: true});
+    var gulpsync = require('gulp-sync')(gulp);
 
     /**
      * List the available gulp tasks
@@ -174,11 +175,8 @@
      * This is separate so we can run tests on
      * optimize before handling image or fonts
      */
-    gulp.task('package', ['package-optimize'], function() {
+    gulp.task('package', gulpsync.sync(['package-optimize', 'package-fonts', 'package-images']), function() {
         log('Packaging everything');
-
-        gulp.start('package-fonts');
-        gulp.start('package-images');
 
         var msg = {
             title: 'gulp package',
@@ -194,7 +192,7 @@
      */
     gulp.task('package-fonts', function() {
         log('Packaging fonts');
-        gulp.src(config.fonts + '**/*', {base: './src/client'})
+        return gulp.src(config.fonts + '**/*', {base: './src/client'})
             .pipe(gulp.dest(config.build));
     });
 
