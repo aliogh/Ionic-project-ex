@@ -19,6 +19,8 @@ Proyecto semilla (seed) para **App moviles híbridas UI-Web** que parte de la ba
 - Generación de reportes de pruebas unitarias y cobertura
 - Generación de reportes de calidad de código con [plato](https://github.com/es-analysis/plato)
 - Revision de código con [jscs](http://jscs.info/) y [jshint](http://jshint.com/)
+- Automatización de pruebas funcionales E2E
+- Mocks de servicios con ngMockE2E
 
 # Guías de diseño
 El proyecto sigue los patrones de diseño de John Papa: [Angular Style Guide](https://github.com/johnpapa/angular-styleguide)
