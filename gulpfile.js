@@ -17,6 +17,8 @@
     var glob = require('glob');
     var vinylPaths = require('vinyl-paths');
     var del = require('del');
+    var moment = require('moment');
+    var pgBuild = require('phonegap-build-api');
     var $ = require('gulp-load-plugins')({lazy: true});
     var gulpsync = require('gulp-sync')(gulp);
 
@@ -155,9 +157,14 @@
     });
 
     /**
+     * Empaqueta, comprime y sube a PhoneGap Build
+     */
+    gulp.task('dist', gulpsync.sync(['package', 'dist-zip', 'dist-upload']));
+
+    /**
      * Comprime el paquete de la aplicación en dist
      */
-    gulp.task('dist', ['package'], function() {
+    gulp.task('dist-zip', function() {
         var packagePaths = [].concat(
             config.build + '/**/*',
             './config.xml',
@@ -165,9 +172,40 @@
             './hooks/**/*'
         );
 
-        gulp.src(packagePaths, {base: './'})
-            .pipe($.zip('app-ionic.zip'))
+        var env = config.ensure.environment(args.env, args.debugmode);
+        var timestamp = moment().format('YYYYMMDDhhmmss');
+        var archiveName = config.cordova[env].appNamespace + '_' + timestamp + '.zip';
+
+        return gulp.src(packagePaths, {base: './'})
+            .pipe($.zip(archiveName))
             .pipe(gulp.dest(config.dist));
+    });
+
+    gulp.task('dist-upload', function (done) {
+        var endpoint = '/apps/' + config.phoneGap.appId;
+
+        var env = config.ensure.environment(args.env, args.debugmode);
+
+        pgBuild.auth({token: config.phoneGap.authToken}, function (e, api) {
+            gulp.src(config.dist + '*.zip').pipe($.tap(function (file, t) {
+                var options = {
+                    form: {
+                        data: {
+                            debug: config.phoneGap.debug[env],
+                            keys: config.phoneGap.keys[env]
+                        },
+                        file: file.path
+                    }
+                };
+                api.put(endpoint, options, function() {
+                    api.post(endpoint + '/build', function() {
+                        console.log('build phoneGap done');
+                        done();
+                    });
+                });
+                return t;
+            }));
+        });
     });
 
     /**
@@ -411,21 +449,7 @@
     function startTests(singleRun, done) {
         var child;
         var excludeFiles = [];
-        var fork = require('child_process').fork;
         var karma = require('karma').server;
-        var serverSpecs = config.serverIntegrationSpecs;
-
-        if (args.startServers) {
-            log('Starting servers');
-            var savedEnv = process.env;
-            savedEnv.NODE_ENV = 'dev';
-            savedEnv.PORT = 8888;
-            child = fork(config.nodeServer);
-        } else {
-            if (serverSpecs && serverSpecs.length) {
-                excludeFiles = serverSpecs;
-            }
-        }
 
         var configKarma = {
             configFile: __dirname + '/karma.conf.js',
