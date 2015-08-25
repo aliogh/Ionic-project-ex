@@ -180,6 +180,17 @@ module.exports = function() {
         }
     };
 
+    config.extension = function (platform) {
+        var extension = '.zip';
+        if (platform === 'android') {
+            extension = '.apk';
+        }
+        else if (platform === 'ios') {
+            extension = '.ipa';
+        }
+        return extension;
+    };
+
     /**
      * wiredep and bower settings
      */

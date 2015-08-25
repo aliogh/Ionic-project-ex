@@ -19,6 +19,7 @@
     var del = require('del');
     var moment = require('moment');
     var pgBuild = require('phonegap-build-api');
+    var fs = require('fs');
     var $ = require('gulp-load-plugins')({lazy: true});
     var gulpsync = require('gulp-sync')(gulp);
 
@@ -183,9 +184,8 @@
 
     gulp.task('dist-upload', function (done) {
         var endpoint = '/apps/' + config.phoneGap.appId;
-
         var env = config.ensure.environment(args.env, args.debugmode);
-
+        var platform = 'android';
         pgBuild.auth({token: config.phoneGap.authToken}, function (e, api) {
             gulp.src(config.dist + '*.zip').pipe($.tap(function (file, t) {
                 var options = {
@@ -198,9 +198,24 @@
                     }
                 };
                 api.put(endpoint, options, function() {
+                    console.log('upload to PhoneGap Build done');
                     api.post(endpoint + '/build', function() {
-                        console.log('build phoneGap done');
-                        done();
+                        console.log('build at PhoneGap Build done');
+                        var download = setInterval(function() {
+                            api.get(endpoint, function (ee, data) {
+                                var status = !ee && data ? data.status[platform] : null;
+                                if (status === 'complete') {
+                                    var filePath = config.dist + data.package + '.' +
+                                        data.version + config.extension(platform);
+                                    api.get(endpoint + '/' + platform).pipe(fs.createWriteStream(filePath));
+                                    clearInterval(download);
+                                    done();
+                                }
+                                else {
+                                    console.log('Cannnot download application[' + platform + ']: ' + status);
+                                }
+                            });
+                        }, 5000);
                     });
                 });
                 return t;
