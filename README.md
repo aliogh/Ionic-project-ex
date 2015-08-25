@@ -78,7 +78,7 @@ npm install
 Una vez se tiene el proyecto inicializado se puede construir y ejecutar en un navegador:
 
 ```
-gulp build
+gulp build --mocks
 ionic serve
 ```
 
