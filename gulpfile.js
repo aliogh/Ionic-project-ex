@@ -312,7 +312,7 @@
         startTests(false /*singleRun*/ , done);
     });
 
-    gulp.task('build', ['clean', 'build-inject', 'build-fonts', 'test'], function() {
+    gulp.task('build', ['clean', 'build-inject', 'build-fonts'], function() {
         log('Building everything');
 
         var buildPaths = [].concat(

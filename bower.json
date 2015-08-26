@@ -9,7 +9,7 @@
       "tests"
   ],
   "dependencies": {
-      "ionic": "driftyco/ionic-bower#1.0.1",
+      "ionic": "driftyco/ionic-bower#1.1.0",
       "moment": "~2.10.3"
   },
   "devDependencies": {
