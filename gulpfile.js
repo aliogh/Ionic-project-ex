@@ -20,6 +20,7 @@
     var moment = require('moment');
     var pgBuild = require('phonegap-build-api');
     var fs = require('fs');
+    var request = require('request');
     var $ = require('gulp-load-plugins')({lazy: true});
     var gulpsync = require('gulp-sync')(gulp);
 
@@ -207,9 +208,30 @@
                                 if (status === 'complete') {
                                     var filePath = config.dist + data.package + '.' +
                                         data.version + config.extension(platform);
-                                    api.get(endpoint + '/' + platform).pipe(fs.createWriteStream(filePath));
+                                    var write = api.get(endpoint + '/' + platform).pipe(fs.createWriteStream(filePath));
                                     clearInterval(download);
-                                    done();
+                                    write.on('finish', function () {
+                                        var form = {
+                                            // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+                                            'api_key': '6a5929b229bb38a371c54f079e2fb529d6846d22',
+                                            'file': fs.createReadStream(filePath),
+                                            'video': 'wifi',
+                                            'auto-update': 'on'
+                                            // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+                                        };
+
+                                        endpoint = 'https://app.testfairy.com/api/upload/';
+                                        request.post(
+                                            {
+                                                url: endpoint,
+                                                formData: form
+                                            },
+                                            function (err, httpResponse, body) {
+                                                //requestCallBack(err, httpResponse, body);
+                                                console.log('testfairy response:' + httpResponse + body);
+                                                done();
+                                            });
+                                    });
                                 }
                                 else {
                                     console.log('Cannnot download application[' + platform + ']: ' + status);
