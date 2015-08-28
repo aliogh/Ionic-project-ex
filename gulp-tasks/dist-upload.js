@@ -1,3 +1,6 @@
+/**
+ * Upload ipa/apk to Testfairy
+ */
 module.exports = function (gulp, plugins, config, args) {
     'use strict';
 

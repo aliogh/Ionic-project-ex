@@ -1,3 +1,6 @@
+/**
+* Compile sass to css
+*/
 module.exports = function (gulp, plugins, config) {
     'use strict';
 

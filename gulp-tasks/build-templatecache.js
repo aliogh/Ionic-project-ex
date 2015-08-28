@@ -1,3 +1,6 @@
+/**
+ * Create pluginstemplateCache from the html templates
+ */
 module.exports = function (gulp, plugins, config, args) {
     'use strict';
 

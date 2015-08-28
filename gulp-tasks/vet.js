@@ -1,3 +1,6 @@
+/**
+ * vet the code and create coverage report
+ */
 module.exports = function (gulp, plugins, config, args) {
     'use strict';
 

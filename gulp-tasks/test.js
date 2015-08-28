@@ -1,3 +1,6 @@
+/**
+ * Run specs once and exit
+ */
 module.exports = function (gulp, plugins, config, args) {
     'use strict';
 

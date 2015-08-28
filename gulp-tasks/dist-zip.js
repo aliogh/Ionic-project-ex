@@ -1,3 +1,6 @@
+/**
+ * Comprime el paquete de la aplicación en dist
+ */
 module.exports = function (gulp, plugins, config, args) {
     'use strict';
 

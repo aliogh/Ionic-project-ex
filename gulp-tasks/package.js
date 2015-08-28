@@ -1,3 +1,6 @@
+/**
+ * Optimized build
+ */
 module.exports = function () {
     'use strict';
 

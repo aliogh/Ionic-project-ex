@@ -1,3 +1,6 @@
+/**
+ * Lanza las pruebas e2e (es necesario que esté publicada la aplicación)
+ */
 module.exports = function (gulp) {
     'use strict';
 

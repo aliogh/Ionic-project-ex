@@ -1,3 +1,6 @@
+/**
+ * Create a visualizer report
+ */
 module.exports = function (gulp, plugins, config, args) {
     'use strict';
 

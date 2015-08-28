@@ -1,3 +1,7 @@
+/**
+ * Run specs and wait.
+ * Watch for file changes and re-run tests on each change
+ */
 module.exports = function (gulp, plugins, config, args) {
     'use strict';
 

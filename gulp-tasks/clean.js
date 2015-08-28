@@ -1,3 +1,6 @@
+/**
+ * Remove all files from the build, reports and dist folders
+ */
 module.exports = function (gulp, plugins, config) {
     'use strict';
 

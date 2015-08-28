@@ -1,3 +1,6 @@
+/**
+ * Copia imagenes al directorio de empaquetado
+ */
 module.exports = function (gulp, plugins, config) {
     'use strict';
 

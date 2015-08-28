@@ -139,7 +139,7 @@ plato    | Genera el informe de calidad de código JavScript de la aplicación e
 test     | Ejecuta las pruebas unitarias de la aplicación. Los informes junit y de cobertura de guardan en el directorio /reports
 autotest | Ejecuta de forma continua las pruebas unitarias de  la aplicación para realizar TDD
 e2e      | Ejecuta las pruebas end to end. Previamente se tiene que tener la aplicacion publicada para ser ejecutada desde un navegador: `gulp build` `ionic serve`
-jscs     | Ejecuta jscs en modo fix para resolver los errores de formato del código de la aplicación de forma automática
+jscs-fix     | Ejecuta jscs en modo fix para resolver los errores de formato del código de la aplicación de forma automática
 build    | Analiza el código, ejecuta los test, compila Sass, genera templates de AngularJS, inyecta dependencias de bower, ficheros JavaScript y css en index.html, y copia el código de la aplicación en el directorio www. Si se ejecuta con la opción `--mocks` se incluyen los mocks de la carpeta /src/client/mocks
 watch    | Construye el proyecto y queda a la espera de cambios para realizar re-build
 package  | Analiza el código, ejecuta los test, optimiza la aplicacion (minimiza css, inyecta dependencias explicitas de AngularJS, concatena JavaScript de la aplicación, minimiza JavaScript de aplicación y terceros, optimiza imagenes, incluye hash en el nombre de ficheros JavaScript), y copia la versión optimizada de la aplicación en el directorio www

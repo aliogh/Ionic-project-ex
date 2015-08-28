@@ -1,3 +1,6 @@
+/**
+ * Optimize all files, move to a build folder, and inject them into the new index.html
+ */
 module.exports = function (gulp, plugins, config) {
     'use strict';
 

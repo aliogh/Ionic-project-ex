@@ -1,3 +1,6 @@
+/**
+ * Build everything in config.build directory
+ */
 module.exports = function (gulp, plugins, config) {
     'use strict';
 

@@ -1,3 +1,6 @@
+/**
+ * Wire-up the styles app dependencies
+ */
 module.exports = function (gulp, plugins, config) {
     'use strict';
 

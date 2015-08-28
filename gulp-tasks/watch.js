@@ -1,3 +1,6 @@
+/**
+ * Realiza un build y pasa a observar cambios para re-build
+ */
 module.exports = function (gulp, plugins, config, args) {
     'use strict';
 

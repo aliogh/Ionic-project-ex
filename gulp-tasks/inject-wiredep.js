@@ -1,3 +1,6 @@
+/**
+ * Wire-up the bower dependencies
+ */
 module.exports = function (gulp, plugins, config, args) {
     'use strict';
 
