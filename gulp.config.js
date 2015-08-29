@@ -119,7 +119,6 @@ module.exports = function() {
         ],
         specHelpers: [client + 'test/helper/*.js'],
         specs: [clientApp + '**/*.spec.js'],
-        serverIntegrationSpecs: [client + '/tests/server-integration/**/*.spec.js'],
 
         /**
          * Node settings
@@ -219,8 +218,7 @@ module.exports = function() {
                 config.specHelpers,
                 clientApp + '**/*.module.js',
                 clientApp + '**/*.js',
-                config.cache + config.templateCache.file,
-                config.serverIntegrationSpecs
+                config.cache + config.templateCache.file
             ),
             exclude: [],
             coverage: {

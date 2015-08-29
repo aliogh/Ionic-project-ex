@@ -5,6 +5,7 @@ module.exports = function (gulp, plugins, config) {
     'use strict';
 
     var log = require('./util/log');
+    var errorHandler = require('./util/error-handler');
 
     return function() {
         log('Compiling Sass --> CSS');
@@ -31,8 +32,8 @@ module.exports = function (gulp, plugins, config) {
 
         return gulp.src(config.sass)
             .pipe(plugins.inject(injectFiles, injectOptions))
-            .pipe(plugins.sass(sassOptions)).on('error', config.errorHandler('Sass'))
-            .pipe(plugins.autoprefixer()).on('error', config.errorHandler('Autoprefixer'))
+            .pipe(plugins.sass(sassOptions)).on('error', errorHandler('Sass'))
+            .pipe(plugins.autoprefixer()).on('error', errorHandler('Autoprefixer'))
             .pipe(gulp.dest(config.css));
     };
 };
