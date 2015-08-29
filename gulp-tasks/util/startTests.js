@@ -8,7 +8,7 @@ module.exports = function startTests(singleRun, debug, done) {
     'use strict';
     var child;
     var excludeFiles = [];
-    var karma = require('karma').server;
+    var Karma = require('karma').Server;
     var log = require('./log');
 
     var configKarma = {
@@ -16,14 +16,15 @@ module.exports = function startTests(singleRun, debug, done) {
             exclude: excludeFiles,
             singleRun: !!singleRun
         };
+
     if (!singleRun) {
         configKarma.reporters = ['progress'];
     }
-    console.log('debug: ' +  debug);
+
     if (debug) {
         configKarma.browsers = ['Chrome'];
     }
-    karma.start(configKarma, karmaCompleted);
+    new Karma(configKarma, karmaCompleted).start();
 
     ////////////////
 
