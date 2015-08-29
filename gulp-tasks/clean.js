@@ -8,7 +8,7 @@ module.exports = function (gulp, plugins, config) {
     var log = require('./util/log');
 
     return function(done) {
-        var delconfig = [].concat(config.build + '**/*', config.dist, config.report);
+        var delconfig = [].concat(config.build + '**/*', config.dist, config.report, './screenlog.*');
         log('Cleaning: ' + plugins.util.colors.blue(delconfig));
         del(delconfig, done);
     };

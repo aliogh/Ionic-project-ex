@@ -40,5 +40,5 @@
         .task('clean', getTask('clean'))
         .task('clean-fonts', getTask('clean-fonts'))
         .task('clean-styles', getTask('clean-styles'))
-        .task('e2e', getTask('e2e'));
+        .task('e2e', args.standalone ? ['package'] : null, getTask('e2e'));
 })();
