@@ -137,13 +137,14 @@ help     | Muestra el listado de tareas principales y secundarias
 vet      | Analiza el código JavaScript de la aplicación con jscss  y jshint
 plato    | Genera el informe de calidad de código JavScript de la aplicación en el directorio /reports
 test     | Ejecuta las pruebas unitarias de la aplicación. Los informes junit y de cobertura de guardan en el directorio /reports
-autotest | Ejecuta de forma continua las pruebas unitarias de  la aplicación para realizar TDD
-e2e      | Ejecuta las pruebas end to end. Previamente se tiene que tener la aplicacion publicada para ser ejecutada desde un navegador: `gulp build` `ionic serve`
+autotest | Ejecuta de forma continua las pruebas unitarias de  la aplicación para realizar TDD. Si se ejecuta con la opción `--debug` se abre un navegador Chrome para poder depurar la ejecución de las pruebas
+e2e      | Ejecuta las pruebas end to end. Previamente se tiene que tener la aplicacion publicada para ser ejecutada desde un navegador: `gulp build --mocks` y a continuación `ionic serve`. También se puede ejecutar en modo standalone y no es necesario construir ni servir con ionic en otra ventana de comandos: `gulp e2e --standalone --mocks`
 jscs-fix     | Ejecuta jscs en modo fix para resolver los errores de formato del código de la aplicación de forma automática
 build    | Analiza el código, ejecuta los test, compila Sass, genera templates de AngularJS, inyecta dependencias de bower, ficheros JavaScript y css en index.html, y copia el código de la aplicación en el directorio www. Si se ejecuta con la opción `--mocks` se incluyen los mocks de la carpeta /src/client/mocks
 watch    | Construye el proyecto y queda a la espera de cambios para realizar re-build
 package  | Analiza el código, ejecuta los test, optimiza la aplicacion (minimiza css, inyecta dependencias explicitas de AngularJS, concatena JavaScript de la aplicación, minimiza JavaScript de aplicación y terceros, optimiza imagenes, incluye hash en el nombre de ficheros JavaScript), y copia la versión optimizada de la aplicación en el directorio www
 clean    | Borra los directorios reports y www
+dist     | Realiza el empaquetado de la aplicación, incluyendo configuración de plataformas ios y android, y plugins de Apache Cordova. Sube el paquete a PhoneGap para generar/descargar los ficheros IPA y APK. Sube la actualización de la aplicación a TestFairy
 
 # Estructura del proyecto
 Resumen de directorios que contiene el proyecto:
@@ -206,6 +207,3 @@ Este directorio incluye los servicios (reglas comunes de negocio, datos, etc.) u
 
 ### Widgets
 El módulo widget incluye directivas y filtros comunes.
-
-# Pendiente
-- Integración con Jenkins/Sonar para automatización de construcción, informes de calidad y pruebas unitarias y publicación en dispositivos reales
