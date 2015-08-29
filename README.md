@@ -144,6 +144,7 @@ build    | Analiza el código, ejecuta los test, compila Sass, genera templates 
 watch    | Construye el proyecto y queda a la espera de cambios para realizar re-build
 package  | Analiza el código, ejecuta los test, optimiza la aplicacion (minimiza css, inyecta dependencias explicitas de AngularJS, concatena JavaScript de la aplicación, minimiza JavaScript de aplicación y terceros, optimiza imagenes, incluye hash en el nombre de ficheros JavaScript), y copia la versión optimizada de la aplicación en el directorio www
 clean    | Borra los directorios reports y www
+dist     | Realiza el empaquetado de la aplicación, incluyendo configuración de plataformas ios y android, y plugins de Apache Cordova. Sube el paquete a PhoneGap para generar/descargar los ficheros IPA y APK. Sube la actualización de la aplicación a TestFairy
 
 # Estructura del proyecto
 Resumen de directorios que contiene el proyecto:
