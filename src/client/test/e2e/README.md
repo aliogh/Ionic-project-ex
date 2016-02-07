@@ -252,7 +252,9 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
       "/^the "([^"]*)"(?: )?(checkbox|) (should|should not) be checked$/"
     ```
 
-    De esta manera se consigue reutilizar la logica de acceso a los elementos del DOM con el API de protractor/webdriver así como la lógica de validación de chai (libreria para realizar asserts).
+    De esta manera se consigue reutilizar la logica de acceso a los elementos del DOM con el API de protractor/webdriver así como la lógica de validación de chai (librería para realizar asserts).
+
+&nbsp;
 
 2. Si se necesitan más steps genéricos, basta con añadirlos al fichero GeneralStepDefs.js.
 
@@ -263,6 +265,8 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
     Reviasr los definidos en ```GeneralStepDefs.js``` a modo de guía.
     Revisar el [API de Cucumber.js](https://github.com/cucumber/cucumber-js) para conocer tanto los parametros de entrada como los posibles valores de retorno de las implentaciones de los steps.
     Revisar el [API de Protracto.js](http://angular.github.io/protractor/#/api).
+
+&nbsp;
 
 3. Crear los objetos de página con sufijo Page en formato CamelCase y extensión .js para implementar el patrón Page Object (por ejemplo, LoginPage.js), de forma que publiquen los elementos que encapsula la página, encapsulando sus selectores css/xpath. De esta forma si cambia el id, css o ubicación del elemento en la página, no impacta en los steps, en donde nunca hay valores de selectores y sólo llamadas a métodos de objetos de página.
 
@@ -297,12 +301,19 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
     ```
 
     Las clases que implementan el patrón Page Object tienen que implementar como mínimo:
-    &nbps;
+
+&nbps;
+
     1.- La propiedad 'class' que exporta tiene que coincidir con el nombre de la clase que se declara
+
     2.- La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
+
     3.- Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
+
     4.- Se debe de incluir al menos los métodos:
+
         1.- this.get: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
+
         2.- this.waitForLoaded: para indicar como esperar a que esté cargada la página
 
     Los elementos que se referencien en la página (para comprobar que están o tiene un texto determinado, para escibir valores, pulsar en enlaces, botones, etc.) deben declararse como atributos del objeto página y utilizar los selectores css/xpath de protractor/webdriver para **localizar** los elementos en la página.
@@ -327,10 +338,10 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
     }).call(this);
     ```
 
-    De forma que se pueda tener un backgroud, para features que necesiten autentificación en la aplicación, del tipo:
+    De forma que se pueda tener un background, para features que necesiten autentificación en la aplicación, del tipo:
 
     ```gherkin
-    Backgroud:
+    Background:
       Given I log on the application
 
     ```
