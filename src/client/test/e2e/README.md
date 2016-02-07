@@ -150,198 +150,192 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
 
 1.- Crear un fichero con extensión .feature en el raiz de ./features usando la sintaxis de Gherkin
 
-    Incluir la descripcion de la feature. En general pensar en que un usuario realiza algo para conseguir un resultado determinado, pudiento incluir un caso de uso principal y varios secundarios, lo que se describiran en el conjunto de escenario (de 1 a N) que conforma la feature.
+Incluir la descripcion de la feature. En general pensar en que un usuario realiza algo para conseguir un resultado determinado, pudiento incluir un caso de uso principal y varios secundarios, lo que se describiran en el conjunto de escenario (de 1 a N) que conforma la feature.
 
-    Por ejemplo, a continuación se muestra el detalle de una feature Login.
+Por ejemplo, a continuación se muestra el detalle de una feature Login.
 
-    ```gherkin
-    Feature: Login
-      From login page I can log in
-    ```
+```gherkin
+Feature: Login
+  From login page I can log in
+```
 
-    Despues de la sentencia ```Feature: <nombre de la feature>```, en la linea (o lineas) siguentes se incluye su descripción. En este caso solo es una sola linea, pero pueden ser varias si es necesario. De hecho se recomienda que tenga un detalle suficiente.
+Despues de la sentencia ```Feature: <nombre de la feature>```, en la linea (o lineas) siguentes se incluye su descripción. En este caso solo es una sola linea, pero pueden ser varias si es necesario. De hecho se recomienda que tenga un detalle suficiente.
 
-    A continuación se incluye el detalle de los escenarios que conforman la feature. El ejemplo anterior se puede complementar de la siguente forma. Recordar que al menos se debe de incluir un escenario.
+A continuación se incluye el detalle de los escenarios que conforman la feature. El ejemplo anterior se puede complementar de la siguente forma. Recordar que al menos se debe de incluir un escenario.
 
-    ```gherkin
-    Feature: Login
-      From login page I can log in
+```gherkin
+Feature: Login
+  From login page I can log in
 
-      Scenario: I do login
-        Given I am on the "Login" page
-        Then I type "gescobar" in the "username" field
-          And I type "Sanitas123" in the "password" field
-          And I click the "login" button
-        Then I am on the "Home" page
-    ```
+  Scenario: I do login
+    Given I am on the "Login" page
+    Then I type "gescobar" in the "username" field
+      And I type "Sanitas123" in the "password" field
+      And I click the "login" button
+    Then I am on the "Home" page
+```
 
-    La sintaxis de los steps de los escenarios no es arbitraria, y sigue las expresiones regulares  definidos en ```steps/GeneralStepDefs.js```, entre las que se dispone out-of-the-box (cortesia de [Cukefarm](https://github.com/ReadyTalk/cukefarm)):
+La sintaxis de los steps de los escenarios no es arbitraria, y sigue las expresiones regulares  definidos en ```steps/GeneralStepDefs.js```, entre las que se dispone out-of-the-box (cortesia de [Cukefarm](https://github.com/ReadyTalk/cukefarm)):
 
-    ```
-    Verificar que se va a una pagina concreta:
+```
+Verificar que se va a una pagina concreta:
 
-      "/^I (?:am on|go to) the "([^"]*)" page$/"
+  "/^I (?:am on|go to) the "([^"]*)" page$/"
 
-    Cambiar la resolución de la pantalla:
+Cambiar la resolución de la pantalla:
 
-      "/^I (?:have|change to|resize to|rotate to) a (\d+)x(\d+) screen size$/"
+  "/^I (?:have|change to|resize to|rotate to) a (\d+)x(\d+) screen size$/"
 
-    Navegar hacia atras en el navegador:
+Navegar hacia atras en el navegador:
 
-      "/^I (?:navigate|click) (?:backwards|back) in my browser$/"
+  "/^I (?:navigate|click) (?:backwards|back) in my browser$/"
 
-    Escribir un valor en un campo (input):
+Escribir un valor en un campo (input):
 
-      "/^I type "([^"]*)" in(?:to)? the "([^"]*)" field$/"
+  "/^I type "([^"]*)" in(?:to)? the "([^"]*)" field$/"
 
-    Hacer click en un link, botton, drop down list o tab:
+Hacer click en un link, botton, drop down list o tab:
 
-      "/^I click the "([^"]*)"(?: )?(link|button|drop down list|tab|)$/"
+  "/^I click the "([^"]*)"(?: )?(link|button|drop down list|tab|)$/"
 
-    Refrescar la página:
+Refrescar la página:
 
-      "/^I refresh the page$/"
+  "/^I refresh the page$/"
 
-    Selecionar un valor en un drop down list:
+Selecionar un valor en un drop down list:
 
-      "/^I select "([^"]*)" in the "([^"]*)" drop down list$/"
+  "/^I select "([^"]*)" in the "([^"]*)" drop down list$/"
 
-    Verificar que el titulo de la página es valor determiando:
+Verificar que el titulo de la página es valor determiando:
 
-      "/^the title should equal "([^"]*)$/"
+  "/^the title should equal "([^"]*)$/"
 
-    Verificar que U¡un campo determinado debe o no debe estar activo:
+Verificar que U¡un campo determinado debe o no debe estar activo:
 
-      "/^the "([^"]*)" (should|should not) be active$/"
+  "/^the "([^"]*)" (should|should not) be active$/"
 
-    Verificar que un campo determinado deberia estar presente en la página:
+Verificar que un campo determinado deberia estar presente en la página:
 
-      "/^the "([^"]*)" should be present$/"
+  "/^the "([^"]*)" should be present$/"
 
-    Verificar que se está en una pagina concreta:
+Verificar que se está en una pagina concreta:
 
-      "/^I (?:should be on|reach|am taken to) the "([^"]*)" page$/"
+  "/^I (?:should be on|reach|am taken to) the "([^"]*)" page$/"
 
-    Verificar que un campo determinado deberia tener/contener un texto determinado:
+Verificar que un campo determinado deberia tener/contener un texto determinado:
 
-      "/^(?:the )?"([^"]*)" should (?:have|contain) the text "([^"]*)"$/"
+  "/^(?:the )?"([^"]*)" should (?:have|contain) the text "([^"]*)"$/"
 
-    Verificar que un valor determinado deberia de aparecer un drop down list determinado:
+Verificar que un valor determinado deberia de aparecer un drop down list determinado:
 
-      "/^"([^"]*)" should appear in the "([^"]*)" drop down list$/"
+  "/^"([^"]*)" should appear in the "([^"]*)" drop down list$/"
 
-    Verificar que un campo derminado deberia ser visualizado en pantalla:
+Verificar que un campo derminado deberia ser visualizado en pantalla:
 
-      "/^the "([^"]*)" (should|should not) be displayed$/"
+  "/^the "([^"]*)" (should|should not) be displayed$/"
 
-    Verificar que un campo determinado deberia de contener un texto determinado:
+Verificar que un campo determinado deberia de contener un texto determinado:
 
-      "/^(?:the )?"([^"]*)" should (?:have|contain) the placeholder text "([^"]*)"$/"
+  "/^(?:the )?"([^"]*)" should (?:have|contain) the placeholder text "([^"]*)"$/"
 
-    Verificar que un botón, camop o drop down list determinado deberia o no deberia estar habilitado:
+Verificar que un botón, camop o drop down list determinado deberia o no deberia estar habilitado:
 
-      "/^the "([^"]*)"(?: )?(button|field|drop down list|) (should|should not) be enabled$/"
+  "/^the "([^"]*)"(?: )?(button|field|drop down list|) (should|should not) be enabled$/"
 
-    Verificar que un valor determinado deberia ser seleccinado en un drop down list determinado:
+Verificar que un valor determinado deberia ser seleccinado en un drop down list determinado:
 
-      "/^"([^"]*)" should be (?:selected|displayed) in the "([^"]*)" drop down list$/"
+  "/^"([^"]*)" should be (?:selected|displayed) in the "([^"]*)" drop down list$/"
 
-    Verificar que un checkbok determinado deberia estar o no marcado:
+Verificar que un checkbok determinado deberia estar o no marcado:
 
-      "/^the "([^"]*)"(?: )?(checkbox|) (should|should not) be checked$/"
-    ```
+  "/^the "([^"]*)"(?: )?(checkbox|) (should|should not) be checked$/"
+```
 
-    De esta manera se consigue reutilizar la logica de acceso a los elementos del DOM con el API de protractor/webdriver así como la lógica de validación de chai (librería para realizar asserts).
+De esta manera se consigue reutilizar la logica de acceso a los elementos del DOM con el API de protractor/webdriver así como la lógica de validación de chai (librería para realizar asserts).
 
 &nbsp;
 
 2.- Si se necesitan más steps genéricos, basta con añadirlos al fichero GeneralStepDefs.js.
 
-    En el caso de ser necesesario steps específicos para alguna feature concreta, siempre se pueden incluir en un fichero del tipo \<feature\>StepDefs.js (por ejemplo, para la feature Login: LoginStepDefs.js). Aunque en la mayoria de los casos se deberá de optar por usar los steps genéricos.
+En el caso de ser necesesario steps específicos para alguna feature concreta, siempre se pueden incluir en un fichero del tipo \<feature\>StepDefs.js (por ejemplo, para la feature Login: LoginStepDefs.js). Aunque en la mayoria de los casos se deberá de optar por usar los steps genéricos.
 
-    Para la creación de nuevos steps, tener en cuenta:
-    &nbps;
-    Reviasr los definidos en ```GeneralStepDefs.js``` a modo de guía.
-    Revisar el [API de Cucumber.js](https://github.com/cucumber/cucumber-js) para conocer tanto los parametros de entrada como los posibles valores de retorno de las implentaciones de los steps.
-    Revisar el [API de Protracto.js](http://angular.github.io/protractor/#/api).
+Para la creación de nuevos steps, tener en cuenta:
+- Revisar los definidos en ```GeneralStepDefs.js``` a modo de guía.
+- Revisar el [API de Cucumber.js](https://github.com/cucumber/cucumber-js) para conocer tanto los parametros de entrada como los posibles valores de retorno de las implentaciones de los steps.
+- Revisar el [API de Protracto.js](http://angular.github.io/protractor/#/api).
 
 &nbsp;
 
 3.- Crear los objetos de página con sufijo Page en formato CamelCase y extensión .js para implementar el patrón Page Object (por ejemplo, LoginPage.js), de forma que publiquen los elementos que encapsula la página, encapsulando sus selectores css/xpath. De esta forma si cambia el id, css o ubicación del elemento en la página, no impacta en los steps, en donde nunca hay valores de selectores y sólo llamadas a métodos de objetos de página.
 
-    **NOTA**: En esta estrategia de implementación del patrón Page Object, en vez de encapasular acciones que se puedan relalizar en la página, con mayor o menor granularidad (por ejemplo, de permitir rellenar un valor para el campo username, otro para el campo password y otro para pulsar el boton de logon, a directemante poder pasarle username y password a un método de logon), se opta por solo publicar los elementos de interación y utilizar steps genéricos para componer los escenearios de las features.
+**NOTA**: En esta estrategia de implementación del patrón Page Object, en vez de encapasular acciones que se puedan relalizar en la página, con mayor o menor granularidad (por ejemplo, de permitir rellenar un valor para el campo username, otro para el campo password y otro para pulsar el boton de logon, a directemante poder pasarle username y password a un método de logon), se opta por solo publicar los elementos de interación y utilizar steps genéricos para componer los escenearios de las features.
 
-    Esto hace que la composición de los escenarios siempre tenga una granularidad a nivel de interacción de elementos, pero reduce en gran medida el numero de steps a implementar, reutiilzandose en gran medida los genéricos, pues el numero de accciones sobre los elementos en general es reducido.
+Esto hace que la composición de los escenarios siempre tenga una granularidad a nivel de interacción de elementos, pero reduce en gran medida el numero de steps a implementar, reutiilzandose en gran medida los genéricos, pues el numero de accciones sobre los elementos en general es reducido.
 
-    Por ejemplo, siguiendo el ejemplo, el fichero LoginPage.js podría ser:
+Por ejemplo, siguiendo el ejemplo, el fichero LoginPage.js podría ser:
 
-    ```javascript
+```javascript
+'use strict';
+var LoginPage = function LoginPage() {
+
+    this.titleHeader = element.all(by.css('h1.title')).get(1);
+    this.usernameField = element(by.model('loginData.username'));
+    this.passwordField = element(by.model('loginData.password'));
+    this.loginButton = element(by.buttonText('Log in'));
+
+    this.get = function() {
+        return browser.get('#/app/login');
+    };
+
+    this.waitForLoaded = function() {
+        return _this.titleHeader.isPresent();
+    };
+};
+
+module.exports = {
+    'class': LoginPage,
+    name: 'Login'
+};
+```
+
+Las clases que implementan el patrón Page Object tienen que implementar como mínimo:
+
+- La propiedad 'class' que exporta tiene que coincidir con el nombre de la clase que se declara
+- La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
+- Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
+- Se debe de incluir al menos los métodos:
+    - ```this.get```: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
+    - ```this.waitForLoaded```: para indicar como esperar a que esté cargada la página
+
+Los elementos que se referencien en la página (para comprobar que están o tiene un texto determinado, para escibir valores, pulsar en enlaces, botones, etc.) deben declararse como atributos del objeto página y utilizar los selectores css/xpath de protractor/webdriver para **localizar** los elementos en la página.
+
+Algunos elementos, como por ejemplo enlaces, botones, etc., deben de declararse como un sufijo determinado (Button, Link, Tab, etc.). Para más detalles, se recomienda reviar el detalle de implementación del step en el fichero ```GeneralStepDefs```.
+
+**ACTUALIZACIÓN**: Se han llevado las funciones de ejecución de los steps genéricos de ```GeneralStepDefs.js``` al script ```BaseStepDefs.js``` en el subdirectorio support, de forma que se puedan agrupar steps *unitarios* en steps más *genéricos*. Por ejemplo, para el caso del login podriamos crear un step como este:
+
+```javascript
+(function() {
     'use strict';
-    var LoginPage = function LoginPage() {
+    module.exports = function() {
+        this.World = require('../support/World').World;
 
-        this.titleHeader = element.all(by.css('h1.title')).get(1);
-        this.usernameField = element(by.model('loginData.username'));
-        this.passwordField = element(by.model('loginData.password'));
-        this.loginButton = element(by.buttonText('Log in'));
+        this.Given(/^I log on the application$/, function() {
+            this.typeField('gescobar', 'username');
+            this.typeField('Sanitas123', 'password');
+            this.clickField('login', 'Button');
+        });
 
-        this.get = function() {
-            return browser.get('#/app/login');
-        };
-
-        this.waitForLoaded = function() {
-            return _this.titleHeader.isPresent();
-        };
     };
+}).call(this);
+```
 
-    module.exports = {
-        'class': LoginPage,
-        name: 'Login'
-    };
-    ```
+De forma que se pueda tener un background, para features que necesiten autentificación en la aplicación, del tipo:
 
-    Las clases que implementan el patrón Page Object tienen que implementar como mínimo:
+```gherkin
+Background:
+  Given I log on the application
 
-    - La propiedad 'class' que exporta tiene que coincidir con el nombre de la clase que se declara
-
-    - La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
-
-    - Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
-
-    - Se debe de incluir al menos los métodos:
-
-        - ```this.get```: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
-
-        - ```this.waitForLoaded```: para indicar como esperar a que esté cargada la página
-
-    Los elementos que se referencien en la página (para comprobar que están o tiene un texto determinado, para escibir valores, pulsar en enlaces, botones, etc.) deben declararse como atributos del objeto página y utilizar los selectores css/xpath de protractor/webdriver para **localizar** los elementos en la página.
-
-    Algunos elementos, como por ejemplo enlaces, botones, etc., deben de declararse como un sufijo determinado (Button, Link, Tab, etc.). Para más detalles, se recomienda reviar el detalle de implementación del step en el fichero ```GeneralStepDefs```.
-
-    **ACTUALIZACIÓN**: Se han llevado las funciones de ejecución de los steps genéricos de ```GeneralStepDefs.js``` al script ```BaseStepDefs.js``` en el subdirectorio support, de forma que se puedan agrupar steps *unitarios* en steps más *genéricos*. Por ejemplo, para el caso del login podriamos crear un step como este:
-
-    ```javascript
-    (function() {
-        'use strict';
-        module.exports = function() {
-            this.World = require('../support/World').World;
-
-            this.Given(/^I log on the application$/, function() {
-                this.typeField('gescobar', 'username');
-                this.typeField('Sanitas123', 'password');
-                this.clickField('login', 'Button');
-            });
-
-        };
-    }).call(this);
-    ```
-
-    De forma que se pueda tener un background, para features que necesiten autentificación en la aplicación, del tipo:
-
-    ```gherkin
-    Background:
-      Given I log on the application
-
-    ```
+```
 
 ## Localizacion de elementos
 
