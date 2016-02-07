@@ -5,7 +5,6 @@
 - [Desarrollo de pruebas](#desarrollo-de-pruebas)
 - [Ejecucion de pruebas](#ejecucion-de-pruebas)
 - [Reportes de pruebas](#reportes-de-pruebas)
-- [Ejecucion en paralelo](#ejecucion-en-paralelo)
 - [Preguntas frecuentes](#preguntas-frecuentes)
 - [Otros enlaces de interes](#otros-enlaces-de-interes)
 - [Todo](#todo)
@@ -302,19 +301,17 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
 
     Las clases que implementan el patrón Page Object tienen que implementar como mínimo:
 
-&nbps;
+    La propiedad 'class' que exporta tiene que coincidir con el nombre de la clase que se declara
 
-    1.- La propiedad 'class' que exporta tiene que coincidir con el nombre de la clase que se declara
+    La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
 
-    2.- La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
+    Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
 
-    3.- Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
+    Se debe de incluir al menos los métodos:
 
-    4.- Se debe de incluir al menos los métodos:
+        ```this.get```: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
 
-        1.- this.get: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
-
-        2.- this.waitForLoaded: para indicar como esperar a que esté cargada la página
+        ```this.waitForLoaded```: para indicar como esperar a que esté cargada la página
 
     Los elementos que se referencien en la página (para comprobar que están o tiene un texto determinado, para escibir valores, pulsar en enlaces, botones, etc.) deben declararse como atributos del objeto página y utilizar los selectores css/xpath de protractor/webdriver para **localizar** los elementos en la página.
 
