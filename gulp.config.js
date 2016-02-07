@@ -159,8 +159,11 @@ module.exports = function() {
         environment: function (env, debugmode) {
             if (debugmode) {return 'dev';}
 
-            if (env !== null && env !== undefined) {return env.toLowerCase();}
-            else {return 'dev';}
+            if (env !== null && env !== undefined) {
+                return env.toLowerCase();
+            } else {
+                return 'dev';
+            }
         },
         platform: function (platform) {
             if (platform !== undefined && platform !== null) {
@@ -168,13 +171,15 @@ module.exports = function() {
             } else {
                 throw 'a platform must be supplied with --platform=ios/android';
             }
+
             return platform;
         },
-        services : function(svc, env) {
+        services: function(svc, env) {
             var servicesEnvironment = env;
             if (svc) {
                 servicesEnvironment = svc.toLowerCase();
             }
+
             return servicesEnvironment;
         }
     };
@@ -183,10 +188,10 @@ module.exports = function() {
         var extension = '.zip';
         if (platform === 'android') {
             extension = '.apk';
-        }
-        else if (platform === 'ios') {
+        } else if (platform === 'ios') {
             extension = '.ipa';
         }
+
         return extension;
     };
 

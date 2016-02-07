@@ -17,7 +17,7 @@
                 config: {
                     url: '/playlists',
                     views: {
-                        'menuContent': {
+                        menuContent: {
                             templateUrl: 'app/features/playlists/playlists.html',
                             controller: 'PlaylistsController as vm'
                         }
@@ -29,7 +29,7 @@
                 config: {
                     url: '/playlists/:playlistId',
                     views: {
-                      'menuContent': {
+                      menuContent: {
                           templateUrl: 'app/features/playlists/playlist.html',
                           controller: 'PlaylistController as vm'
                       }

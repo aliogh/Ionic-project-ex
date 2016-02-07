@@ -68,6 +68,7 @@
                         if (handlingStateChangeError) {
                             return;
                         }
+
                         stateCounts.errors++;
                         handlingStateChangeError = true;
                         var destination = toState &&

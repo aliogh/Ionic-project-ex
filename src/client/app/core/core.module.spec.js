@@ -15,6 +15,7 @@ describe('Core Module:', function() {
       var hasModule = function(m) {
           return deps.indexOf(m) >= 0;
       };
+
       beforeEach(function() {
           deps = module.value('appName').requires;
       });

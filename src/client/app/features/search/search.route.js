@@ -17,7 +17,7 @@
                 config: {
                     url: '/search',
                     views: {
-                        'menuContent': {
+                        menuContent: {
                             templateUrl: 'app/features/search/search.html'
                         }
                     }

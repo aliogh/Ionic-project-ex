@@ -1,6 +1,6 @@
 'use strict';
 
-var BrowsePage = function BrowsePage() {
+var SearchPage = function SearchPage() {
 
     /* jshint -W126*/
     this.World = new (require('../support/World').World)();
@@ -15,6 +15,6 @@ var BrowsePage = function BrowsePage() {
 };
 
 module.exports = {
-    'class': BrowsePage,
-    name: 'Browse'
+    'class': SearchPage,
+    name: 'Search'
 };

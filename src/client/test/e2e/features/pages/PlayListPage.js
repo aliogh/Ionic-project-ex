@@ -1,11 +1,12 @@
 'use strict';
 
-var BrowsePage = function BrowsePage() {
+var PlayListPage = function PlayListPage() {
 
     /* jshint -W126*/
     this.World = new (require('../support/World').World)();
 
     this.titleHeader = element.all(by.css('.title.header-item')).filter(this.World.getVisibleElements).first();
+    this.detailPlayListTitle = element.all(by.css('ion-content')).filter(this.World.getVisibleElements).first().$('h1');
 
     var _this = this;
 
@@ -15,6 +16,6 @@ var BrowsePage = function BrowsePage() {
 };
 
 module.exports = {
-    'class': BrowsePage,
-    name: 'Browse'
+    'class': PlayListPage,
+    name: 'PlayList'
 };

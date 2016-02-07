@@ -17,7 +17,7 @@
                 config: {
                     url: '/browse',
                     views: {
-                        'menuContent': {
+                        menuContent: {
                             templateUrl: 'app/features/browse/browse.html'
                         }
                     }

@@ -11,7 +11,11 @@
         "$": false,
         "ionicIdentify": false,
         "cordova": false,
-        "StatusBar": false
+        "StatusBar": false,
+        "browser": false,
+        "protractor": false,
+        "by": false,
+        "element": false
     },
     "iterator": false,
     "latedef": "nofunc",
