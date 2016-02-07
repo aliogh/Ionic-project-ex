@@ -148,7 +148,7 @@ Se describen los elementos principales:
 
 A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 01-login.feature.
 
-1. Crear un fichero con extensión .feature en el raiz de ./features usando la sintaxis de Gherkin
+1.- Crear un fichero con extensión .feature en el raiz de ./features usando la sintaxis de Gherkin
 
     Incluir la descripcion de la feature. En general pensar en que un usuario realiza algo para conseguir un resultado determinado, pudiento incluir un caso de uso principal y varios secundarios, lo que se describiran en el conjunto de escenario (de 1 a N) que conforma la feature.
 
@@ -255,7 +255,7 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
 
 &nbsp;
 
-2. Si se necesitan más steps genéricos, basta con añadirlos al fichero GeneralStepDefs.js.
+2.- Si se necesitan más steps genéricos, basta con añadirlos al fichero GeneralStepDefs.js.
 
     En el caso de ser necesesario steps específicos para alguna feature concreta, siempre se pueden incluir en un fichero del tipo \<feature\>StepDefs.js (por ejemplo, para la feature Login: LoginStepDefs.js). Aunque en la mayoria de los casos se deberá de optar por usar los steps genéricos.
 
@@ -267,7 +267,7 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
 
 &nbsp;
 
-3. Crear los objetos de página con sufijo Page en formato CamelCase y extensión .js para implementar el patrón Page Object (por ejemplo, LoginPage.js), de forma que publiquen los elementos que encapsula la página, encapsulando sus selectores css/xpath. De esta forma si cambia el id, css o ubicación del elemento en la página, no impacta en los steps, en donde nunca hay valores de selectores y sólo llamadas a métodos de objetos de página.
+3.- Crear los objetos de página con sufijo Page en formato CamelCase y extensión .js para implementar el patrón Page Object (por ejemplo, LoginPage.js), de forma que publiquen los elementos que encapsula la página, encapsulando sus selectores css/xpath. De esta forma si cambia el id, css o ubicación del elemento en la página, no impacta en los steps, en donde nunca hay valores de selectores y sólo llamadas a métodos de objetos de página.
 
     **NOTA**: En esta estrategia de implementación del patrón Page Object, en vez de encapasular acciones que se puedan relalizar en la página, con mayor o menor granularidad (por ejemplo, de permitir rellenar un valor para el campo username, otro para el campo password y otro para pulsar el boton de logon, a directemante poder pasarle username y password a un método de logon), se opta por solo publicar los elementos de interación y utilizar steps genéricos para componer los escenearios de las features.
 
@@ -301,17 +301,17 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
 
     Las clases que implementan el patrón Page Object tienen que implementar como mínimo:
 
-    La propiedad 'class' que exporta tiene que coincidir con el nombre de la clase que se declara
+    - La propiedad 'class' que exporta tiene que coincidir con el nombre de la clase que se declara
 
-    La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
+    - La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
 
-    Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
+    - Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
 
-    Se debe de incluir al menos los métodos:
+    - Se debe de incluir al menos los métodos:
 
-        ```this.get```: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
+        - ```this.get```: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
 
-        ```this.waitForLoaded```: para indicar como esperar a que esté cargada la página
+        - ```this.waitForLoaded```: para indicar como esperar a que esté cargada la página
 
     Los elementos que se referencien en la página (para comprobar que están o tiene un texto determinado, para escibir valores, pulsar en enlaces, botones, etc.) deben declararse como atributos del objeto página y utilizar los selectores css/xpath de protractor/webdriver para **localizar** los elementos en la página.
 
