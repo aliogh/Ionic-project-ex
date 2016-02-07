@@ -16,7 +16,7 @@ El objetivo es disponer de pruebas funcionales automáticas de la aplicación so
 
 Hay que diferenciar entre la automatización, que hace referencia a la grabación o programación de acciones en la aplicación, y la implementación de pruebas automáticas, donde, apoyado en dicha automatización, el objetivo principal es verifica que la funcionalidad y ciertos elementos de la interfaz están implementados de forma correcta.
 
-Aunque se puede realizar la implementación de pruebas funcionales automátias con diferentes aproximaciones, en nuestro caso se utiliza un enfoque BDD ([Behaviour-Driven Development](http://behaviourdriven.org)) para *guiar* el desarrollo a traves de la especificación de funcionalidades de la aplicación. Como framework se utiliza [Cucumber](https://cucumber.io), que emplea el DSL de texto plano [Gherkin](https://cucumber.io/docs/reference), mediante el cual el Product Owner detalla cada una de las funcionalidades y sus escenarios para describir el comportamiento del sistema/aplicación. Para la ejecución de las prueba en navegadores se utiliza [Protractor](https://angular.github.io/protractor/#/), framework que extiende el API que ofrece [Selenium  WebDriver](http://www.seleniumhq.org/) para facilitar las pruebas de aplicaciones Web construidas con AngularJS.
+Aunque se puede realizar la implementación de pruebas funcionales automátias con diferentes aproximaciones, en nuestro caso se utiliza un enfoque BDD ([Behaviour-Driven Development](http://behaviourdriven.org)) para *guiar* el desarrollo a traves de la especificación de funcionalidades de la aplicación. Como framework se utiliza [Cucumber](https://cucumber.io), que emplea el DSL de texto plano [Gherkin](https://cucumber.io/docs/reference), mediante el cual el Product Owner detalla cada una de las funcionalidades y sus escenarios para describir el comportamiento del sistema/aplicación. Para la ejecución de las pruebas en navegadores se utiliza [Protractor](https://angular.github.io/protractor/#/), framework que extiende el API que ofrece [Selenium  WebDriver](http://www.seleniumhq.org/) para facilitar las pruebas de aplicaciones Web construidas con AngularJS.
 
 De esta forma se busca más alineamiento entre la especificación de funcionalidades por parte del Product Owner (PO), la implementación por el equipo de desarrollo, y la validación por el equipo de QA que realiza las pruebas automáticas y manuales. Se puede considerar a BDD como un enfoque que engloba TDD ([Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)) y DDD ([Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)), relancionando ambas poderosas técnicas para permiter realizar un desarrollo de software más efectivo y evidente para todas las parte involucradas.
 
@@ -107,11 +107,12 @@ Por ejemplo, se puede optar por validar que se recuperan, para un determinado us
 
 Aunque seria posible utilizar directamente el API JavaScript de Selenium WebDriver para realizar el desarrollo de las pruebas especificadas con Cucumber.js, el uso de Protractor proporciona las siguiente facilidades cuando la aplicación está desarrollada con AngularJS:
 
-- Los métodos antes de realizar busquedas en el DOM o acciones sobre los elementos, espera a AngularJS (inicializacion, $timeout, etc.)
+- Los métodos antes de realizar busquedas en el DOM o acciones sobre los elementos, esperan a AngularJS (inicializacion, $timeout, etc.)
 
 *Protractor attempts to wait until the page is completely loaded before performing any action (such as finding an element or sending a command to an element).*
 
 - Ofrece métodos especificos de localización de elementos específicos para AngularJS. Por ejemplo: addLocator, binding, exactBinding, model, buttonText, repeater, exactRepeater, cssContainingText, options, deepCss. Además, de incluir también todos los métodos de WebDriver
+- Sintaxis del API más reducida, con la utilización de alias
 - Ofrece métodos para esperar que sucedan ciertas condiciones, como que el elemento sea clickable, visible, esté selecionado, etc.
 
 Se recomienda revisar en detalle el [API de Protractor](http://angular.github.io/protractor/#/api)
@@ -120,16 +121,11 @@ Se recomienda revisar en detalle el [API de Protractor](http://angular.github.io
 
 ## Prerequsitos
 
-Instalar una versión de Node.js igual o superior a 4.2.x (necesesario para protractor ^3.0.0)
+Instalar una versión de Node.js igual o superior a 4.2.x (necesesario para protractor 3.x)
 
-Actualizar la versión de npm:
-
-```bash
-npm -g install npm
-```
 Seguir los pasos de la instalación base del proyecto.
 
-Instalar también los siguientes paquetes a nivel global, por comodidad:
+Instalar también los siguientes paquetes a nivel global:
 
 ```bash
 npm -g install protractor elementor
@@ -146,16 +142,14 @@ Se describen los elementos principales:
 | ./features         | ficheros *.features de Cucumber en formato Gherkin               |
 | ./features/support | Scripts base de ejecución de Cucumber y del patron Page Objects  |
 | ./features/steps   | Scripts con la definición de las steps que componen las features |
-| ./features/pages   | Clases que representan las páginas del patrón Paga Objects       |
+| ./features/pages   | Clases que representan las páginas del patrón Page Objects       |
 | /reports/e2e       | Informes de la ejecución de las features en Cucumber             |
 
 # Desarrollo de pruebas
 
 A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 01-login.feature.
 
-&nbsp;
-
-1. Crear en fichero con extensión .feature en el raiz de ./features usando la sintaxis de Gherkin
+1. Crear un fichero con extensión .feature en el raiz de ./features usando la sintaxis de Gherkin
 
     Incluir la descripcion de la feature. En general pensar en que un usuario realiza algo para conseguir un resultado determinado, pudiento incluir un caso de uso principal y varios secundarios, lo que se describiran en el conjunto de escenario (de 1 a N) que conforma la feature.
 
@@ -197,31 +191,31 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
 
       "/^I (?:navigate|click) (?:backwards|back) in my browser$/"
 
-    Se escribe un valor en un campo (input):
+    Escribir un valor en un campo (input):
 
       "/^I type "([^"]*)" in(?:to)? the "([^"]*)" field$/"
 
-    Se hace click en un link, botton, drop down list o tab:
+    Hacer click en un link, botton, drop down list o tab:
 
       "/^I click the "([^"]*)"(?: )?(link|button|drop down list|tab|)$/"
 
-    Se refresca la página:
+    Refrescar la página:
 
       "/^I refresh the page$/"
 
-    Se seleciona un valor en un drop down list:
+    Selecionar un valor en un drop down list:
 
       "/^I select "([^"]*)" in the "([^"]*)" drop down list$/"
 
-    El titulo de la página es valor determiando:
+    Verificar que el titulo de la página es valor determiando:
 
       "/^the title should equal "([^"]*)$/"
 
-    Un campo determinado debe o no debe estar activo:
+    Verificar que U¡un campo determinado debe o no debe estar activo:
 
       "/^the "([^"]*)" (should|should not) be active$/"
 
-    Un campo determinado deberia estar presente en la página:
+    Verificar que un campo determinado deberia estar presente en la página:
 
       "/^the "([^"]*)" should be present$/"
 
@@ -229,40 +223,42 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
 
       "/^I (?:should be on|reach|am taken to) the "([^"]*)" page$/"
 
-    Un campo determinado deberia tener/contener un texto determinado:
+    Verificar que un campo determinado deberia tener/contener un texto determinado:
 
       "/^(?:the )?"([^"]*)" should (?:have|contain) the text "([^"]*)"$/"
 
-    Un valor determinado deberia de aparecer un drop down list determinado:
+    Verificar que un valor determinado deberia de aparecer un drop down list determinado:
 
       "/^"([^"]*)" should appear in the "([^"]*)" drop down list$/"
 
-    Un campo derminado deberia ser visualizado en pantalla:
+    Verificar que un campo derminado deberia ser visualizado en pantalla:
 
       "/^the "([^"]*)" (should|should not) be displayed$/"
 
-    Un campo determinado deberia de contener un texto determinado:
+    Verificar que un campo determinado deberia de contener un texto determinado:
 
       "/^(?:the )?"([^"]*)" should (?:have|contain) the placeholder text "([^"]*)"$/"
 
-    Un botón, camop o drop down list determinado deberia o no deberia estar habilitado:
+    Verificar que un botón, camop o drop down list determinado deberia o no deberia estar habilitado:
 
       "/^the "([^"]*)"(?: )?(button|field|drop down list|) (should|should not) be enabled$/"
 
-    Un valor determinado deberia ser seleccinado en un drop down list determinado:
+    Verificar que un valor determinado deberia ser seleccinado en un drop down list determinado:
 
       "/^"([^"]*)" should be (?:selected|displayed) in the "([^"]*)" drop down list$/"
 
-    Un checkbok determinado deberia estar o no marcado:
+    Verificar que un checkbok determinado deberia estar o no marcado:
 
       "/^the "([^"]*)"(?: )?(checkbox|) (should|should not) be checked$/"
     ```
 
-    De esta manera se consigue reutilizar la logica de acceso a los elementos del DOM con el API de protractor/webdriver así como la lógica de validación de chai.
+    De esta manera se consigue reutilizar la logica de acceso a los elementos del DOM con el API de protractor/webdriver así como la lógica de validación de chai (libreria para realizar asserts).
 
-    Si se necesitan más steps genéricos, basta con añadirlos al fichero GeneralStepDefs.js, y en el caso de ser necesesario steps específicos para alguna feature concreta, siempre se pueden incluir en un fichero del tipo <feature>StepDefs.js (por ejemplo, para la feature Login: LoginStepDefs.js). Aunque en la mayoria de los casos se deberá de optar, por simplicación, a usar los steps genéricos.
+2. Si se necesitan más steps genéricos, basta con añadirlos al fichero GeneralStepDefs.js.
 
-    Para la creación de nuevos steps tener en cuenta:
+    En el caso de ser necesesario steps específicos para alguna feature concreta, siempre se pueden incluir en un fichero del tipo \<feature\>StepDefs.js (por ejemplo, para la feature Login: LoginStepDefs.js). Aunque en la mayoria de los casos se deberá de optar por usar los steps genéricos.
+
+    Para la creación de nuevos steps, tener en cuenta:
 
     - Reviasr los definidos en ```GeneralStepDefs.js``` a modo de guía.
     - Revisar el [API de Cucumber.js](https://github.com/cucumber/cucumber-js) para conocer tanto los parametros de entrada como los posibles valores de retorno de las implentaciones de los steps.
@@ -290,11 +286,7 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
         };
 
         this.waitForLoaded = function() {
-            return browser.wait((function(_this) {
-                return function() {
-                    return _this.titleHeader.isPresent();
-                };
-            })(this), 30000);
+            return _this.titleHeader.isPresent();
         };
     };
 
@@ -310,8 +302,8 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
     - La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
     - Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
     - Se debe de incluir al menos los métodos:
-      - this.get: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
-      - this.waitForLoaded: para indicar como esperar a que esté cargada la página
+        - this.get: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
+        - this.waitForLoaded: para indicar como esperar a que esté cargada la página
 
     Los elementos que se referencien en la página (para comprobar que están o tiene un texto determinado, para escibir valores, pulsar en enlaces, botones, etc.) deben declararse como atributos del objeto página y utilizar los selectores css/xpath de protractor/webdriver para **localizar** los elementos en la página.
 
@@ -373,22 +365,21 @@ Para ejecutar elementor es necesario:
 
 1. Ejecutar webdriver en una consola
 
-```
-webdriver-manager start
-```
+    ```bash
+    webdriver-manager start
+    ```
 
 2. Ejecutar elementor especificando la página bajo pruebas, por ejemplo:
 
-```
-elementor http://localhost:8100/
-```
+    ```bash
+    elementor http://localhost:8100/
+    ```
 
-**NOTA**: es necesario clonar la pestaña para usar Chrome Inspector, pues cuando se lanza éste se desconecta la página de webdriver y no se sincroniza con el servidor de inspector.
+    **NOTA**: es necesario clonar la pestaña para usar Chrome Inspector, pues cuando se lanza éste se desconecta la página de webdriver y no se sincroniza con el servidor de inspector.
 
-Con inspector es posible validar selectors para comprobar que se seleciona un elemento, ninguno o varios de ellos. Utilizar el inspector para obtener recomendaciones de selectores para un elemento.
+    Con inspector es posible validar selectors para comprobar que se seleciona un elemento, ninguno o varios de ellos. Utilizar el inspector para obtener recomendaciones de selectores para un elemento.
 
-Esto también es posible hacer, en cierta medida, sin elementor, utilizando solo el inspector de Chrome [Evaluate and validate XPath/CSS selectors in Chrome Developer Tools](http://yizeng.me/2014/03/23/evaluate-and-validate-xpath-css-selectors-in-chrome-developer-tools/
-).
+    Esto también es posible hacer, en cierta medida, sin elementor, utilizando solo el inspector de Chrome [Evaluate and validate XPath/CSS selectors in Chrome Developer Tools](http://yizeng.me/2014/03/23/evaluate-and-validate-xpath-css-selectors-in-chrome-developer-tools).
 
 # Ejecucion de pruebas
 
