@@ -259,10 +259,10 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
     En el caso de ser necesesario steps específicos para alguna feature concreta, siempre se pueden incluir en un fichero del tipo \<feature\>StepDefs.js (por ejemplo, para la feature Login: LoginStepDefs.js). Aunque en la mayoria de los casos se deberá de optar por usar los steps genéricos.
 
     Para la creación de nuevos steps, tener en cuenta:
-
-    - Reviasr los definidos en ```GeneralStepDefs.js``` a modo de guía.
-    - Revisar el [API de Cucumber.js](https://github.com/cucumber/cucumber-js) para conocer tanto los parametros de entrada como los posibles valores de retorno de las implentaciones de los steps.
-    - Revisar el [API de Protracto.js](http://angular.github.io/protractor/#/api).
+    &nbps;
+    Reviasr los definidos en ```GeneralStepDefs.js``` a modo de guía.
+    Revisar el [API de Cucumber.js](https://github.com/cucumber/cucumber-js) para conocer tanto los parametros de entrada como los posibles valores de retorno de las implentaciones de los steps.
+    Revisar el [API de Protracto.js](http://angular.github.io/protractor/#/api).
 
 3. Crear los objetos de página con sufijo Page en formato CamelCase y extensión .js para implementar el patrón Page Object (por ejemplo, LoginPage.js), de forma que publiquen los elementos que encapsula la página, encapsulando sus selectores css/xpath. De esta forma si cambia el id, css o ubicación del elemento en la página, no impacta en los steps, en donde nunca hay valores de selectores y sólo llamadas a métodos de objetos de página.
 
@@ -297,13 +297,13 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
     ```
 
     Las clases que implementan el patrón Page Object tienen que implementar como mínimo:
-
-    - La propiedad 'class' que exporta tiene que coincidir con el nombre de la clase que se declara
-    - La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
-    - Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
-    - Se debe de incluir al menos los métodos:
-        - this.get: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
-        - this.waitForLoaded: para indicar como esperar a que esté cargada la página
+    &nbps;
+    1.- La propiedad 'class' que exporta tiene que coincidir con el nombre de la clase que se declara
+    2.- La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
+    3.- Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
+    4.- Se debe de incluir al menos los métodos:
+        1.- this.get: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
+        2.- this.waitForLoaded: para indicar como esperar a que esté cargada la página
 
     Los elementos que se referencien en la página (para comprobar que están o tiene un texto determinado, para escibir valores, pulsar en enlaces, botones, etc.) deben declararse como atributos del objeto página y utilizar los selectores css/xpath de protractor/webdriver para **localizar** los elementos en la página.
 
