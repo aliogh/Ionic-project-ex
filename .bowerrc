@@ -1,3 +1,4 @@
 {
-  "directory": "src/client/lib"
+  "directory": "src/client/lib",
+  "allow_root": true
 }
