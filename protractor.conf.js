@@ -1,10 +1,10 @@
 'use strict';
 exports.config = {
-    baseUrl: 'http://localhost:8100/',
+    baseUrl: 'http://docker-box:8100/',
     framework: 'custom',
     frameworkPath: 'node_modules/protractor-cucumber-framework',
-    //seleniumAddress: 'http://localhost:4444/wd/hub',
-    seleniumServerJar: './node_modules/protractor/selenium/selenium-server-standalone-2.48.2.jar',
+    seleniumAddress: 'http://192.168.1.38:4444/wd/hub',
+    //seleniumServerJar: './node_modules/protractor/selenium/selenium-server-standalone-2.48.2.jar',
     //directConnect: true,
     specs: ['./src/client/test/e2e/features/*.feature'],
     resultJsonOutputFile: './reports/e2e/protractor-test-results.json',
