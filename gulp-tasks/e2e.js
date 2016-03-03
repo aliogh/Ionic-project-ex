@@ -14,17 +14,18 @@ module.exports = function (gulp, plugins, config, args) {
         var timeout = 0;
         var protractorArgs;
         var port = 8100;
-        var portStandAlone = 1234;
+        var portStandAlone = 8100;
+        var host = 'http://docker-box';
 
         if (args.standalone) {
             log('kill all ionic process');
-            plugins.run('killall ionic').exec()
-                .on('error', errorHandler('Ionic process could not be kill'));
+            plugins.run('pkill ionic').exec()
+            .on('error', errorHandler('Ionic process could not be kill'));
 
             log('run ionic serve process');
             plugins.run('screen -d -m -L ionic serve --port ' + portStandAlone + ' --nolivereload --nobrowser').exec();
 
-            protractorArgs = ['--baseUrl', 'http://127.0.0.1:' + portStandAlone + '?ionicplatform=android'];
+            protractorArgs = ['--baseUrl', host + ':' + portStandAlone + '?ionicplatform=android'];
 
             timeout = 5000;
             log('wait ' + String(timeout / 1000) + ' seconds until ionic server is running...');
@@ -38,13 +39,13 @@ module.exports = function (gulp, plugins, config, args) {
             gulp.src(['./src/client/test/e2e/features/*.feature'])
               .pipe(protractor({
                   configFile: './protractor.conf.js',
-                  args: ['--baseUrl', 'http://127.0.0.1:' + port]
+                  args: ['--baseUrl', host + ':' + port]
               }))
               .on('error', function() {})
               .on('end', function() {
                   report();
                   if (args.standalone) {
-                      plugins.run('killall ionic').exec();
+                      plugins.run('pkill ionic').exec();
                   }
               });
 
