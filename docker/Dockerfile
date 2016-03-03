@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
         rsync \
         software-properties-common \
         wget \
-        libfontconfig
+        libfontconfig \
+        screen
 
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 4.2.4
