@@ -13,9 +13,9 @@
 
 El objetivo es disponer de pruebas funcionales automáticas de la aplicación sobre todos los navegadores en los que tiene que ser validada.
 
-Hay que diferenciar entre la automatización, que hace referencia a la grabación o programación de acciones en la aplicación, y la implementación de pruebas automáticas, donde, apoyado en dicha automatización, el objetivo principal es verifica que la funcionalidad y ciertos elementos de la interfaz están implementados de forma correcta.
+Hay que diferenciar entre la automatización, que hace referencia a la grabación o programación de acciones en la aplicación, y la implementación de pruebas automáticas, donde, apoyado en dicha automatización, el objetivo principal es verificar que la funcionalidad y ciertos elementos de la interfaz están implementados de forma correcta.
 
-Aunque se puede realizar la implementación de pruebas funcionales automátias con diferentes aproximaciones, en nuestro caso se utiliza un enfoque BDD ([Behaviour-Driven Development](http://behaviourdriven.org)) para *guiar* el desarrollo a traves de la especificación de funcionalidades de la aplicación. Como framework se utiliza [Cucumber](https://cucumber.io), que emplea el DSL de texto plano [Gherkin](https://cucumber.io/docs/reference), mediante el cual el Product Owner detalla cada una de las funcionalidades y sus escenarios para describir el comportamiento del sistema/aplicación. Para la ejecución de las pruebas en navegadores se utiliza [Protractor](https://angular.github.io/protractor/#/), framework que extiende el API que ofrece [Selenium  WebDriver](http://www.seleniumhq.org/) para facilitar las pruebas de aplicaciones Web construidas con AngularJS.
+Aunque se puede realizar la implementación de pruebas funcionales automáticas con diferentes aproximaciones, en nuestro caso se utiliza un enfoque BDD ([Behaviour-Driven Development](http://behaviourdriven.org)) para *guiar* el desarrollo a traves de la especificación de funcionalidades de la aplicación. Como framework se utiliza [Cucumber](https://cucumber.io), que emplea el DSL de texto plano [Gherkin](https://cucumber.io/docs/reference), mediante el cual el Product Owner detalla cada una de las funcionalidades y sus escenarios para describir el comportamiento del sistema/aplicación. Para la ejecución de las pruebas en navegadores se utiliza [Protractor](https://angular.github.io/protractor/#/), framework que extiende el API que ofrece [Selenium  WebDriver](http://www.seleniumhq.org/) para facilitar las pruebas de aplicaciones Web construidas con AngularJS.
 
 De esta forma se busca más alineamiento entre la especificación de funcionalidades por parte del Product Owner (PO), la implementación por el equipo de desarrollo, y la validación por el equipo de QA que realiza las pruebas automáticas y manuales. Se puede considerar a BDD como un enfoque que engloba TDD ([Test-Driven Development](https://en.wikipedia.org/wiki/Test-driven_development)) y DDD ([Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)), relancionando ambas poderosas técnicas para permiter realizar un desarrollo de software más efectivo y evidente para todas las parte involucradas.
 
@@ -25,13 +25,13 @@ TDD permite probar que el código funciona y validar que una función ha sido im
 En cambio, no es de gran ayuda para describir como el sistema/aplicación debe de comportarse, y si se trabaja con medodologías ágiles es una interfaz terrible entre los desarrolladores y el product owner.
 
 ## ¿Que es BDD?
-BDD fue desarrollado por [Dan North](http://dannorth.net/introducing-bdd) para disponer de una herramienta compartida entre desarrolladores y clientes. En un mundo agil el product owner pueden sentarse con los desarrolladores y escribir las caracteristicas (features) que le gustaria que el sistema/aplicación tuviera.
+BDD fue desarrollado por [Dan North](http://dannorth.net/introducing-bdd) para disponer de una herramienta compartida entre desarrolladores y clientes. En un mundo ágil el product owner puede sentarse con los desarrolladores y escribir las características (features) que le gustaría que el sistema/aplicación tuviera.
 
-Trabajando de esta forma, es imprescindible que los desarrolladores tenga claro el problema y para esto es de gran ayuda definir un grupo de sentencias/frases que puedan mas tarde ser usadas como criterios de aceptación.
+Trabajando de esta forma, es imprescindible que los desarrolladores tenga claro el problema y para esto es de gran ayuda definir un grupo de sentencias/frases que puedan más tarde ser usadas como criterios de aceptación.
 
 ## Gherkin
 
-La implentacion más habitual es de BDD es usar el lenguje [Gherkin](https://cucumber.io/docs/reference). Se trata de un languaje de dominio específico con una gramática para describir comportamiento sin tener que describir los detalles de implementación.
+La implentación más habitual es de BDD es usar el lenguaje [Gherkin](https://cucumber.io/docs/reference). Se trata de un languaje de dominio específico con una gramática para describir comportamiento sin tener que describir los detalles de implementación.
 
 A continuación se incluye un ejemplo sencillo de una funcionalidad de login:
 
@@ -57,11 +57,11 @@ Feature: Login
     And I see message incorrect password
 ```
 
-No hay un códigos complejos en la descripción de las caracteristicas ni de sus escenarios, siendo un fichero que se lee como un texto plano en ingles (o español), de forma que desarrolladores y testers pueden sentarse con el product owner para escribirlo y/o revisarlo, sin que haya mala interpretación y para que sirva como criterios de aceptación.
+No hay códigos complejos en la descripción de las características ni de sus escenarios, siendo un fichero que se lee como texto plano (en inglés, ver NOTA posterior), de forma que desarrolladores y testers pueden sentarse con el product owner para escribirlo y/o revisarlo, sin que haya mala interpretación y para que sirva como criterios de aceptación.
 
-Aunque esto en si mismo es de gran utilidad pues permite disponer de criterios de aceptación, es todovia mejor si se utiliza como metodología para el desarrollo de pruebas automáticas que permitan probar de forma repetida y predecible la funcionalidad del sistema/aplicación.
+Aunque esto en sí mismo es de gran utilidad pues permite disponer de criterios de aceptación, es todovía mejor si se utiliza como metodología para el desarrollo de pruebas automáticas que permitan probar de forma repetida y predecible la funcionalidad del sistema/aplicación.
 
-**NOTA**: las palabras de la sintaxis de Gherkin (feature, background, scenario, given, when, then, and, but, etc.) están traducidas a una gran cantidad de idiomas, incluido el español, pero se recomienda utilizar la versión en ingles. Si no hay un dominio de ingles, las sentencias en si misma se pueden escribir en español si se considera así que se tienen más claridad y compresión de todas las personas que forman parte del equipo, pues esto es un aspecto fundamental en el objetivo de la metodológia.
+**NOTA**: las palabras de la sintaxis de Gherkin (feature, background, scenario, given, when, then, and, but, etc.) están traducidas a una gran cantidad de idiomas, incluido el español, pero se recomienda utilizar la versión en inglés. Si no hay un dominio de inglés, las sentencias en sí mismas se pueden escribir en español si se considera así que tienen más claridad y compresión por parte de todas las personas que forman el equipo, siendo esto un aspecto fundamental en el objetivo de la metodología.
 
 ## Flujo de trabajo
 
@@ -71,11 +71,11 @@ A continuación se muestra un diagrama con el flujo de trabajo propuesto:
 
 &nbsp;
 
-Los desarrolladores/testers comienzan con una caracterisca a realizar, trabajando en sus escenario de forma incremental hasta que las pruebas pasan cada uno de los pasos que lo componen.
+Los desarrolladores/testers comienzan con una caracterísca a realizar, trabajando en sus escenarios de forma incremental hasta que las pruebas pasan cada uno de los pasos que lo componen.
 
 Para pasar los pasos de cada escenario, el desarrollador realiza pruebas unitarias, pasando éstas con el código que va implementado, con una aproximación TDD, y finalizando con su correspondiente refactor para optimizar el código.
 
-Una vez todos los escenarios de una caracteristica pasan los pasos especificados con la sintaxis de Gherkin, entonces los criterios de aceptacion se pueden dar como cumplidos.
+Una vez todos los escenarios de una característica pasan los pasos especificados con la sintaxis de Gherkin, entonces los criterios de aceptación se pueden dar como cumplidos.
 
 **Lo fundamental de este proceso no son las pruebas, es conseguir código de calidad.**
 
@@ -85,12 +85,11 @@ Es el test runner que vamos a utilizar para lenguaje Gherkin y realizar BDD.
 
 ## Tareas realizadas por cada rol del equipo
 
-- **Product Owner**: El PO debe de describir, de forma independiente y en detalle, cada una las caracteristicas de la aplicación, incluyeno los pasos a seguir para conseguir los resultados esperados.
+- **Product Owner**: El PO debe de describir, de forma independiente y en detalle, cada una las características de la aplicación, incluyendo los pasos a seguir para conseguir los resultados esperados.
 
-- **App developers**: deben de leer y comprender cada carasteristica y escenario especificado por el PO. De forma complementaria al texto, el PO debe de explicar en que consiste cada carasteristicas y escenarios. En caso de dudas, respecto a lo entendido en una lectura previa por parte del equipo de desarrollo y QA/testers, serán planteadas al PO y actualizadas la descripción y escenarios de las caracteristicas.
-El equipo de desarrollo deberán de incluir, en la medida de lo posible, identificadores en los componentes de interacción de las pantallas (campos de texto, etiquetas, botones, etc.) para facilitar su identificación para las pruebas automáticas.
+- **App developers**: deben leer y comprender cada carasterística y escenario especificado por el PO. De forma complementaria al texto, el PO debe de explicar en que consiste cada carasteristica y escenario. En caso de dudas respecto a lo entendido en una lectura previa por parte del equipo de desarrollo y QA/testers, éstas serán planteadas al PO y si es oportuno se actualizan la descripción y los escenarios de las características. El equipo de desarrollo deberán de incluir, en la medida de lo posible, identificadores en los componentes de interacción de las pantallas (campos de texto, etiquetas, botones, etc.) para facilitar su identificación para las pruebas automáticas.
 
-- **QA Developers**: deben de realizar un entendimento de las caracteristicas descritas por el PO, y de forma similar al equipo de desarrollo, y plantear las dudas que surjan para una correcta implementación de las pruebas, tanto automáticas, manuales y exploratorias.
+- **QA Developers**: deben realizar un entendimento de las características descritas por el PO, de forma similar al equipo de desarrollo, y plantear las dudas que surjan para una correcta implementación de las pruebas, tanto automáticas, manuales y exploratorias.
 
 ## Consideraciones a tener en cuenta
 
@@ -98,7 +97,7 @@ En las pruebas automáticas se debe de tener en cuenta la idempotencia de estas 
 
 - Buscar un compromiso entre lo importante y un detalle excesivo en lo verificado en los flujos de interacción (escenario) de las pruebas. Por ejemplo, aunque en algunos casos puede ser de utilidad verificar la visualización, incluso posición, de elementos visuales, hay que tener en cuenta que pueden ser pruebas que se rompan con facilidad si se realizan cambios de UI. Por este motivo, es preferible centrarse preferiblemente en verificar flujos de navegación, pantallas a nivel general, lógica de negocio, etc.
 
-- Si en las pruebas se verifican datos recuperados de servidor, lo que suele ser habitual, o funcionalidades o opciones dependientes del usuario con el se autentica, hay que tener en cuenta en las pruebas ésta dependencia de los datos recuperados esperados. En este sentido se recomienda acotar esta información en un conjunto de datos estáticos (que no cambie con el tiempo, ni se vean modificados con la ejecución de las pruebas) para garantizar la idempotencia, o tener la precaución de realizar validaciones no específicas a resultados concretos.
+- Si en las pruebas se verifican datos recuperados de servidor, lo que suele ser habitual, o funcionalidades u opciones dependientes del usuario con el se autentica, hay que tener en cuenta en las pruebas ésta dependencia de los datos recuperados esperados. En este sentido se recomienda acotar esta información en un conjunto de datos estáticos (que no cambie con el tiempo, ni se vean modificados con la ejecución de las pruebas) para garantizar la idempotencia, o tener la precaución de realizar validaciones no específicas a resultados concretos.
 
 Por ejemplo, se puede optar por validar que se recuperan, para un determinado usuario, el número exacto de resultados de su histórico de citas o simplemente que se devuelven valores. Salvo que podamos controlar que siempre se devuelvan el mismo resultado/valores del histórico de citas, es preferible comprobar solo que se devuelve valores, pues aunque el grado de fidelidad de la prueba será menos, y siempre es preferible trabajar con un conjunto de datos estáticos, lo fundamental es siempre poder garantizar la idempotencia de la prueba.
 
@@ -106,13 +105,13 @@ Por ejemplo, se puede optar por validar que se recuperan, para un determinado us
 
 Aunque seria posible utilizar directamente el API JavaScript de Selenium WebDriver para realizar el desarrollo de las pruebas especificadas con Cucumber.js, el uso de Protractor proporciona las siguiente facilidades cuando la aplicación está desarrollada con AngularJS:
 
-- Los métodos antes de realizar busquedas en el DOM o acciones sobre los elementos, esperan a AngularJS (inicializacion, $timeout, etc.)
+- Los métodos antes de realizar busquedas en el DOM o acciones sobre los elementos, esperan a AngularJS (inicialización, $timeout, etc.)
 
 *Protractor attempts to wait until the page is completely loaded before performing any action (such as finding an element or sending a command to an element).*
 
 - Ofrece métodos especificos de localización de elementos específicos para AngularJS. Por ejemplo: addLocator, binding, exactBinding, model, buttonText, repeater, exactRepeater, cssContainingText, options, deepCss. Además, de incluir también todos los métodos de WebDriver
 - Sintaxis del API más reducida, con la utilización de alias
-- Ofrece métodos para esperar que sucedan ciertas condiciones, como que el elemento sea clickable, visible, esté selecionado, etc.
+- Ofrece métodos para esperar que sucedan ciertas condiciones, como que el elemento sea clickable, visible, esté seleccionado, etc.
 
 Se recomienda revisar en detalle el [API de Protractor](http://angular.github.io/protractor/#/api)
 
@@ -120,7 +119,7 @@ Se recomienda revisar en detalle el [API de Protractor](http://angular.github.io
 
 ## Prerequsitos
 
-Instalar una versión de Node.js igual o superior a 4.2.x (necesesario para protractor 3.x)
+Instalar una versión de Node.js igual o superior a 4.2.x (necesario para Protractor 3.x)
 
 Seguir los pasos de la instalación base del proyecto.
 
@@ -150,7 +149,7 @@ A continuación se detallan los pasos a dar para crear una feature. Por ejemplo 
 
 1.- Crear un fichero con extensión .feature en el raiz de ./features usando la sintaxis de Gherkin
 
-Incluir la descripcion de la feature. En general pensar en que un usuario realiza algo para conseguir un resultado determinado, pudiento incluir un caso de uso principal y varios secundarios, lo que se describiran en el conjunto de escenario (de 1 a N) que conforma la feature.
+Incluir la descripción de la feature. En general pensar en que un usuario realiza algo para conseguir un resultado determinado, pudiento incluir un caso de uso principal y varios secundarios, lo que se describiran en el conjunto de escenario (de 1 a N) que conforma la feature.
 
 Por ejemplo, a continuación se muestra el detalle de una feature Login.
 
@@ -159,7 +158,7 @@ Feature: Login
   From login page I can log in
 ```
 
-Despues de la sentencia ```Feature: <nombre de la feature>```, en la linea (o lineas) siguentes se incluye su descripción. En este caso solo es una sola linea, pero pueden ser varias si es necesario. De hecho se recomienda que tenga un detalle suficiente.
+Despues de la sentencia ```Feature: <nombre de la feature>```, en la línea (o líneas) siguentes se incluye su descripción. En este caso es sólo una línea, pero pueden ser varias si es necesario. De hecho se recomienda que tenga un detalle suficiente.
 
 A continuación se incluye el detalle de los escenarios que conforman la feature. El ejemplo anterior se puede complementar de la siguente forma. Recordar que al menos se debe de incluir un escenario.
 
@@ -175,7 +174,7 @@ Feature: Login
     Then I am on the "Home" page
 ```
 
-La sintaxis de los steps de los escenarios no es arbitraria, y sigue las expresiones regulares  definidos en ```steps/GeneralStepDefs.js```, entre las que se dispone out-of-the-box (cortesia de [Cukefarm](https://github.com/ReadyTalk/cukefarm)):
+La sintaxis de los steps de los escenarios no es arbitraria, y sigue las expresiones regulares  definidos en ```steps/GeneralStepDefs.js```, entre las que se dispone out-of-the-box (cortesía de [Cukefarm](https://github.com/ReadyTalk/cukefarm)):
 
 ```
 Verificar que se va a una pagina concreta:
@@ -186,7 +185,7 @@ Cambiar la resolución de la pantalla:
 
   "/^I (?:have|change to|resize to|rotate to) a (\d+)x(\d+) screen size$/"
 
-Navegar hacia atras en el navegador:
+Navegar hacia atrás en el navegador:
 
   "/^I (?:navigate|click) (?:backwards|back) in my browser$/"
 
@@ -206,15 +205,15 @@ Selecionar un valor en un drop down list:
 
   "/^I select "([^"]*)" in the "([^"]*)" drop down list$/"
 
-Verificar que el titulo de la página es valor determiando:
+Verificar que el título de la página es valor determiando:
 
   "/^the title should equal "([^"]*)$/"
 
-Verificar que U¡un campo determinado debe o no debe estar activo:
+Verificar que un campo determinado debe o no debe estar activo:
 
   "/^the "([^"]*)" (should|should not) be active$/"
 
-Verificar que un campo determinado deberia estar presente en la página:
+Verificar que un campo determinado debería estar presente en la página:
 
   "/^the "([^"]*)" should be present$/"
 
@@ -226,27 +225,27 @@ Verificar que un campo determinado deberia tener/contener un texto determinado:
 
   "/^(?:the )?"([^"]*)" should (?:have|contain) the text "([^"]*)"$/"
 
-Verificar que un valor determinado deberia de aparecer un drop down list determinado:
+Verificar que un valor determinado debería de aparecer un drop down list determinado:
 
   "/^"([^"]*)" should appear in the "([^"]*)" drop down list$/"
 
-Verificar que un campo derminado deberia ser visualizado en pantalla:
+Verificar que un campo derminado debería ser visualizado en pantalla:
 
   "/^the "([^"]*)" (should|should not) be displayed$/"
 
-Verificar que un campo determinado deberia de contener un texto determinado:
+Verificar que un campo determinado debería de contener un texto determinado:
 
   "/^(?:the )?"([^"]*)" should (?:have|contain) the placeholder text "([^"]*)"$/"
 
-Verificar que un botón, camop o drop down list determinado deberia o no deberia estar habilitado:
+Verificar que un botón, campo o drop down list determinado debería o no estar habilitado:
 
   "/^the "([^"]*)"(?: )?(button|field|drop down list|) (should|should not) be enabled$/"
 
-Verificar que un valor determinado deberia ser seleccinado en un drop down list determinado:
+Verificar que un valor determinado debería ser seleccinado en un drop down list determinado:
 
   "/^"([^"]*)" should be (?:selected|displayed) in the "([^"]*)" drop down list$/"
 
-Verificar que un checkbok determinado deberia estar o no marcado:
+Verificar que un checkbok determinado debería o no estar marcado:
 
   "/^the "([^"]*)"(?: )?(checkbox|) (should|should not) be checked$/"
 ```
@@ -257,20 +256,20 @@ De esta manera se consigue reutilizar la logica de acceso a los elementos del DO
 
 2.- Si se necesitan más steps genéricos, basta con añadirlos al fichero GeneralStepDefs.js.
 
-En el caso de ser necesesario steps específicos para alguna feature concreta, siempre se pueden incluir en un fichero del tipo \<feature\>StepDefs.js (por ejemplo, para la feature Login: LoginStepDefs.js). Aunque en la mayoria de los casos se deberá de optar por usar los steps genéricos.
+En el caso de ser necesesario steps específicos para alguna feature concreta, siempre se pueden incluir en un fichero del tipo ```\\{feature}StepDefs.js``` (por ejemplo, para la feature Login: LoginStepDefs.js). Aunque en la mayoría de los casos se deberá de optar por usar los steps genéricos.
 
 Para la creación de nuevos steps, tener en cuenta:
 - Revisar los definidos en ```GeneralStepDefs.js``` a modo de guía.
-- Revisar el [API de Cucumber.js](https://github.com/cucumber/cucumber-js) para conocer tanto los parametros de entrada como los posibles valores de retorno de las implentaciones de los steps.
-- Revisar el [API de Protracto.js](http://angular.github.io/protractor/#/api).
+- Revisar el [API de Cucumber.js](https://github.com/cucumber/cucumber-js) para conocer tanto los parámetros de entrada como los posibles valores de retorno de las implentaciones de los steps.
+- Revisar el [API de Protractor.js](http://angular.github.io/protractor/#/api).
 
 &nbsp;
 
 3.- Crear los objetos de página con sufijo Page en formato CamelCase y extensión .js para implementar el patrón Page Object (por ejemplo, LoginPage.js), de forma que publiquen los elementos que encapsula la página, encapsulando sus selectores css/xpath. De esta forma si cambia el id, css o ubicación del elemento en la página, no impacta en los steps, en donde nunca hay valores de selectores y sólo llamadas a métodos de objetos de página.
 
-**NOTA**: En esta estrategia de implementación del patrón Page Object, en vez de encapasular acciones que se puedan relalizar en la página, con mayor o menor granularidad (por ejemplo, de permitir rellenar un valor para el campo username, otro para el campo password y otro para pulsar el boton de logon, a directemante poder pasarle username y password a un método de logon), se opta por solo publicar los elementos de interación y utilizar steps genéricos para componer los escenearios de las features.
+**NOTA**: En esta estrategia de implementación del patrón Page Object, en vez de encapasular acciones que se puedan realizar en la página, con mayor o menor granularidad (por ejemplo, de permitir rellenar un valor para el campo username, otro para el campo password y otro para pulsar el boton de login, a directamente poder pasarle username y password a un método de login), se opta por sólo publicar los elementos de interación y utilizar steps genéricos para componer los escenearios de las features.
 
-Esto hace que la composición de los escenarios siempre tenga una granularidad a nivel de interacción de elementos, pero reduce en gran medida el numero de steps a implementar, reutiilzandose en gran medida los genéricos, pues el numero de accciones sobre los elementos en general es reducido.
+Esto hace que la composición de los escenarios siempre tenga una granularidad a nivel de interacción de elementos, pero reduce en gran medida el número de steps a implementar, reutiilzandose en gran medida los genéricos, pues el número de acciones sobre los elementos en general es reducido.
 
 Por ejemplo, siguiendo el ejemplo, el fichero LoginPage.js podría ser:
 
@@ -304,12 +303,12 @@ Las clases que implementan el patrón Page Object tienen que implementar como m�
 - La propiedad 'name' que se exporta tiene que coincidir con el nombre de la página que se indica en los steps de la feature
 - Se debe de incluir, al menos, un elemento para poder comprobar que la página se ha cargado
 - Se debe de incluir al menos los métodos:
-    - ```this.get```: para indicar como carga dicha página. Si a la pagina no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
-    - ```this.waitForLoaded```: para indicar como esperar a que esté cargada la página
+    - ```this.get```: para indicar cómo carga dicha página. Si a la página no se puede acceder directamente, es decir, solo por navegación desde otras, no es necesario este método.
+    - ```this.waitForLoaded```: para indicar cómo esperar a que esté cargada la página
 
 Los elementos que se referencien en la página (para comprobar que están o tiene un texto determinado, para escibir valores, pulsar en enlaces, botones, etc.) deben declararse como atributos del objeto página y utilizar los selectores css/xpath de protractor/webdriver para **localizar** los elementos en la página.
 
-Algunos elementos, como por ejemplo enlaces, botones, etc., deben de declararse como un sufijo determinado (Button, Link, Tab, etc.). Para más detalles, se recomienda reviar el detalle de implementación del step en el fichero ```GeneralStepDefs```.
+Algunos elementos, como por ejemplo enlaces, botones, etc., deben de declararse como un sufijo determinado (Button, Link, Tab, etc.). Para más detalles, se recomienda revisar el detalle de implementación del step en el fichero ```GeneralStepDefs.js```.
 
 **ACTUALIZACIÓN**: Se han llevado las funciones de ejecución de los steps genéricos de ```GeneralStepDefs.js``` al script ```BaseStepDefs.js``` en el subdirectorio support, de forma que se puedan agrupar steps *unitarios* en steps más *genéricos*. Por ejemplo, para el caso del login podriamos crear un step como este:
 
@@ -345,11 +344,11 @@ Hay que distinguir entre localizar un elementos por su selector css o por xpath 
 
 Para esto, lo recomendable, en la medida de lo posible, es abrir la versión web de la aplicación ejecutando ```ionic serve```, navegando hasta la página de interés y mediante el inspector de Chrome (recomendado), Safari o Firefox, localizar visualmente el elemento y revisar la estructura en el código html para ver que selector css utilizar (mediante identificador, clase css, atributo, o elemento html, pudiendo anidar varios de ellos para concretar si es necesario).
 
-En caso de ser complicado identificarlo con el selector css se puede optar por xpath, aunque suele generar un mayor acople a la estructura html y si luego se modifica la posición o se añaden elementos intermedios respecto a la raiz del documento, el selector dejaria de ser válido y habría que revisarlo.
+En caso de ser complicado identificarlo con el selector css se puede optar por xpath, aunque suele generar un mayor acople a la estructura html y si luego se modifica la posición o se añaden elementos intermedios respecto a la raiz del documento, el selector dejaría de ser válido y habría que revisarlo.
 
-Por esa razón, cuanto más sencillo y concreto sea el selector de búsqueda más robusto será este, y por tanto las pruebas que lo usen. La recomendación es desarrollar el HTML incluyendo identificadores para los elementos de interación o de evaluación en los test, pues simplifican enormemente los selectores y los hace además muy robusto a cambios en la UI.
+Por esa razón, cuanto más sencillo y concreto sea el selector de búsqueda más robusto será, y por tanto las pruebas que lo usen. La recomendación es desarrollar el HTML incluyendo identificadores para los elementos de interación o de evaluación en los test, pues simplifican enormemente los selectores y los hace además muy robusto a cambios en la UI.
 
-Además en el caso de implementación con AngularJS y uso de Protractor.js, se dispone, además de los selectores de css/xpath, otros relacionado con los modelos y binding especificados en los templates HTML, simplificando en muchas ocasiones la localización de elementos y sin dependenica de la estructura de elementos de la página.
+Además en el caso de implementación con AngularJS y uso de Protractor.js, se dispone, además de los selectores de css/xpath, otros relacionado con los modelos y binding especificados en los templates HTML, simplificando en muchas ocasiones la localización de elementos y sin dependencia de la estructura de elementos de la página.
 
 ### Selector css / xpath / angularjs
 
@@ -359,9 +358,9 @@ Se recomienda ver los siguientes enlaces para entender los diferentes partes de 
 - [W3C CSS selectors](https://www.w3.org/TR/css3-selectors/)
 - [XPath, CSS, DOM and Selenium: The Rosetta Stone](https://www.simple-talk.com/dotnet/.net-framework/xpath,-css,-dom-and-selenium-the-rosetta-stone)
 
-Aunque con el inspector de un navegaor, por ejemplo, con Chrome (opción ```Copy > Copy selector``` o ```Copy > Copy XPath```) es facil obtener un posible selector css/xpath para un elemento, en general, salvo que el elemento tenga un identificador, obtendremos uno no optimo y con un gran acople a la estructura de la página.
+Aunque con el inspector de un navegador, por ejemplo, con Chrome (opción ```Copy > Copy selector``` o ```Copy > Copy XPath```) es facil obtener un posible selector css/xpath para un elemento, en general, salvo que el elemento tenga un identificador, obtendremos uno no óptimo y con un gran acople a la estructura de la página.
 
-Con protractor, como hemos comentado, no solo tenemos la opción de utilizar un selector css/xpath, y para facilitar la laborar de comprobación y busqueda de estos selectores, podemos utilzar la herramienta [Elementor](https://github.com/andresdominguez/elementor). En la página enlazada hay disponible un video y una explicación detalla de su uso.
+Con protractor, como hemos comentado, no solo tenemos la opción de utilizar un selector css/xpath, y para facilitar la laborar de comprobación y búsqueda de estos selectores, podemos utilizar la herramienta [Elementor](https://github.com/andresdominguez/elementor). En la página enlazada hay disponible un vídeo y una explicación detalla de su uso.
 
 Para ejecutar elementor es necesario:
 
@@ -394,9 +393,9 @@ Es tan sencillo como ejecutar en el raiz del proyecto la tarea e2e. Por ejemplo:
 
 En el fichero ```protractor.conf.js``` se puede especificar la resoluciones para:
 
-- Resolución global de las prubas para DESKTOP, TABLET, y SMARTPHONE, pudiendose modificar los valores de corte en el fichero de configuración. Por ejemplo, para la ejecucion de TABLET: ```E2E_TABLET=true gulp e2e --standalone --mocks```
+- Resolución global de las pruebas para DESKTOP, TABLET, y SMARTPHONE, pudiendose modificar los valores de corte en el fichero de configuración. Por ejemplo, para la ejecución de TABLET: ```E2E_TABLET=true gulp e2e --standalone --mocks```
 
-- En la configuración de las capacidades de los browsers especificados en ```multiCapabilities```. Esto es util cuando se quiren probar a la vez, en diferentes resoluciones (desktop, tablet y smartphone) en diferentes navegadores (chrome, firefox, ie, safari) a la vez, y incluyendolas en un único reporte de ruebas.
+- En la configuración de las capacidades de los browsers especificados en ```multiCapabilities```. Esto es util cuando se quiren probar a la vez, en diferentes resoluciones (desktop, tablet y smartphone) en diferentes navegadores (chrome, firefox, ie, safari) a la vez, e incluyendolas en un único reporte de pruebas.
 
 # Reportes de pruebas
 
@@ -408,7 +407,7 @@ Los escenarios fallidos incluyen una captura de pantalla.
 
 ## Pregunta 1
 - Q: ¿Cómo esperar hasta que elemento sea clickable, visible, etc.?
-- A: En general protractor *espera* a que se terminen animaciones y timeouts de AngularJS antes de buscar en la página y realizar acciones sobre los elementos definidos. Pero en algunos casos, puede haber problemas para lo que será necesario realizar una espera explicita hasta que elemento esté visible, se puedar realizar click, etc. Para esto hay que utilizar las [ExpectedConditions](https://angular.github.io/protractor/#/api?view=ExpectedConditions) del API de Protractor. Por ejemplo, para esperar que un elemento sea clickable:
+- A: En general protractor *espera* a que se terminen animaciones y timeouts de AngularJS antes de buscar en la página y realizar acciones sobre los elementos definidos. Pero en algunos casos, puede haber problemas para lo que será necesario realizar una espera explícita hasta que elemento esté visible, se puedar realizar click, etc. Para esto hay que utilizar las [ExpectedConditions](https://angular.github.io/protractor/#/api?view=ExpectedConditions) del API de Protractor. Por ejemplo, para esperar que un elemento sea clickable:
 
 ```javascript
 var loginOption = element(by.css(...));
@@ -422,7 +421,7 @@ loginOption.click();
 
 ## Pregunta 3:
 - Q: ¿Como modifico el timeout de ejecución de un step?
-- A: En el fichero ```Env.js``` del subdirectorio support se puede especificar el timeout de ejecucuón de un step por Cucumber.js. También se puede especificar un timeout específico para steps. Ver:
+- A: En el fichero ```Env.js``` del subdirectorio support se puede especificar el timeout de ejecución de un step por Cucumber.js. También se puede especificar un timeout específico para steps. Ver:
   - [Protractor timeouts](https://github.com/angular/protractor/blob/master/docs/timeouts.md)
   - [Cucumber.js timeouts](https://github.com/cucumber/cucumber-js#timeouts).
 
@@ -434,15 +433,15 @@ loginOption.click();
 
 ## Pregunta 5:
   - Q: ¿Se pueden ejecutar las pruebas en más de un browser?
-  - A: Si se pueden especifiar tantos como se necesiten en el el atributo ```multiCapabilities``` del fichero protractor.conf.js. Incluso se pueden incluir combinaciones de browsers y configuracion de éstos, como por ejemplo resolución, para probar simulando diferentes dispositivos (desktop, tablet, smartphone).
+  - A: Sí, se pueden especifiar tantos como se necesiten en el el atributo ```multiCapabilities``` del fichero protractor.conf.js. Incluso se pueden incluir combinaciones de browsers y configuración de éstos, como por ejemplo resolución, para probar simulando diferentes dispositivos (desktop, tablet, smartphone).
 
 ## Pregunta 6:
   - Q: ¿Se pueden ejecutar las pruebas contra un servidor remoto con webdriver?
-  - A: Si basta descomentar (y comentar el resto: seleniumServerJar y directConnect) la opcion de ```seleniumAddress``` en el fichero protractor.conf.js, especifinado la ip y puerto de webdriver.
+  - A: Sí, basta descomentar (y comentar el resto: seleniumServerJar y directConnect) la opción de ```seleniumAddress``` en el fichero protractor.conf.js, especificando la ip y puerto de webdriver.
 
 ## Pregunta 7:
   - Q: ¿Se pueden añadir a contexto this métodos comunes que suelan ser utilizados por la implementación de los steps?
-  - A: Si basta con añadirlos al prototype de la clase World.js del subdirectorio support.
+  - A: Sí, basta con añadirlos al prototype de la clase World.js del subdirectorio support.
 
 ## Pregunta 8:
   - Q: Algunos de los tests pueden tener diferente sensibilidad en su implementación con respecto a la necesidad de conexion de red, que hay datos establecidos en la base de datos / servicios, etc. ¿Podría clasificar de alguna forma los scenarios para poder ejecutarlos de forma diferente?
