@@ -1,11 +1,19 @@
 'use strict';
 exports.config = {
-    baseUrl: 'http://docker-box:8100/',
-    framework: 'custom',
-    frameworkPath: 'node_modules/protractor-cucumber-framework',
+    baseUrl: 'http://192.168.10.10:8100/',
+    //baseUrl: 'http://jmlopezdona.github.io/seed-app-ionic/',
+    //baseUrl: 'http://localhost:8100/',
+
+    //sauceUser: process.env.SAUCE_USERNAME,
+    //sauceKey: process.env.SAUCE_ACCESS_KEY,
+    //sauceSeleniumAddress: 'localhost:4445/wd/hub', //'ondemand.saucelabs.com:80/wd/hub',
     seleniumAddress: 'http://192.168.1.38:4444/wd/hub',
     //seleniumServerJar: './node_modules/protractor/selenium/selenium-server-standalone-2.48.2.jar',
     //directConnect: true,
+
+    framework: 'custom',
+    frameworkPath: 'node_modules/protractor-cucumber-framework',
+
     specs: ['./src/client/test/e2e/features/*.feature'],
     resultJsonOutputFile: './reports/e2e/protractor-test-results.json',
     cucumberOpts: {
